@@ -1,0 +1,6 @@
+framework module Pods_plowdr {
+  umbrella header "Pods-plowdr-umbrella.h"
+
+  export *
+  module * { export * }
+}

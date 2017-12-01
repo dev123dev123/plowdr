@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoMaruGothProN.ttc">
+            <string>HiraMaruProN-W4</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Set Job Detail Controller-->
+        <scene sceneID="SGI-0D-iz1">
+            <objects>
+                <viewController storyboardIdentifier="SetJobDetailView" id="m0J-0k-h0I" customClass="SetJobDetailController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yhq-kl-pfy" customClass="GradientView" customModule="plowdr" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijH-31-Zq8">
+                                <rect key="frame" x="0.0" y="58" width="375" height="541"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="D6G-Wv-dEx" kind="embed" identifier="SetJobDetailChild" id="bk3-X3-r6D"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VI9-c4-Bum">
+                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="T9h-CB-PbE"/>
+                                    <constraint firstAttribute="height" constant="30" id="dxP-kh-YGC"/>
+                                </constraints>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped" destination="m0J-0k-h0I" eventType="touchUpInside" id="2Ej-Vq-9Be"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuR-sT-q5c">
+                                <rect key="frame" x="138.5" y="20" width="97.5" height="20"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybh-Ui-4cz">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="sRK-uk-SbF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ijH-31-Zq8" firstAttribute="top" secondItem="VI9-c4-Bum" secondAttribute="bottom" constant="8" id="CjG-Za-cWb"/>
+                            <constraint firstItem="ybh-Ui-4cz" firstAttribute="bottom" secondItem="iiv-4L-HQu" secondAttribute="bottom" id="GCR-SD-QJn"/>
+                            <constraint firstItem="ybh-Ui-4cz" firstAttribute="top" secondItem="ijH-31-Zq8" secondAttribute="bottom" constant="8" id="MCb-bB-LPN"/>
+                            <constraint firstItem="VI9-c4-Bum" firstAttribute="leading" secondItem="iiv-4L-HQu" secondAttribute="leading" constant="16" id="Rah-dH-sfP"/>
+                            <constraint firstItem="CuR-sT-q5c" firstAttribute="centerX" secondItem="iiv-4L-HQu" secondAttribute="centerX" id="cWe-6R-ei1"/>
+                            <constraint firstItem="ijH-31-Zq8" firstAttribute="trailing" secondItem="iiv-4L-HQu" secondAttribute="trailing" id="dMg-Z2-U4H"/>
+                            <constraint firstItem="ijH-31-Zq8" firstAttribute="leading" secondItem="iiv-4L-HQu" secondAttribute="leading" id="e4j-8m-3Pm"/>
+                            <constraint firstItem="ybh-Ui-4cz" firstAttribute="trailing" secondItem="iiv-4L-HQu" secondAttribute="trailing" id="he5-50-nEB"/>
+                            <constraint firstItem="ybh-Ui-4cz" firstAttribute="leading" secondItem="iiv-4L-HQu" secondAttribute="leading" id="njf-Ej-PyW"/>
+                            <constraint firstItem="CuR-sT-q5c" firstAttribute="top" secondItem="iiv-4L-HQu" secondAttribute="top" id="pUS-7P-Jon"/>
+                            <constraint firstItem="VI9-c4-Bum" firstAttribute="top" secondItem="iiv-4L-HQu" secondAttribute="top" id="t29-7T-vca"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iiv-4L-HQu"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.1176470588" green="0.30980392159999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="saveLabel" destination="ybh-Ui-4cz" id="dLy-sS-NfJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ou4-tt-IKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-666" y="-365"/>
+        </scene>
+        <!--Set Job Detail Child Controller-->
+        <scene sceneID="CB9-X5-RfI">
+            <objects>
+                <tableViewController id="D6G-Wv-dEx" customClass="SetJobDetailChildController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OFm-kE-L58">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="541"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="0uZ-eb-ejf">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="fq7-rb-Rat">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fq7-rb-Rat" id="TF1-J4-kWB">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How wide is your driveway?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrD-xd-vKf">
+                                                    <rect key="frame" x="16" y="11" width="317" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="54a-4w-arZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an option" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12h-PK-BAm">
+                                                    <rect key="frame" x="16" y="43" width="317" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="AYi-iV-Vci"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="12h-PK-BAm" secondAttribute="trailing" id="Bm8-At-jee"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mrD-xd-vKf" secondAttribute="trailing" id="FAO-8A-FQ6"/>
+                                                <constraint firstItem="mrD-xd-vKf" firstAttribute="top" secondItem="TF1-J4-kWB" secondAttribute="topMargin" id="GVC-oH-cBy"/>
+                                                <constraint firstItem="mrD-xd-vKf" firstAttribute="leading" secondItem="TF1-J4-kWB" secondAttribute="leadingMargin" id="M8H-lu-Fem"/>
+                                                <constraint firstItem="12h-PK-BAm" firstAttribute="leading" secondItem="TF1-J4-kWB" secondAttribute="leadingMargin" id="bNT-41-au0"/>
+                                                <constraint firstItem="12h-PK-BAm" firstAttribute="top" secondItem="mrD-xd-vKf" secondAttribute="bottom" constant="12" id="cBW-pV-l44"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="ZIz-R2-T1q">
+                                        <rect key="frame" x="0.0" y="80" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZIz-R2-T1q" id="ZfW-0n-0A7">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How long is your driveway?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmc-Wa-CyM">
+                                                    <rect key="frame" x="16" y="11" width="317" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="BHU-ZN-mJ7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an option" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndQ-Sk-ZF5">
+                                                    <rect key="frame" x="16" y="43" width="317" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="4g9-Yg-cn1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="ndQ-Sk-ZF5" firstAttribute="leading" secondItem="ZfW-0n-0A7" secondAttribute="leadingMargin" id="1m8-x1-Tsy"/>
+                                                <constraint firstItem="ndQ-Sk-ZF5" firstAttribute="top" secondItem="Jmc-Wa-CyM" secondAttribute="bottom" constant="12" id="4TA-aM-dtP"/>
+                                                <constraint firstItem="Jmc-Wa-CyM" firstAttribute="top" secondItem="ZfW-0n-0A7" secondAttribute="topMargin" id="9gc-aS-8t4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ndQ-Sk-ZF5" secondAttribute="trailing" id="Ysq-AZ-r8g"/>
+                                                <constraint firstItem="Jmc-Wa-CyM" firstAttribute="leading" secondItem="ZfW-0n-0A7" secondAttribute="leadingMargin" id="wg8-es-2jQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Jmc-Wa-CyM" secondAttribute="trailing" id="zXQ-bQ-tEY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="bFv-00-GlQ">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bFv-00-GlQ" id="jsK-1L-asA">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How deep is the driveway snow?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5a-0W-5Vo">
+                                                    <rect key="frame" x="16" y="11" width="317" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="u3M-HE-SVg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an option" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSj-q7-DaN">
+                                                    <rect key="frame" x="16" y="43" width="317" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="B8f-rj-Me3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="x5a-0W-5Vo" secondAttribute="trailing" id="2dx-uc-KWw"/>
+                                                <constraint firstItem="bSj-q7-DaN" firstAttribute="leading" secondItem="jsK-1L-asA" secondAttribute="leadingMargin" id="ANq-Gh-YEZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bSj-q7-DaN" secondAttribute="trailing" id="Kud-j4-EG8"/>
+                                                <constraint firstItem="bSj-q7-DaN" firstAttribute="top" secondItem="x5a-0W-5Vo" secondAttribute="bottom" constant="12" id="WBW-Iw-Ocp"/>
+                                                <constraint firstItem="x5a-0W-5Vo" firstAttribute="top" secondItem="jsK-1L-asA" secondAttribute="topMargin" id="WQy-YW-u6W"/>
+                                                <constraint firstItem="x5a-0W-5Vo" firstAttribute="leading" secondItem="jsK-1L-asA" secondAttribute="leadingMargin" id="jC4-rZ-z9A"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="J2t-eF-lth">
+                                        <rect key="frame" x="0.0" y="240" width="375" height="190"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J2t-eF-lth" id="aIP-lh-dc4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="189.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Describe the obstacles we need to look out for" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSf-lA-7Gp">
+                                                    <rect key="frame" x="16" y="11" width="343" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="SxU-tc-0FF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Ex. I have a stack of wood I will leave marked with a red flag" translatesAutoresizingMaskIntoConstraints="NO" id="j0F-uF-5sa">
+                                                    <rect key="frame" x="16" y="69" width="343" height="110"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="BSf-lA-7Gp" firstAttribute="trailing" secondItem="aIP-lh-dc4" secondAttribute="trailingMargin" id="0rL-PK-Q88"/>
+                                                <constraint firstItem="BSf-lA-7Gp" firstAttribute="leading" secondItem="aIP-lh-dc4" secondAttribute="leadingMargin" id="1W8-ST-E5H"/>
+                                                <constraint firstItem="j0F-uF-5sa" firstAttribute="top" secondItem="BSf-lA-7Gp" secondAttribute="bottom" constant="8" id="4WD-eQ-Zef"/>
+                                                <constraint firstItem="BSf-lA-7Gp" firstAttribute="top" secondItem="aIP-lh-dc4" secondAttribute="topMargin" id="6Wi-sT-FFT"/>
+                                                <constraint firstItem="j0F-uF-5sa" firstAttribute="bottom" secondItem="aIP-lh-dc4" secondAttribute="bottomMargin" id="Nob-oK-4aa"/>
+                                                <constraint firstItem="j0F-uF-5sa" firstAttribute="leading" secondItem="aIP-lh-dc4" secondAttribute="leadingMargin" id="Px1-Qi-MQQ"/>
+                                                <constraint firstItem="j0F-uF-5sa" firstAttribute="trailing" secondItem="aIP-lh-dc4" secondAttribute="trailingMargin" id="iV0-MD-y7b"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="D6G-Wv-dEx" id="5Qk-KG-8Go"/>
+                            <outlet property="delegate" destination="D6G-Wv-dEx" id="MnM-kz-Ulb"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="deepCell" destination="bFv-00-GlQ" id="AuO-pb-J8w"/>
+                        <outlet property="deepDrivewayLabel" destination="bSj-q7-DaN" id="eaq-b2-6yw"/>
+                        <outlet property="longCell" destination="ZIz-R2-T1q" id="MYo-TL-A5u"/>
+                        <outlet property="longDrivewayLabel" destination="ndQ-Sk-ZF5" id="pMz-wl-qxi"/>
+                        <outlet property="obstaclesDescriptionCell" destination="J2t-eF-lth" id="t9f-eO-rtV"/>
+                        <outlet property="obstaclesTextView" destination="j0F-uF-5sa" id="tdP-KS-tjY"/>
+                        <outlet property="wideCell" destination="fq7-rb-Rat" id="1iy-Vi-U0U"/>
+                        <outlet property="wideDrivewayLabel" destination="12h-PK-BAm" id="kPm-4S-az1"/>
+                        <segue destination="BVl-zU-n6s" kind="presentation" identifier="SetJobDetailChildToJobDetailList" id="0R0-qM-Z4j"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L7H-ja-yv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="-287"/>
+        </scene>
+        <!--Job Detail List Controller-->
+        <scene sceneID="WNt-CE-M9V">
+            <objects>
+                <viewController id="BVl-zU-n6s" customClass="JobDetailListController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f0f-5y-LUM" customClass="GradientView" customModule="plowdr" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="541"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOd-sZ-NL7">
+                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="vHr-pg-5Ml"/>
+                                    <constraint firstAttribute="height" constant="30" id="wwQ-X3-zM4"/>
+                                </constraints>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped" destination="m0J-0k-h0I" eventType="touchUpInside" id="S47-Gw-YRI"/>
+                                    <action selector="cancelButtonTapped" destination="BVl-zU-n6s" eventType="touchUpInside" id="hco-TR-jly"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAZ-La-Z6E">
+                                <rect key="frame" x="138.5" y="20" width="98" height="20"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvc-7M-05i">
+                                <rect key="frame" x="0.0" y="48" width="375" height="493"/>
+                                <connections>
+                                    <segue destination="njW-PU-v3e" kind="embed" identifier="JobDetailListChild" id="aPT-wu-qlG"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uOd-sZ-NL7" firstAttribute="leading" secondItem="jQH-0J-4rP" secondAttribute="leading" constant="16" id="2mB-oJ-bh0"/>
+                            <constraint firstItem="bAZ-La-Z6E" firstAttribute="centerX" secondItem="jQH-0J-4rP" secondAttribute="centerX" id="3VH-ox-wVn"/>
+                            <constraint firstItem="lvc-7M-05i" firstAttribute="bottom" secondItem="jQH-0J-4rP" secondAttribute="bottom" id="9Wy-7M-385"/>
+                            <constraint firstItem="lvc-7M-05i" firstAttribute="trailing" secondItem="jQH-0J-4rP" secondAttribute="trailing" id="GfQ-YE-CWN"/>
+                            <constraint firstItem="lvc-7M-05i" firstAttribute="leading" secondItem="jQH-0J-4rP" secondAttribute="leading" id="Mfj-lb-TSb"/>
+                            <constraint firstItem="lvc-7M-05i" firstAttribute="top" secondItem="bAZ-La-Z6E" secondAttribute="bottom" constant="8" id="bmI-KB-jCa"/>
+                            <constraint firstItem="bAZ-La-Z6E" firstAttribute="top" secondItem="jQH-0J-4rP" secondAttribute="top" id="hPy-lY-vJB"/>
+                            <constraint firstItem="uOd-sZ-NL7" firstAttribute="top" secondItem="jQH-0J-4rP" secondAttribute="top" id="zcM-qN-ZpV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jQH-0J-4rP"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.1176470588" green="0.30980392159999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DR8-9G-uLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1039" y="-280"/>
+        </scene>
+        <!--Job Detail List Child Controller-->
+        <scene sceneID="hSA-u8-eD2">
+            <objects>
+                <tableViewController id="njW-PU-v3e" customClass="JobDetailListChildController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ONk-hL-Fz0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="493"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobDetailCellId" textLabel="8E5-eA-Cge" style="IBUITableViewCellStyleDefault" id="jmM-iG-umd">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jmM-iG-umd" id="egi-kg-sSD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8E5-eA-Cge">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="njW-PU-v3e" id="KN0-f4-ztH"/>
+                            <outlet property="delegate" destination="njW-PU-v3e" id="CgS-MB-Ovj"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="asC-a4-QNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902" y="-286"/>
+        </scene>
+    </scenes>
+</document>

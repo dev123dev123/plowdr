@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoMaruGothProN.ttc">
+            <string>HiraMaruProN-W4</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Set Address Controller-->
+        <scene sceneID="NT4-lK-0oL">
+            <objects>
+                <viewController storyboardIdentifier="SetAddressView" id="djU-NW-mZK" customClass="SetAddressController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rna-NV-W8u" customClass="GradientView" customModule="plowdr" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter your address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TLw-nf-zrP">
+                                <rect key="frame" x="16" y="58" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ySt-p6-bdy"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0is-3U-vI3" customClass="GMSMapView">
+                                <rect key="frame" x="16" y="118" width="343" height="300"/>
+                                <color key="backgroundColor" red="0.66274509800000003" green="0.64313725489999995" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="sxn-6K-eav"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0A-IF-OMS">
+                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonTapped" destination="djU-NW-mZK" eventType="touchUpInside" id="A1x-7R-f3n"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDM-2d-R0F">
+                                <rect key="frame" x="147" y="20" width="82" height="20"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rl8-xG-q3p">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="usp-ya-Z1j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y0A-IF-OMS" firstAttribute="leading" secondItem="qva-XS-czp" secondAttribute="leading" constant="16" id="Bah-aj-T3V"/>
+                            <constraint firstItem="rl8-xG-q3p" firstAttribute="trailing" secondItem="qva-XS-czp" secondAttribute="trailing" id="CBc-rP-66n"/>
+                            <constraint firstItem="rl8-xG-q3p" firstAttribute="leading" secondItem="qva-XS-czp" secondAttribute="leading" id="DZd-ct-DPq"/>
+                            <constraint firstItem="0is-3U-vI3" firstAttribute="leading" secondItem="qva-XS-czp" secondAttribute="leading" constant="16" id="Lc7-bP-a1W"/>
+                            <constraint firstItem="TLw-nf-zrP" firstAttribute="top" secondItem="Y0A-IF-OMS" secondAttribute="bottom" constant="8" id="N7b-pQ-1OH"/>
+                            <constraint firstItem="XDM-2d-R0F" firstAttribute="centerX" secondItem="qva-XS-czp" secondAttribute="centerX" id="QHS-1g-PbU"/>
+                            <constraint firstItem="0is-3U-vI3" firstAttribute="top" secondItem="TLw-nf-zrP" secondAttribute="bottom" constant="20" id="QTG-gn-5oR"/>
+                            <constraint firstItem="qva-XS-czp" firstAttribute="trailing" secondItem="TLw-nf-zrP" secondAttribute="trailing" constant="16" id="VhC-am-78h"/>
+                            <constraint firstItem="TLw-nf-zrP" firstAttribute="leading" secondItem="qva-XS-czp" secondAttribute="leading" constant="16" id="dC2-Hq-VCt"/>
+                            <constraint firstItem="XDM-2d-R0F" firstAttribute="top" secondItem="qva-XS-czp" secondAttribute="top" id="gQ5-gf-4aK"/>
+                            <constraint firstItem="qva-XS-czp" firstAttribute="trailing" secondItem="0is-3U-vI3" secondAttribute="trailing" constant="16" id="mvi-oW-tad"/>
+                            <constraint firstItem="rl8-xG-q3p" firstAttribute="bottom" secondItem="qva-XS-czp" secondAttribute="bottom" id="oEb-yh-Yku"/>
+                            <constraint firstItem="Y0A-IF-OMS" firstAttribute="top" secondItem="qva-XS-czp" secondAttribute="top" id="u7j-TC-MT5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qva-XS-czp"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.1176470588" green="0.30980392159999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="addressMapView" destination="0is-3U-vI3" id="vpt-0t-M3c"/>
+                        <outlet property="addressTextView" destination="TLw-nf-zrP" id="uAX-Cd-dgR"/>
+                        <outlet property="saveLabel" destination="rl8-xG-q3p" id="0rK-J7-bVm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6e-EI-STc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2138" y="13"/>
+        </scene>
+    </scenes>
+</document>

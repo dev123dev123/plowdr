@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoMaruGothProN.ttc">
+            <string>HiraMaruProN-W4</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Generic Error Controller-->
+        <scene sceneID="LOc-km-j39">
+            <objects>
+                <viewController storyboardIdentifier="GenericErrorView" id="NMQ-ub-tg3" customClass="GenericErrorController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QTf-Cb-qEw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwW-2S-Dmj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6B-Fl-UgK">
+                                <rect key="frame" x="10" y="163.5" width="375" height="360"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="4my-W7-5VZ">
+                                        <rect key="frame" x="8" y="7" width="375" height="345.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EZE-2e-od3">
+                                                <rect key="frame" x="169.5" y="0.0" width="150" height="145.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-NO-Pq6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                        <color key="textColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info-notification-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BAN-l0-JJN">
+                                                        <rect key="frame" x="0.0" y="32.5" width="150" height="113"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="113" id="czb-7N-LQb"/>
+                                                            <constraint firstAttribute="width" constant="150" id="ecA-Hu-XjB"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXC-ew-lH8">
+                                                <rect key="frame" x="0.0" y="175.5" width="375" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="Sd4-90-1tZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                <color key="textColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agK-WF-Q74">
+                                                <rect key="frame" x="169.5" y="305.5" width="100" height="40"/>
+                                                <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="9aS-uB-bBs"/>
+                                                    <constraint firstAttribute="width" constant="100" id="e9u-Be-LJm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                <color key="textColor" red="0.81960784310000001" green="0.85098039219999999" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="GXC-ew-lH8" secondAttribute="trailing" id="bGd-f6-9j1"/>
+                                            <constraint firstItem="GXC-ew-lH8" firstAttribute="leading" secondItem="4my-W7-5VZ" secondAttribute="leading" id="hvM-Nc-eEH"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.81960784313725488" green="0.85098039215686272" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="9mk-Kl-Dzt"/>
+                                    <constraint firstAttribute="bottom" secondItem="4my-W7-5VZ" secondAttribute="bottom" constant="7.5" id="Kuo-bb-2Hn"/>
+                                    <constraint firstItem="4my-W7-5VZ" firstAttribute="leading" secondItem="D6B-Fl-UgK" secondAttribute="leading" constant="8" id="UXB-rx-7Yb"/>
+                                    <constraint firstAttribute="trailing" secondItem="4my-W7-5VZ" secondAttribute="trailing" constant="8" id="s0X-LV-d02"/>
+                                    <constraint firstItem="4my-W7-5VZ" firstAttribute="top" secondItem="D6B-Fl-UgK" secondAttribute="top" constant="7" id="t9F-zQ-97c"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D6B-Fl-UgK" firstAttribute="centerY" secondItem="tT4-yg-c69" secondAttribute="centerY" id="3UQ-hb-dzT"/>
+                            <constraint firstItem="rwW-2S-Dmj" firstAttribute="bottom" secondItem="tT4-yg-c69" secondAttribute="bottom" id="5fN-QC-YOb"/>
+                            <constraint firstItem="rwW-2S-Dmj" firstAttribute="top" secondItem="QTf-Cb-qEw" secondAttribute="top" id="YH7-uk-2g6"/>
+                            <constraint firstItem="D6B-Fl-UgK" firstAttribute="leading" secondItem="tT4-yg-c69" secondAttribute="leading" constant="10" id="mzO-Pi-Kwd"/>
+                            <constraint firstItem="rwW-2S-Dmj" firstAttribute="trailing" secondItem="tT4-yg-c69" secondAttribute="trailing" id="oZV-YF-mES"/>
+                            <constraint firstItem="rwW-2S-Dmj" firstAttribute="leading" secondItem="tT4-yg-c69" secondAttribute="leading" id="pwG-3a-yZL"/>
+                            <constraint firstItem="tT4-yg-c69" firstAttribute="trailing" secondItem="D6B-Fl-UgK" secondAttribute="trailing" constant="10" id="zc2-Ac-ARG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tT4-yg-c69"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="D6B-Fl-UgK" id="tsR-nq-Xq4"/>
+                        <outlet property="blurView" destination="rwW-2S-Dmj" id="fzl-ce-0LJ"/>
+                        <outlet property="messageLabel" destination="GXC-ew-lH8" id="cjP-c0-wyk"/>
+                        <outlet property="okLabel" destination="agK-WF-Q74" id="cPO-sQ-Ebe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m83-Lw-uu2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-513" y="-73"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="info-notification-icon" width="129" height="86"/>
+    </resources>
+</document>
