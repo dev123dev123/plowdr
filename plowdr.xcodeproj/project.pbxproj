@@ -28,6 +28,11 @@
 		69515AB71FB3A3830012E1B7 /* SlideMenuView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69515AB61FB3A3830012E1B7 /* SlideMenuView.storyboard */; };
 		69515ABD1FB3A4EC0012E1B7 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69515ABC1FB3A4EC0012E1B7 /* SlideMenuController.swift */; };
 		69515AC01FB3B4460012E1B7 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69515ABF1FB3B4460012E1B7 /* ContainerController.swift */; };
+		695706E81FD18F49006CCA93 /* Objective-CBridgingHeade.m in Sources */ = {isa = PBXBuildFile; fileRef = 695706E71FD18F49006CCA93 /* Objective-CBridgingHeade.m */; };
+		695706EC1FD1F035006CCA93 /* JobCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695706EB1FD1F035006CCA93 /* JobCellController.swift */; };
+		695706EE1FD1FD0B006CCA93 /* JobDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695706ED1FD1FD0B006CCA93 /* JobDetailView.storyboard */; };
+		695706F01FD2010D006CCA93 /* JobDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695706EF1FD2010D006CCA93 /* JobDetailController.swift */; };
+		695706F21FD2011A006CCA93 /* JobDetailChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695706F11FD2011A006CCA93 /* JobDetailChildController.swift */; };
 		69678A4A1FC3110300860689 /* SetJobDetailsChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69678A491FC3110300860689 /* SetJobDetailsChildController.swift */; };
 		69678A4C1FC3202400860689 /* SetAddressView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69678A4B1FC3202400860689 /* SetAddressView.storyboard */; };
 		69678A4E1FC3203700860689 /* SetAddressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69678A4D1FC3203700860689 /* SetAddressController.swift */; };
@@ -96,6 +101,12 @@
 		69515AB61FB3A3830012E1B7 /* SlideMenuView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SlideMenuView.storyboard; sourceTree = "<group>"; };
 		69515ABC1FB3A4EC0012E1B7 /* SlideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		69515ABF1FB3B4460012E1B7 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		695706E61FD18F49006CCA93 /* plowdr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "plowdr-Bridging-Header.h"; sourceTree = "<group>"; };
+		695706E71FD18F49006CCA93 /* Objective-CBridgingHeade.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Objective-CBridgingHeade.m"; sourceTree = "<group>"; };
+		695706EB1FD1F035006CCA93 /* JobCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellController.swift; sourceTree = "<group>"; };
+		695706ED1FD1FD0B006CCA93 /* JobDetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobDetailView.storyboard; sourceTree = "<group>"; };
+		695706EF1FD2010D006CCA93 /* JobDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailController.swift; sourceTree = "<group>"; };
+		695706F11FD2011A006CCA93 /* JobDetailChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailChildController.swift; sourceTree = "<group>"; };
 		69678A491FC3110300860689 /* SetJobDetailsChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetJobDetailsChildController.swift; sourceTree = "<group>"; };
 		69678A4B1FC3202400860689 /* SetAddressView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetAddressView.storyboard; sourceTree = "<group>"; };
 		69678A4D1FC3203700860689 /* SetAddressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAddressController.swift; sourceTree = "<group>"; };
@@ -283,6 +294,7 @@
 				69515AB11FB24FC60012E1B7 /* HomeView.storyboard */,
 				69515AB61FB3A3830012E1B7 /* SlideMenuView.storyboard */,
 				69D589011FBE21DC00F23C76 /* JobsView.storyboard */,
+				695706ED1FD1FD0B006CCA93 /* JobDetailView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,6 +306,9 @@
 				69515ABC1FB3A4EC0012E1B7 /* SlideMenuController.swift */,
 				69515ABF1FB3B4460012E1B7 /* ContainerController.swift */,
 				69D588FF1FBE21B800F23C76 /* JobsController.swift */,
+				695706EB1FD1F035006CCA93 /* JobCellController.swift */,
+				695706EF1FD2010D006CCA93 /* JobDetailController.swift */,
+				695706F11FD2011A006CCA93 /* JobDetailChildController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -398,6 +413,8 @@
 				698CC57A1FCC440300FEE976 /* UINavigationController+.swift */,
 				698CC5851FCC9DED00FEE976 /* GradientView.swift */,
 				697907821FCDA82D00E233C1 /* Ax.swift */,
+				695706E71FD18F49006CCA93 /* Objective-CBridgingHeade.m */,
+				695706E61FD18F49006CCA93 /* plowdr-Bridging-Header.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -454,6 +471,7 @@
 				TargetAttributes = {
 					69515A851FB1E3F10012E1B7 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -489,6 +507,7 @@
 				69D589141FBE43FB00F23C76 /* SetJobDetailsView.storyboard in Resources */,
 				69515A941FB1E3F10012E1B7 /* LaunchScreen.storyboard in Resources */,
 				69678A4C1FC3202400860689 /* SetAddressView.storyboard in Resources */,
+				695706EE1FD1FD0B006CCA93 /* JobDetailView.storyboard in Resources */,
 				69515AB71FB3A3830012E1B7 /* SlideMenuView.storyboard in Resources */,
 				69515AA81FB1FA7B0012E1B7 /* SignupOneView.storyboard in Resources */,
 				69515A911FB1E3F10012E1B7 /* Assets.xcassets in Resources */,
@@ -557,6 +576,7 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/INTULocationManager/INTULocationManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -571,6 +591,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INTULocationManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -594,6 +615,7 @@
 			files = (
 				698CC57B1FCC440300FEE976 /* UINavigationController+.swift in Sources */,
 				69F229851FC5C93600A271AB /* SetPaymentController.swift in Sources */,
+				695706F21FD2011A006CCA93 /* JobDetailChildController.swift in Sources */,
 				69515AB01FB24C6E0012E1B7 /* SignupTwoController.swift in Sources */,
 				69678A5E1FC37B7300860689 /* Job.swift in Sources */,
 				69F229831FC5BEB800A271AB /* UIViewController+.swift in Sources */,
@@ -605,6 +627,7 @@
 				69678A581FC3698F00860689 /* SetJobDetailChildController.swift in Sources */,
 				69E92F7E1FCDEC2400B3861D /* SignupOneChildController.swift in Sources */,
 				69515AA61FB1EF770012E1B7 /* LoginController.swift in Sources */,
+				695706E81FD18F49006CCA93 /* Objective-CBridgingHeade.m in Sources */,
 				69E92F801FCDEC3000B3861D /* SignupTwoChildController.swift in Sources */,
 				69515AAE1FB24C630012E1B7 /* SignupOneController.swift in Sources */,
 				697907811FCDA41200E233C1 /* User.swift in Sources */,
@@ -624,8 +647,10 @@
 				69678A561FC32B0100860689 /* SetJobDetailController.swift in Sources */,
 				698CC5861FCC9DED00FEE976 /* GradientView.swift in Sources */,
 				698CC5791FCC3C7900FEE976 /* PurchaseServiceChildController.swift in Sources */,
+				695706EC1FD1F035006CCA93 /* JobCellController.swift in Sources */,
 				69678A4E1FC3203700860689 /* SetAddressController.swift in Sources */,
 				69515AC01FB3B4460012E1B7 /* ContainerController.swift in Sources */,
+				695706F01FD2010D006CCA93 /* JobDetailController.swift in Sources */,
 				69D5890A1FBE23AF00F23C76 /* ChooseJobController.swift in Sources */,
 				69D5890C1FBE322D00F23C76 /* Strings.swift in Sources */,
 				693819851FCEFBB8007CBA2F /* GenericErrorController.swift in Sources */,
@@ -768,6 +793,7 @@
 			baseConfigurationReference = D262F380AD5B5B6B7C40DB4F /* Pods-plowdr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = J4HYFFV785;
 				INFOPLIST_FILE = plowdr/Info.plist;
@@ -777,6 +803,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "73f83182-76bc-40de-a8d6-3e02ecaffe5a";
 				PROVISIONING_PROFILE_SPECIFIER = "Plowdr-Dev-ProvProf";
+				SWIFT_OBJC_BRIDGING_HEADER = "plowdr/Utils/plowdr-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -787,6 +815,7 @@
 			baseConfigurationReference = 018192314C85C7D6DFEA43D9 /* Pods-plowdr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = J4HYFFV785;
@@ -797,6 +826,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2c4fe847-76c9-475a-b2fb-b8929f4d1d50";
 				PROVISIONING_PROFILE_SPECIFIER = "Plowdr-Dis-Prov";
+				SWIFT_OBJC_BRIDGING_HEADER = "plowdr/Utils/plowdr-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

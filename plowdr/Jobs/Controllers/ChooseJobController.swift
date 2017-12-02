@@ -17,6 +17,7 @@ class ChooseJobController: UITableViewController {
   @IBOutlet weak var monthlyJobView: UIView!
   @IBOutlet weak var unlimitedJobView: UIView!
   
+  var jobType: JobType!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,12 +56,15 @@ extension ChooseJobController {
       let vc = segue.destination as? JobDescriptionController
       vc?.jobDescriptionAccepted = jobDescriptionAccepted
       vc?.jobType = sender as? JobType
+    } else if segue.identifier == StoryboardSegues.ChooseJobToSetJobDetails {
+      let vc = segue.destination as? SetJobDetailsController
+      vc?.jobType = jobType
     }
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let cell = tableView.cellForRow(at: indexPath)
-    var jobType: JobType!
+    
     
     if cell === singleJobCell {
       jobType = .single

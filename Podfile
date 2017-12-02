@@ -14,5 +14,6 @@ target 'plowdr' do
 
   pod 'GooglePlaces'
   pod 'GoogleMaps'
+  pod 'INTULocationManager'
 
 end

@@ -24,13 +24,24 @@ class SetJobDetailController: UIViewController {
   }
   
   @objc func saveLabelTapped() {
-    guard
-      let howWide = childController?.howWideValue,
-      let howLong = childController?.howLongValue,
-      let howDeepSnow = childController?.howDeepSnowValue,
-      let obstacles = childController?.obstaclesValue
-      else {
-        return
+    guard let howWide = childController?.howWideValue else {
+      showErrorAlert(message: "Please select how wide value.")
+      return
+    }
+    
+    guard let howLong = childController?.howLongValue else {
+      showErrorAlert(message: "Please select how long value.")
+      return
+    }
+    
+    guard let howDeepSnow = childController?.howDeepSnowValue else {
+      showErrorAlert(message: "Please select how deep snow value.")
+      return
+    }
+    
+    guard let obstacles = childController?.obstaclesValue else {
+      showErrorAlert(message: "Please write something about obstacles value.")
+      return
     }
     
     let jobDetail = JobDetail(

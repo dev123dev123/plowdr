@@ -227,7 +227,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94F-eW-nsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135" y="-1"/>
+            <point key="canvasLocation" x="-233" y="-1"/>
         </scene>
         <!--SetPaymentView-->
         <scene sceneID="t1E-if-gav">

@@ -13,5 +13,7 @@ target 'plowdr' do
   pod 'SVProgressHUD'
 
   pod 'GooglePlaces'
+  pod 'GoogleMaps'
+  pod 'SwiftLocation', '3.0.0-beta'
 
 end

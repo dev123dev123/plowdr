@@ -22,8 +22,8 @@ protocol JobDetailsDelegate {
 }
 
 class SetJobDetailsController: UIViewController {
-  var jobType: JobType?
   
+  var jobType: JobType?
   var address: Address?
   var schedule: Schedule?
   var jobDetail: JobDetail?
@@ -41,6 +41,21 @@ class SetJobDetailsController: UIViewController {
   }
   
   @objc func paymentLabelTapped() {
+    guard let address = address else {
+      showErrorAlert(message: "Please set address.")
+      return
+    }
+    
+    guard let schedule = schedule else {
+      showErrorAlert(message: "Please set date/time.")
+      return
+    }
+    
+    guard let jobDetail = jobDetail else {
+      showErrorAlert(message: "Please set job details.")
+      return
+    }
+    
     performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToSetPayment, sender: nil)
     //    performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToPurchaseService, sender: nil)
   }
@@ -101,6 +116,7 @@ extension SetJobDetailsController: JobDetailsDelegate {
 //      \(address.latitude)
 //      \(address.longitude)
 //    """)
+    self.address = address
   }
   
   func dateTimeSent(_ schedule: Schedule) {
@@ -109,6 +125,7 @@ extension SetJobDetailsController: JobDetailsDelegate {
       \(schedule.bestTime)
       \(schedule.date)
     """)
+    self.schedule = schedule
   }
   
   func jobDetailSent(_ jobDetail: JobDetail) {
@@ -119,6 +136,7 @@ extension SetJobDetailsController: JobDetailsDelegate {
       \(jobDetail.howWide)
       \(jobDetail.obstacles)
     """)
+    self.jobDetail = jobDetail
   }
   
   

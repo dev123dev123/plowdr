@@ -10,6 +10,8 @@ import Foundation
 
 struct Job {
   
+  
+  
 }
 
 extension Job {

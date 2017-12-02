@@ -63,7 +63,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whD-dH-NXb">
                                         <rect key="frame" x="0.0" y="150" width="375" height="437"/>
                                         <connections>
-                                            <segue destination="y2Z-gz-LRd" kind="embed" id="Tdi-w6-NOF"/>
+                                            <segue destination="y2Z-gz-LRd" kind="embed" identifier="HomeToJobs" id="Tdi-w6-NOF"/>
                                         </connections>
                                     </containerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule Plow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNz-zt-xhX">
@@ -104,6 +104,7 @@
                         <segue destination="UvG-Uy-dKx" kind="presentation" identifier="HomeToSetPayment" id="THn-we-YMA"/>
                         <segue destination="BMM-uN-wzH" kind="presentation" identifier="HomeToSetAddress" id="O1W-Ev-CnG"/>
                         <segue destination="MwS-Sf-hbp" kind="presentation" identifier="HomeToSetAccount" id="tQS-W7-nQh"/>
+                        <segue destination="BZt-3Y-xqx" kind="presentation" identifier="HomeToJobDetail" id="uhu-zF-2if"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSl-R4-cyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -149,6 +150,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LP-Rb-JB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="368" y="209"/>
+        </scene>
+        <!--JobDetailView-->
+        <scene sceneID="dKh-cL-AZR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JobDetailView" referencedIdentifier="JobDetailView" id="BZt-3Y-xqx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y8B-aS-ok5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="302"/>
         </scene>
     </scenes>
 </document>

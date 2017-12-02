@@ -67,6 +67,18 @@ class SetJobDetailsChildController: UITableViewController {
     
     jobDetailView.layer.borderWidth = 5
     jobDetailView.layer.borderColor = UIColor.white.cgColor
+    
+    if let jobType = jobType {
+      switch jobType {
+      case .monthly:
+        jobTypeLabel.text = Strings.monthlyJobTitle
+      case .single:
+        jobTypeLabel.text = Strings.singleJobTitle
+      case .unlimited:
+        jobTypeLabel.text = Strings.unlimitedJobTitle
+      }
+    }
+    
   }
 
   @objc func addressViewTapped() {

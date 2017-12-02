@@ -38,6 +38,11 @@ struct StoryboardSegues {
   
   static let SignupTwoChild = "SignupTwoChild"
   static let SignupOneChild = "SignupOneChild"
+  
+  static let JobDetailChild = "JobDetailChild"
+  static let HomeToJobDetail = "HomeToJobDetail"
+  
+  static let HomeToJobs = "HomeToJobs"
 }
 
 

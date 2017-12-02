@@ -77,9 +77,18 @@ class HomeController: UIViewController {
     if segue.identifier == StoryboardSegues.HomeToSetAccount {
       let destinationVC = segue.destination as? SetAccountController
       destinationVC?.setAccountType = SetAccountType.client
+    } else if segue.identifier == StoryboardSegues.HomeToJobs {
+      let destinationVC = segue.destination as? JobsController
+      destinationVC?.delegate = self
     }
   }
   
+}
+
+extension HomeController: JobsDelegate {
+  func didRowTap() {
+    performSegue(withIdentifier: StoryboardSegues.HomeToJobDetail, sender: nil)
+  }
 }
 
 extension HomeController: MenuOptionsDelegate {
