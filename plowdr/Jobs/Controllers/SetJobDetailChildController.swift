@@ -14,29 +14,40 @@ class SetJobDetailChildController: UITableViewController {
   @IBOutlet weak var longCell: UITableViewCell!
   @IBOutlet weak var deepCell: UITableViewCell!
   
-  var howDeepSnowValue: String? {
-    didSet {
-      deepDrivewayLabel.text = howDeepSnowValue
-    }
-  }
+  var howDeepSnowValue: String?
+//  {
+//    didSet {
+//      deepDrivewayLabel.text = howDeepSnowValue
+//    }
+//  }
   
-  var howLongValue: String? {
-    didSet {
-      longDrivewayLabel.text = howLongValue
-    }
-  }
-  
-  var howWideValue: String? {
-    didSet {
-      wideDrivewayLabel.text = howWideValue
-    }
-  }
-  
-  var obstaclesValue: String {
-    get {
-      return obstaclesTextView.text
-    }
-  }
+  var howLongValue: String?
+//  {
+//    didSet {
+//      longDrivewayLabel.text = howLongValue
+//    }
+//  }
+//
+  var howWideValue: String?
+//  {
+//    didSet {
+//      wideDrivewayLabel.text = howWideValue
+//    }
+//  }
+//
+  var obstaclesValue: String?
+//  {
+//    get {
+//      if obstaclesTextView.text == Strings.UI.obstaclesPlaceHolderText {
+//        return nil
+//      } else {
+//        return obstaclesTextView.text
+//      }
+//    }
+//    set {
+//      self.obstaclesValue = newValue
+//    }
+//  }
   
   @IBOutlet weak var wideDrivewayLabel: UILabel!
   @IBOutlet weak var longDrivewayLabel: UILabel!
@@ -46,9 +57,27 @@ class SetJobDetailChildController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    if let howWideValue = howWideValue {
+       wideDrivewayLabel.text = howWideValue
+    }
+    
+    if let howLongValue = howLongValue {
+      longDrivewayLabel.text = howLongValue
+    }
+    
+    if let howDeepSnowValue = howDeepSnowValue {
+      deepDrivewayLabel.text = howDeepSnowValue
+    }
+    
+    if let obstaclesValue = obstaclesValue {
+      obstaclesTextView.text = obstaclesValue
+      obstaclesTextView.textColor = UIColor.black
+    } else {
+      obstaclesTextView.text = Strings.UI.obstaclesPlaceHolderText
+      obstaclesTextView.textColor = UIColor.lightGray
+    }
+    
     obstaclesTextView.delegate = self
-    obstaclesTextView.text = Strings.UI.obstaclesPlaceHolderText
-    obstaclesTextView.textColor = UIColor.lightGray
     
     let (doneButton, toolBarButton)  = createDoneButtonOnKeyboard()
     obstaclesTextView.inputAccessoryView = toolBarButton
@@ -59,6 +88,14 @@ class SetJobDetailChildController: UITableViewController {
   
   @objc func dismissKeyboard() {
     view.endEditing(true)
+  }
+  
+  func getObstaclesDescription() -> String? {
+    if obstaclesTextView.text == Strings.UI.obstaclesPlaceHolderText {
+      return nil
+    } else {
+      return obstaclesTextView.text
+    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -113,14 +150,17 @@ extension SetJobDetailChildController {
 extension SetJobDetailChildController: JobDetailEntrySelected {
   func howDeepSnowSelected(_ value: String) {
     howDeepSnowValue = value
+    deepDrivewayLabel.text = value
   }
   
   func howLongSelected(_ value: String) {
+    longDrivewayLabel.text = value
     howLongValue = value
   }
   
   func howWideSelected(_ value: String) {
     howWideValue = value
+    wideDrivewayLabel.text = value
   }
 }
 

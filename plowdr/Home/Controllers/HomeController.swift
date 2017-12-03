@@ -24,6 +24,7 @@ class HomeController: UIViewController {
   
   @IBOutlet weak var messageLabel: UILabel!
   @IBOutlet weak var containerView: UIView!
+  @IBOutlet weak var labelView: UIView!
   
   @objc func scheduleLabelTapped() {
     performSegue(withIdentifier: StoryboardSegues.HomeToChooseJob, sender: nil)
@@ -31,6 +32,10 @@ class HomeController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    labelView.isHidden = true
+    containerView.isHidden = true
+    scheduleLabel.isHidden = true
     
     let button = UIButton(frame: CGRect(x: 0, y: 0, width: 39, height: 33))
     button.setBackgroundImage(UIImage(named: "settings-icon"), for: .normal)
@@ -86,6 +91,21 @@ class HomeController: UIViewController {
 }
 
 extension HomeController: JobsDelegate {
+  func hasJobs(result: Bool) {
+    DispatchQueue.main.async {
+      
+      if result {
+        self.labelView.isHidden = true
+        self.scheduleLabel.isHidden = true
+        self.containerView.isHidden = false
+      } else {
+        self.labelView.isHidden = false
+        self.scheduleLabel.isHidden = false
+        self.containerView.isHidden = true
+      }
+    }
+  }
+  
   func didRowTap() {
     performSegue(withIdentifier: StoryboardSegues.HomeToJobDetail, sender: nil)
   }

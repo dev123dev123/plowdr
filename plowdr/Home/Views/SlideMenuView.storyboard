@@ -276,6 +276,7 @@
                         <outlet property="paymentCell" destination="9D8-5f-zGD" id="PKn-Bd-i7z"/>
                         <outlet property="scheduleJobCell" destination="OmF-1z-VYp" id="ssl-5A-B5R"/>
                         <outlet property="supportCell" destination="s4X-du-RZ3" id="nuv-4x-wVV"/>
+                        <outlet property="userLabel" destination="qtb-9G-pXH" id="kls-Dj-sld"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZD1-TM-3SN" userLabel="First Responder" sceneMemberID="firstResponder"/>

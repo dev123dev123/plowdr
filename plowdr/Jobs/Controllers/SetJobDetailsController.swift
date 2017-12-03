@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol SetJobDetailsDelegate {
   func addressSelected()
@@ -17,7 +18,7 @@ protocol SetJobDetailsDelegate {
 
 protocol JobDetailsDelegate {
   func addressSent(_ address: Address)
-  func dateTimeSent(_ schedule: Schedule)
+  func dateTimeSent(_ date: (String, Date), bestTime: BestTime)
   func jobDetailSent(_ jobDetail: JobDetail)
 }
 
@@ -25,7 +26,8 @@ class SetJobDetailsController: UIViewController {
   
   var jobType: JobType?
   var address: Address?
-  var schedule: Schedule?
+  var dateSelected: (String, Date)?
+  var bestTime: BestTime?
   var jobDetail: JobDetail?
   
   @IBOutlet weak var paymentEstimateLabel: UILabel! {
@@ -41,13 +43,20 @@ class SetJobDetailsController: UIViewController {
   }
   
   @objc func paymentLabelTapped() {
+    guard let jobType = jobType else {
+      showErrorAlert(message: "Please set job type.")
+      return
+    }
     guard let address = address else {
       showErrorAlert(message: "Please set address.")
       return
     }
     
-    guard let schedule = schedule else {
-      showErrorAlert(message: "Please set date/time.")
+    guard
+      let dateSelected = dateSelected,
+      let bestTime = bestTime
+    else {
+      showErrorAlert(message: "Please set date.")
       return
     }
     
@@ -56,7 +65,36 @@ class SetJobDetailsController: UIViewController {
       return
     }
     
-    performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToSetPayment, sender: nil)
+    guard let currentUserId = User.currentUser?.id else {
+      showErrorAlert(message: "User id not found, please log in again.")
+      return
+    }
+    DispatchQueue.main.async {
+      SVProgressHUD.show(withStatus: "Loading")
+    }
+    print("progress showed")
+    
+    Job.save(
+      userId: currentUserId,
+      jobType: jobType,
+      address: address,
+      dateSelected: dateSelected,
+      bestTime: bestTime,
+      jobDetail: jobDetail) { (error) in
+        print("progress hidden")
+        
+        DispatchQueue.main.async {
+          SVProgressHUD.dismiss()
+        }
+        
+        if let error = error {
+          self.showErrorAlert(message: error.localizedDescription)
+        } else {
+          self.navigationController?.backTo(type: HomeController.self)
+        }
+    }
+    
+//    performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToSetPayment, sender: nil)
     //    performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToPurchaseService, sender: nil)
   }
   
@@ -68,14 +106,16 @@ class SetJobDetailsController: UIViewController {
     } else if segue.identifier == StoryboardSegues.SetJobDetailsToSetAddress {
       let destinationVC = segue.destination as? SetAddressController
       destinationVC?.delegate = self
-      
+      destinationVC?.addressSelected = address
     } else if segue.identifier == StoryboardSegues.SetJobDetailsToSetDateTime {
       let destinationVC = segue.destination as? SetDateTimeController
       destinationVC?.delegate = self
-      
+      destinationVC?.bestTimeSelected = bestTime ?? .morning
+      destinationVC?.dateSelected = dateSelected
     } else if segue.identifier == StoryboardSegues.SetJobDetailsToSetJobDetail {
       let destinationVC = segue.destination as? SetJobDetailController
       destinationVC?.delegate = self
+      destinationVC?.jobDetail = jobDetail
     } else if segue.identifier == StoryboardSegues.SetJobDetailsToSetPayment {
       let destinationVC = segue.destination as? SetPaymentController
       destinationVC?.delegate = self
@@ -84,10 +124,7 @@ class SetJobDetailsController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    
   }
-  
 }
 
 extension SetJobDetailsController: SetJobDetailsDelegate {
@@ -109,37 +146,18 @@ extension SetJobDetailsController: SetJobDetailsDelegate {
 }
 
 extension SetJobDetailsController: JobDetailsDelegate {
+  func dateTimeSent(_ date: (String, Date), bestTime: BestTime) {
+    self.dateSelected = date
+    self.bestTime = bestTime
+  }
+  
   func addressSent(_ address: Address) {
-    print("address sent")
-//    print("""
-//      \(address.direction)
-//      \(address.latitude)
-//      \(address.longitude)
-//    """)
     self.address = address
   }
   
-  func dateTimeSent(_ schedule: Schedule) {
-    print("date time sent")
-    print("""
-      \(schedule.bestTime)
-      \(schedule.date)
-    """)
-    self.schedule = schedule
-  }
-  
   func jobDetailSent(_ jobDetail: JobDetail) {
-    print("job detail sent")
-    print("""
-      \(jobDetail.howDeepSnow)
-      \(jobDetail.howLong)
-      \(jobDetail.howWide)
-      \(jobDetail.obstacles)
-    """)
     self.jobDetail = jobDetail
   }
-  
-  
 }
 
 

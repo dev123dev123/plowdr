@@ -21,6 +21,7 @@ protocol MenuOptionsDelegate: class {
 class SlideMenuController: UITableViewController {
   weak var delegate: MenuOptionsDelegate?
   
+  @IBOutlet weak var userLabel: UILabel!
   @IBOutlet weak var scheduleJobCell: UITableViewCell!
   @IBOutlet weak var bookingsCell: UITableViewCell!
   @IBOutlet weak var paymentCell: UITableViewCell!
@@ -34,6 +35,18 @@ extension SlideMenuController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    var fullName = ""
+    
+    if let firstName = User.currentUser?.firstName {
+      fullName += firstName
+    }
+    
+    if let lastName = User.currentUser?.lastName {
+      fullName += " \(lastName)"
+    }
+    
+    userLabel.text = fullName
   }
   
   override func viewWillDisappear(_ animated: Bool) {

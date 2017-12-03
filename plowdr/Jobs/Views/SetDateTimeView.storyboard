@@ -79,6 +79,9 @@
                                             <segment title="Afternoon"/>
                                         </segments>
                                         <color key="tintColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="bestTimeSegmentedControlChanged" destination="yHa-zH-ihe" eventType="valueChanged" id="bD5-mg-ghe"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>

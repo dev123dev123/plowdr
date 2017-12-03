@@ -29,6 +29,7 @@ struct Strings {
   
   struct UI {
     static let obstaclesPlaceHolderText = "Ex. I have a stack of wood I will leave marked with a red flag"
+    static let newSnowFall = "Next Snowfall"
   }
   
   static let singleJobTitle = "Single Plow"

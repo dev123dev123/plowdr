@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum JobType {
+enum JobType: String {
   case single
   case monthly
   case unlimited

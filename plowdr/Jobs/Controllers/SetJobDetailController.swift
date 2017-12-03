@@ -12,6 +12,8 @@ class SetJobDetailController: UIViewController {
   var delegate: JobDetailsDelegate?
   var childController: SetJobDetailChildController?
   
+  var jobDetail: JobDetail?
+  
   @IBOutlet weak var saveLabel: UILabel! {
     didSet {
       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(saveLabelTapped))
@@ -21,6 +23,12 @@ class SetJobDetailController: UIViewController {
       saveLabel.isUserInteractionEnabled = true
       saveLabel.addGestureRecognizer(tapGesture)
     }
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    
   }
   
   @objc func saveLabelTapped() {
@@ -39,7 +47,7 @@ class SetJobDetailController: UIViewController {
       return
     }
     
-    guard let obstacles = childController?.obstaclesValue else {
+    guard let obstacles = childController?.getObstaclesDescription() else {
       showErrorAlert(message: "Please write something about obstacles value.")
       return
     }
@@ -59,6 +67,14 @@ class SetJobDetailController: UIViewController {
     if segue.identifier == StoryboardSegues.SetJobDetailChild {
       let destinationVC = segue.destination as? SetJobDetailChildController
       childController = destinationVC
+      
+      if let jobDetail = jobDetail {
+        destinationVC?.howDeepSnowValue = jobDetail.howDeepSnow
+        destinationVC?.howLongValue = jobDetail.howLong
+        destinationVC?.howWideValue = jobDetail.howWide
+        destinationVC?.obstaclesValue = jobDetail.obstacles
+//        destinationVC.descr
+      }
     }
   }
   

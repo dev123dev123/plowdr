@@ -23,17 +23,20 @@ enum AuthError: Error {
 }
 
 struct User {
+  let id: String
   let email: String
   let firstName: String
   let lastName: String
   let mobile: String
   
   init(
+    id: String,
     email: String,
     firstName: String,
     lastName: String,
     mobile: String
   ) {
+    self.id = id
     self.email = email
     self.firstName = firstName
     self.lastName = lastName
@@ -42,6 +45,7 @@ struct User {
   
   init?(dictionary: [String: Any]) {
     guard
+      let id = dictionary["id"] as? String,
       let email = dictionary["email"] as? String,
       let firstName = dictionary["firstName"] as? String,
       let lastName = dictionary["lastName"] as? String,
@@ -50,6 +54,7 @@ struct User {
       return nil
     }
     
+    self.id = id
     self.email = email
     self.firstName = firstName
     self.lastName = lastName
@@ -58,7 +63,7 @@ struct User {
 }
 
 extension User {
-  private static let db = Firestore.firestore()
+  private static let db = Database.db
   private static let dbUsers = db.collection("users")
   
   public static var currentUser: User?

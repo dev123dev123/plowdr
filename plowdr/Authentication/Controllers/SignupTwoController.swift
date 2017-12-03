@@ -55,6 +55,8 @@ class SignupTwoController: UIViewController {
       password: password,
       firstName: firstName,
       lastName: lastName) { (newUser, error) in
+        User.currentUser = newUser
+        
         DispatchQueue.main.async {
           SVProgressHUD.dismiss()
         }

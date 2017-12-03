@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BestTime {
+enum BestTime : String {
   case morning
   case afternoon
 }
