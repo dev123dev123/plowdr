@@ -14,6 +14,10 @@ target 'plowdr' do
 
   pod 'GooglePlaces'
   pod 'GoogleMaps'
+
   pod 'INTULocationManager'
+
+  pod 'Stripe'
+  pod 'Alamofire', '~> 4.5'
 
 end

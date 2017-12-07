@@ -22,7 +22,12 @@ protocol JobDetailsDelegate {
   func jobDetailSent(_ jobDetail: JobDetail)
 }
 
+protocol PaymentContextDelegate {
+  func paymentResultSent(_ wasSetPayment: Bool, cardDescription: String, error: Error?)
+}
+
 class SetJobDetailsController: UIViewController {
+  var paymentContextImplementation: STPPaymentContextImplementation?
   
   var jobType: JobType?
   var address: Address?
@@ -51,7 +56,7 @@ class SetJobDetailsController: UIViewController {
       showErrorAlert(message: "Please set address.")
       return
     }
-    
+
     guard
       let dateSelected = dateSelected,
       let bestTime = bestTime
@@ -59,43 +64,33 @@ class SetJobDetailsController: UIViewController {
       showErrorAlert(message: "Please set date.")
       return
     }
-    
+
     guard let jobDetail = jobDetail else {
       showErrorAlert(message: "Please set job details.")
       return
     }
-    
-    guard let currentUserId = User.currentUser?.id else {
+
+    guard let _ = User.currentUser?.id else {
       showErrorAlert(message: "User id not found, please log in again.")
       return
     }
-    DispatchQueue.main.async {
-      SVProgressHUD.show(withStatus: "Loading")
-    }
+    
+
     print("progress showed")
     
-    Job.save(
-      userId: currentUserId,
-      jobType: jobType,
-      address: address,
-      dateSelected: dateSelected,
-      bestTime: bestTime,
-      jobDetail: jobDetail) { (error) in
-        print("progress hidden")
-        
-        DispatchQueue.main.async {
-          SVProgressHUD.dismiss()
-        }
-        
-        if let error = error {
-          self.showErrorAlert(message: error.localizedDescription)
-        } else {
-          self.navigationController?.backTo(type: HomeController.self)
-        }
+    if let activeCardDescription = User.currentUser?.activeCardDescription {
+      var values = [String: Any]()
+      values["activeCardDescription"] = activeCardDescription
+      values["jobType"] = jobType
+      values["address"] = address
+      values["dateSelected"] = dateSelected
+      values["bestTime"] = bestTime
+      values["jobDetail"] = jobDetail
+      
+      performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToPurchaseService, sender: values)
+    } else {
+      paymentContextImplementation?.showPaymentFormOnHostViewController()
     }
-    
-//    performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToSetPayment, sender: nil)
-    //    performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToPurchaseService, sender: nil)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -119,13 +114,21 @@ class SetJobDetailsController: UIViewController {
     } else if segue.identifier == StoryboardSegues.SetJobDetailsToSetPayment {
       let destinationVC = segue.destination as? SetPaymentController
       destinationVC?.delegate = self
+    } else if segue.identifier == StoryboardSegues.SetJobDetailsToPurchaseService {
+      let destinationVC = segue.destination as? PurchaseServiceController
+      destinationVC?.parameters = sender as? [String: Any]
     }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    paymentContextImplementation = STPPaymentContextImplementation()
+    paymentContextImplementation?.hostViewController = self
+    paymentContextImplementation?.delegate = self
   }
 }
+
 
 extension SetJobDetailsController: SetJobDetailsDelegate {
   func paymentSet() {
@@ -159,6 +162,27 @@ extension SetJobDetailsController: JobDetailsDelegate {
     self.jobDetail = jobDetail
   }
 }
+
+extension SetJobDetailsController: PaymentContextDelegate {
+  func paymentResultSent(_ wasSetPayment: Bool, cardDescription: String, error: Error?) {
+    
+    if let error = error {
+      DispatchQueue.main.async {
+        self.showErrorAlert(message: error.localizedDescription)
+      }
+      
+      return
+    }
+    
+    if wasSetPayment {
+      DispatchQueue.main.async {
+        self.performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToPurchaseService, sender: cardDescription)
+      }
+    }
+  }
+}
+
+
 
 
 

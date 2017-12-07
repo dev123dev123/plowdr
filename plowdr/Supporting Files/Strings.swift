@@ -10,10 +10,24 @@ import Foundation
 
 struct Strings {
   
+  static let companyName = "Plowdr"
+  static let paymentCurrency = "usd"
+  
+  struct Server {
+//    static let baseURLString = "https://polar-refuge-65538.herokuapp.com/"
+    static let baseURLString = "http://localhost:5000/"
+    static let createEphemeralKeyURLString = "\(baseURLString)ephemeral-keys"
+  }
+  
   struct Keys {
     struct Google {
       static let GoogleMapsAPI_KEY = "AIzaSyCdg6ngBe-SQJJtO5-faRBp5tA0rb4kLb0"
       static let GooglePlaceAPI_KEY = "AIzaSyA7a50ZLpKFzoUQ_99okU52HWG0ZeKGSQQ"
+    }
+    
+    struct Stripe {
+      static let API_Version = "2017-08-15"
+      static let API_PublisableKey = "pk_test_5tLCGMOjIXQntqGLSRpZrCZV"
     }
   }
   

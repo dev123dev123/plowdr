@@ -11,6 +11,8 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
+import Alamofire
+
 enum AuthError: Error {
   case invalidFormInput(description: String)
   
@@ -28,19 +30,25 @@ struct User {
   let firstName: String
   let lastName: String
   let mobile: String
+  let customerId: String
+  var activeCardDescription: String?
   
   init(
     id: String,
     email: String,
     firstName: String,
     lastName: String,
-    mobile: String
+    mobile: String,
+    customerId: String,
+    activeCardDescription: String
   ) {
     self.id = id
     self.email = email
     self.firstName = firstName
     self.lastName = lastName
     self.mobile = mobile
+    self.customerId = customerId
+    self.activeCardDescription = activeCardDescription
   }
   
   init?(dictionary: [String: Any]) {
@@ -49,7 +57,8 @@ struct User {
       let email = dictionary["email"] as? String,
       let firstName = dictionary["firstName"] as? String,
       let lastName = dictionary["lastName"] as? String,
-      let mobile = dictionary["mobile"] as? String
+      let mobile = dictionary["mobile"] as? String,
+      let customerId = dictionary["customerId"] as? String
     else {
       return nil
     }
@@ -59,6 +68,8 @@ struct User {
     self.firstName = firstName
     self.lastName = lastName
     self.mobile = mobile
+    self.customerId = customerId
+    self.activeCardDescription = dictionary["activeCardDescription"] as? String
   }
 }
 
@@ -67,6 +78,41 @@ extension User {
   private static let dbUsers = db.collection("users")
   
   public static var currentUser: User?
+  
+  static func createEphimeralKey(
+    userId: String,
+    apiVersion: String,
+    completion: @escaping ([String: Any]?, Error?) -> Void
+  ) {
+    let urlString = Strings.Server.createEphemeralKeyURLString
+    
+    let parameters: [String: Any] = [
+      "customerId": userId,
+      "stripeVersion": apiVersion
+    ]
+
+    Alamofire.request(
+      urlString,
+      method: .post,
+      parameters: parameters,
+      encoding: JSONEncoding.default
+      ).responseJSON(completionHandler: { (response) in
+        
+        if let json = response.result.value as? [String: Any] {
+          completion(json, nil)
+          return
+        }
+        
+        let error = NSError(
+          domain: "Stripe",
+          code: 0,
+          userInfo: [
+            NSLocalizedDescriptionKey: "Key wasn't generated."
+          ]
+        )
+        completion(nil, error)
+      })
+  }
   
   static func signUp(
     email: String,
@@ -77,6 +123,7 @@ extension User {
     completion: @escaping (User?, Error?) -> Void
   ) {
     var user: User?
+    var customerId: String?
     
     do {
       try areValuesValid(email: email, mobile: mobile, password: password)
@@ -105,6 +152,33 @@ extension User {
       },
       
       { done in
+        let urlString = Strings.Server.baseURLString + "create-customer"
+        
+        let parameters : [String: Any] = [
+          "email": email
+        ]
+        
+        Alamofire.request(
+          urlString,
+          method: .post,
+          parameters: parameters,
+          encoding: JSONEncoding.default
+        ).responseJSON(completionHandler: { (response) in
+          
+            if let json = response.result.value as? [String: Any] {
+              print(json)
+              
+              if let custoId = json["customerId"] as? String {
+                customerId = custoId
+              }
+              
+            }
+          
+            done(nil)
+          })
+      },
+      
+      { done in
         let userDocument = dbUsers.document()
         
         var values = [String: Any]()
@@ -113,6 +187,7 @@ extension User {
         values["mobile"] = mobile
         values["firstName"] = firstName
         values["lastName"] = lastName
+        values["customerId"] = customerId
         
         user = User(dictionary: values)
         
@@ -165,6 +240,7 @@ extension User {
       { done in
         getUserFromDatabase(byUserEmail: userEmail, completion: { (user, error) in
           userFound = user
+          
           done(error)
         })
       }
@@ -174,9 +250,21 @@ extension User {
     }
   }
   
+//  static func getCustomerFromStripe(byCustomerId customerId: String)
+  
   static func logout() {
     try? Auth.auth().signOut()
     User.currentUser = nil
+  }
+  
+  public static func updateUser(
+    byUserId userId: String,
+    valuesToUpdate: [String: Any],
+    completion: @escaping (Error?) -> Void) {
+    
+    dbUsers.document("\(userId)").updateData(valuesToUpdate) { (error) in
+      completion(error)
+    }
   }
   
   private static func getUserFromDatabase(
@@ -201,17 +289,6 @@ extension User {
         completion(nil, error)
       }
     }
-//    query.getDocument(completion: { (snap, error) in
-//      if let user = snap.flatMap({ User.init(dictionary: $0.data()) }) {
-//        completion(user, nil)
-//        return
-//      }
-//
-//      let error = NSError(domain: "Auth", code: 0, userInfo: [
-//        NSLocalizedDescriptionKey: "No user found."
-//        ])
-//      completion(nil, error)
-//    })
   }
   
   private static func getCurrentUserFromFirAuth(completion: @escaping (FirebaseAuth.User?, Error?) -> Void) {
@@ -247,6 +324,16 @@ extension User {
   static func getCurrentUserLoggedIn(completion: @escaping (User?, Error?) -> Void) {
     var userEmail: String!
     var userFound: User?
+    
+//    if Auth.auth().currentUser == nil {
+//      completion(nil, nil)
+//      return
+//    }
+    
+    guard Auth.auth().currentUser != nil else {
+      completion(nil, nil)
+      return
+    }
     
     Ax.serial(tasks: [
       { done in

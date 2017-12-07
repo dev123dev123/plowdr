@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeController: UIViewController {
+  
   var sideMenuManager: SideMenuManager!
+  var paymentContextImplementation: STPPaymentContextImplementation!
   
   @IBOutlet weak var scheduleLabel: UILabel! {
     didSet {
@@ -32,6 +34,9 @@ class HomeController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    paymentContextImplementation = STPPaymentContextImplementation()
+    paymentContextImplementation.hostViewController = self
     
     labelView.isHidden = true
     containerView.isHidden = true
@@ -58,15 +63,6 @@ class HomeController: UIViewController {
     navigationController?.navigationBar.isTranslucent = true
     navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     navigationController?.navigationBar.shadowImage = UIImage()
-    
-//    containerView.isHidden = true
-//    scheduleLabel.isHidden = false
-//    messageLabel.isHidden = false
-    
-//    containerView.isHidden = false
-//    scheduleLabel.isHidden = true
-//    messageLabel.isHidden = true
-    
   }
   
   // MARK: Private methods
@@ -123,7 +119,8 @@ extension HomeController: MenuOptionsDelegate {
   }
   
   func didPaymentTap() {
-    performSegue(withIdentifier: StoryboardSegues.HomeToSetPayment, sender: nil)
+//    performSegue(withIdentifier: StoryboardSegues.HomeToSetPayment, sender: nil)
+    paymentContextImplementation.showPaymentFormOnHostViewController()
     sideMenuManager.toggleShowSideMenu()
   }
   

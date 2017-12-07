@@ -33,6 +33,8 @@ class LoginController: UIViewController {
     User.login(
       email: email,
       password: password) { (user, error) in
+        User.currentUser = user
+        
         DispatchQueue.main.async {
           SVProgressHUD.dismiss()
         }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stripe
 
 class SetPaymentController: UIViewController {
   var delegate: SetJobDetailsDelegate?
@@ -31,3 +32,52 @@ class SetPaymentController: UIViewController {
     dismiss(animated: true)
   }
 }
+
+extension SetPaymentController: STPPaymentContextDelegate {
+  func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
+    
+  }
+  
+  func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
+    
+  }
+  
+  func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
+    
+  }
+  
+  func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
+    
+  }
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

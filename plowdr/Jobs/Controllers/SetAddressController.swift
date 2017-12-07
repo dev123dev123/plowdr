@@ -14,6 +14,8 @@ import INTULocationManager
 
 class SetAddressController: UIViewController {
   
+  let geocoder = GMSGeocoder()
+  
   var streetNumber = ""
   var route = ""
   var neighborhood = ""
@@ -28,11 +30,14 @@ class SetAddressController: UIViewController {
   var delegate: JobDetailsDelegate?
   @IBOutlet weak var addressTextView: UITextField!
   @IBOutlet weak var addressMapView: GMSMapView!
+  @IBOutlet weak var addressLabel: UILabel!
+  
   
   var lastPositionMoved = CLLocationCoordinate2D(latitude: 36.778259, longitude: -119.417931)
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     addressMapView.delegate = self
     
 
@@ -113,7 +118,7 @@ class SetAddressController: UIViewController {
   
   @objc func saveLabelTapped() {
     addressSelected = Address(
-      addressLine: "",
+      addressLine: addressLabel.text ?? "",
       city: "",
       state: "",
       postalCode: "",
@@ -140,9 +145,35 @@ extension SetAddressController: UITextFieldDelegate {
   }
 }
 
+
+
 extension SetAddressController: GMSMapViewDelegate {
+  
+  func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+    geocoder.reverseGeocodeCoordinate(lastPositionMoved) { (response, error) in
+      if let error = error {
+        self.showErrorAlert(message: error.localizedDescription)
+      } else {
+        if let addressLine = response?.firstResult()?.lines?.joined(separator: ", ") {
+          DispatchQueue.main.async {
+            self.addressLabel.text = addressLine
+          }
+        } else {
+          DispatchQueue.main.async {
+            self.addressLabel.text = "Address not found for this location."
+          }
+        }
+      }
+    }
+  }
+  
   func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
     lastPositionMoved = mapView.camera.target
+    print("didChange")
+  }
+  
+  func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
+    print("didEndDragging")
   }
 }
 

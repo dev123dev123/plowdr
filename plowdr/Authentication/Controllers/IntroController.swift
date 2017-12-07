@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import Alamofire
 
 class IntroController: UIViewController {
   @IBOutlet weak var loginLabel: UILabel! {
@@ -47,12 +48,13 @@ class IntroController: UIViewController {
     
     setupLabels()
     
+
     SVProgressHUD.show()
     User.getCurrentUserLoggedIn { (user, _) in
       DispatchQueue.main.async {
         SVProgressHUD.dismiss()
       }
-      
+
       if let user = user {
         User.currentUser = user
         DispatchQueue.main.async {

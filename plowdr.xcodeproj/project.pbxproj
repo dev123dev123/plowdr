@@ -59,6 +59,9 @@
 		698CC5861FCC9DED00FEE976 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CC5851FCC9DED00FEE976 /* GradientView.swift */; };
 		698CC58B1FCC9F6200FEE976 /* AG-Stencil.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 698CC5891FCC9F6200FEE976 /* AG-Stencil.ttf */; };
 		698CC58D1FCCA2C100FEE976 /* HiraginoCustom.otf in Resources */ = {isa = PBXBuildFile; fileRef = 698CC58C1FCCA2C100FEE976 /* HiraginoCustom.otf */; };
+		69C6A0711FD731BA003B52BA /* StripeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6A0701FD731BA003B52BA /* StripeConfigurator.swift */; };
+		69C6A0731FD7326D003B52BA /* StripeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6A0721FD7326D003B52BA /* StripeAPIClient.swift */; };
+		69C6A0791FD7475D003B52BA /* STPPaymentContextImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6A0781FD7475D003B52BA /* STPPaymentContextImplementation.swift */; };
 		69D589001FBE21B800F23C76 /* JobsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D588FF1FBE21B800F23C76 /* JobsController.swift */; };
 		69D589021FBE21DC00F23C76 /* JobsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D589011FBE21DC00F23C76 /* JobsView.storyboard */; };
 		69D589081FBE239100F23C76 /* ChooseJobView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D589071FBE239100F23C76 /* ChooseJobView.storyboard */; };
@@ -134,6 +137,9 @@
 		698CC5851FCC9DED00FEE976 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		698CC5891FCC9F6200FEE976 /* AG-Stencil.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AG-Stencil.ttf"; sourceTree = "<group>"; };
 		698CC58C1FCCA2C100FEE976 /* HiraginoCustom.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HiraginoCustom.otf; sourceTree = "<group>"; };
+		69C6A0701FD731BA003B52BA /* StripeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeConfigurator.swift; sourceTree = "<group>"; };
+		69C6A0721FD7326D003B52BA /* StripeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPIClient.swift; sourceTree = "<group>"; };
+		69C6A0781FD7475D003B52BA /* STPPaymentContextImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPPaymentContextImplementation.swift; sourceTree = "<group>"; };
 		69D588FF1FBE21B800F23C76 /* JobsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsController.swift; sourceTree = "<group>"; };
 		69D589011FBE21DC00F23C76 /* JobsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobsView.storyboard; sourceTree = "<group>"; };
 		69D589071FBE239100F23C76 /* ChooseJobView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseJobView.storyboard; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 			children = (
 				698CC57C1FCC4F3D00FEE976 /* User */,
 				69F229811FC5BE9F00A271AB /* Utils */,
+				69C6A0741FD746D4003B52BA /* Payment */,
 				69D589031FBE230E00F23C76 /* Jobs */,
 				69515AB81FB3A4960012E1B7 /* Home */,
 				69515A9B1FB1E4FE0012E1B7 /* Authentication */,
@@ -350,6 +357,42 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		69C6A0741FD746D4003B52BA /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				69C6A0771FD746FE003B52BA /* Model */,
+				69C6A0761FD746F8003B52BA /* Controllers */,
+				69C6A0751FD746ED003B52BA /* Views */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		69C6A0751FD746ED003B52BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				69F229861FC5C95600A271AB /* SetPaymentView.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		69C6A0761FD746F8003B52BA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				69F229841FC5C93600A271AB /* SetPaymentController.swift */,
+				69C6A0781FD7475D003B52BA /* STPPaymentContextImplementation.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		69C6A0771FD746FE003B52BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				69C6A0701FD731BA003B52BA /* StripeConfigurator.swift */,
+				69C6A0721FD7326D003B52BA /* StripeAPIClient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		69D589031FBE230E00F23C76 /* Jobs */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,7 +412,6 @@
 				69678A4B1FC3202400860689 /* SetAddressView.storyboard */,
 				69678A4F1FC321C400860689 /* SetDateTimeView.storyboard */,
 				69678A531FC32ACF00860689 /* SetJobDetailView.storyboard */,
-				69F229861FC5C95600A271AB /* SetPaymentView.storyboard */,
 				69F229881FC5CB0900A271AB /* PurchaseServiceView.storyboard */,
 			);
 			path = Views;
@@ -388,7 +430,6 @@
 				69678A571FC3698F00860689 /* SetJobDetailChildController.swift */,
 				69678A591FC37A7200860689 /* JobDetailListController.swift */,
 				69678A5B1FC37A8B00860689 /* JobDetailListChildController.swift */,
-				69F229841FC5C93600A271AB /* SetPaymentController.swift */,
 				69F2298A1FC5CB1700A271AB /* PurchaseServiceController.swift */,
 				698CC5781FCC3C7900FEE976 /* PurchaseServiceChildController.swift */,
 			);
@@ -576,12 +617,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-plowdr/Pods-plowdr-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/INTULocationManager/INTULocationManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -591,12 +634,14 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INTULocationManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -618,13 +663,16 @@
 			files = (
 				698CC57B1FCC440300FEE976 /* UINavigationController+.swift in Sources */,
 				69F229851FC5C93600A271AB /* SetPaymentController.swift in Sources */,
+				69C6A0791FD7475D003B52BA /* STPPaymentContextImplementation.swift in Sources */,
 				695706F21FD2011A006CCA93 /* JobDetailChildController.swift in Sources */,
 				69515AB01FB24C6E0012E1B7 /* SignupTwoController.swift in Sources */,
 				69678A5E1FC37B7300860689 /* Job.swift in Sources */,
 				69F229831FC5BEB800A271AB /* UIViewController+.swift in Sources */,
 				69515A8A1FB1E3F10012E1B7 /* AppDelegate.swift in Sources */,
+				69C6A0711FD731BA003B52BA /* StripeConfigurator.swift in Sources */,
 				69515AB51FB250140012E1B7 /* HomeController.swift in Sources */,
 				69678A521FC323A200860689 /* SetDateTimeController.swift in Sources */,
+				69C6A0731FD7326D003B52BA /* StripeAPIClient.swift in Sources */,
 				69D589161FBE440D00F23C76 /* SetJobDetailsController.swift in Sources */,
 				69D589121FBE394600F23C76 /* JobType.swift in Sources */,
 				69678A581FC3698F00860689 /* SetJobDetailChildController.swift in Sources */,
