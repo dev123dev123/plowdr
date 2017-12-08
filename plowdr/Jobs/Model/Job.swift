@@ -66,6 +66,7 @@ extension Job {
     values["jobType"] = jobType.rawValue
     values["latitude"] = address.latitude
     values["longitude"] = address.longitude
+    values["address"] = address.addressLine
     values["dateSelected"] = dateSelected.1
     
     if dateSelected.0 == Strings.UI.newSnowFall {

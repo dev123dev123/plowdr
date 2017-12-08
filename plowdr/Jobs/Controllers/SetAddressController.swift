@@ -14,6 +14,8 @@ import INTULocationManager
 
 class SetAddressController: UIViewController {
   
+  var startedFromSideMenu = false
+  
   let geocoder = GMSGeocoder()
   
   var streetNumber = ""
@@ -40,7 +42,7 @@ class SetAddressController: UIViewController {
     
     addressMapView.delegate = self
     
-
+    // comes from flow of creating a job
     if let addressSelected = addressSelected {
       print("""
         on viewDidLoad:
@@ -51,53 +53,58 @@ class SetAddressController: UIViewController {
       let camera = GMSCameraPosition.camera(withLatitude: addressSelected.latitude, longitude: addressSelected.longitude, zoom: 15.0)
       self.addressMapView.camera = camera
     } else {
-      SVProgressHUD.show()
-      INTULocationManager.sharedInstance().requestLocation(
-        withDesiredAccuracy: INTULocationAccuracy.neighborhood,
-        timeout: 10.0,
-        delayUntilAuthorized: true) { (currentLocation, achievedAccuracy, status) in
-          DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-          }
-          
-          let latitude =  currentLocation?.coordinate.latitude ?? 36.778259
-          let longitude = currentLocation?.coordinate.longitude ?? -119.417931
-          
-          self.lastPositionMoved = CLLocationCoordinate2D(
-            latitude: latitude,
-            longitude: longitude
-          )
-          
-          if (status == INTULocationStatus.success) {
-            // Request succeeded, meaning achievedAccuracy is at least the requested accuracy, and
-            // currentLocation contains the device's current location
+      if let address = User.currentUser?.address {
+        // comes from side menu
+        let camera = GMSCameraPosition.camera(withLatitude: address.latitude, longitude: address.longitude, zoom: 15.0)
+        self.addressMapView.camera = camera
+      } else {
+         // comes from flow of creating a job
+        SVProgressHUD.show()
+        INTULocationManager.sharedInstance().requestLocation(
+          withDesiredAccuracy: INTULocationAccuracy.neighborhood,
+          timeout: 10.0,
+          delayUntilAuthorized: true) { (currentLocation, achievedAccuracy, status) in
+            DispatchQueue.main.async {
+              SVProgressHUD.dismiss()
+            }
             
-          }
-          else if (status == INTULocationStatus.timedOut) {
-            // Wasn't able to locate the user with the requested accuracy within the timeout interval.
-            // However, currentLocation contains the best location available (if any) as of right now,
-            // and achievedAccuracy has info on the accuracy/recency of the location in currentLocation.
-          }
-          else {
-            // An error occurred, more info is available by looking at the specific status returned.
-          }
-          
-          let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 15.0)
-          self.addressMapView.camera = camera
-          
-          self.addressSelected = Address(
-            addressLine: "",
-            city: "",
-            state: "",
-            postalCode: "",
-            country: "",
-            latitude: camera.target.latitude,
-            longitude: camera.target.longitude
-          )
+            let latitude =  currentLocation?.coordinate.latitude ?? 36.778259
+            let longitude = currentLocation?.coordinate.longitude ?? -119.417931
+            
+            self.lastPositionMoved = CLLocationCoordinate2D(
+              latitude: latitude,
+              longitude: longitude
+            )
+            
+            if (status == INTULocationStatus.success) {
+              // Request succeeded, meaning achievedAccuracy is at least the requested accuracy, and
+              // currentLocation contains the device's current location
+              
+            }
+            else if (status == INTULocationStatus.timedOut) {
+              // Wasn't able to locate the user with the requested accuracy within the timeout interval.
+              // However, currentLocation contains the best location available (if any) as of right now,
+              // and achievedAccuracy has info on the accuracy/recency of the location in currentLocation.
+            }
+            else {
+              // An error occurred, more info is available by looking at the specific status returned.
+            }
+            
+            let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 15.0)
+            self.addressMapView.camera = camera
+            
+            self.addressSelected = Address(
+              addressLine: "",
+              city: "",
+              state: "",
+              postalCode: "",
+              country: "",
+              latitude: camera.target.latitude,
+              longitude: camera.target.longitude
+            )
+        }
       }
     }
-    
-    
   }
   
   
@@ -127,15 +134,31 @@ class SetAddressController: UIViewController {
       longitude: lastPositionMoved.longitude
     )
     
-    print("""
-      on saveLabelTapped:
-      latitude: \(lastPositionMoved.latitude)
-      longitude: \(lastPositionMoved.longitude)
-    """)
-    
-    delegate?.addressSent(addressSelected!)
-    
-    dismiss(animated: true)
+    if startedFromSideMenu {
+      if let currentUserId = User.currentUser?.id {
+        var values = [String: Any]()
+        values["address"] = addressSelected!.addressLine
+        values["latitude"] = addressSelected!.latitude
+        values["longitude"] = addressSelected!.longitude
+        
+        SVProgressHUD.show()
+        User.updateUser(byUserId: currentUserId, valuesToUpdate: values, completion: { (error) in
+          DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            
+            if let error = error {
+              self.showErrorAlert(message: error.localizedDescription)
+            } else {
+              User.currentUser?.address = self.addressSelected
+              self.dismiss(animated: true)
+            }
+          }
+        })
+      }
+    } else {
+      delegate?.addressSent(addressSelected!)
+      dismiss(animated: true)
+    }
   }
 }
 

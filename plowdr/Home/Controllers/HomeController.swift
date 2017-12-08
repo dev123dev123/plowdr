@@ -81,6 +81,9 @@ class HomeController: UIViewController {
     } else if segue.identifier == StoryboardSegues.HomeToJobs {
       let destinationVC = segue.destination as? JobsController
       destinationVC?.delegate = self
+    } else if segue.identifier == StoryboardSegues.HomeToSetAddress {
+      let destinationVC = segue.destination as? SetAddressController
+      destinationVC?.startedFromSideMenu = true
     }
   }
   

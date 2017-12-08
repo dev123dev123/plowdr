@@ -31,7 +31,9 @@ struct User {
   let lastName: String
   let mobile: String
   let customerId: String
+  
   var activeCardDescription: String?
+  var address: Address?
   
   init(
     id: String,
@@ -70,6 +72,21 @@ struct User {
     self.mobile = mobile
     self.customerId = customerId
     self.activeCardDescription = dictionary["activeCardDescription"] as? String
+    
+    if
+      let addressLine = dictionary["address"] as? String,
+      let latitude = dictionary["latitude"] as? Double,
+      let longitude = dictionary["longitude"] as? Double
+    {
+      self.address = Address(
+        addressLine: addressLine,
+        city: "",
+        state: "",
+        postalCode: "",
+        country: "",
+        latitude: latitude,
+        longitude: longitude)
+    }
   }
 }
 
@@ -78,6 +95,49 @@ extension User {
   private static let dbUsers = db.collection("users")
   
   public static var currentUser: User?
+  
+  static func completeCharge(
+    stripeId: String,
+    amount: Int,
+    customerId: String,
+    completion: @escaping (Error?) -> Void
+  ) {
+    let urlString = Strings.Server.chargeURLString
+    
+    var parameters = [String: Any]()
+    parameters["customerId"] = customerId
+    parameters["stripeId"] = stripeId
+    parameters["amount"] = amount
+    
+    Alamofire.request(
+      urlString,
+      method: .post,
+      parameters: parameters,
+      encoding: JSONEncoding.default
+    )
+    .responseJSON(completionHandler: { (response) in
+      if response.response?.statusCode == 200 {
+         completion(nil)
+      } else {
+        var errorMessage = "Someting happened, try again please."
+        
+        if
+          let json = response.result.value as? [String: Any],
+          let message = json["message"] as? String
+        {
+          errorMessage = message
+        }
+        
+        let error = NSError(
+          domain: "Payment",
+          code: 0,
+          userInfo: [
+            NSLocalizedDescriptionKey: errorMessage
+          ])
+        completion(error)
+      }
+    })
+  }
   
   static func createEphimeralKey(
     userId: String,

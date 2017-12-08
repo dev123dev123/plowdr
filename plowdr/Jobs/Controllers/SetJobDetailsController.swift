@@ -23,7 +23,8 @@ protocol JobDetailsDelegate {
 }
 
 protocol PaymentContextDelegate {
-  func paymentResultSent(_ wasSetPayment: Bool, cardDescription: String, error: Error?)
+  func paymentSelectionResult(_ wasSetPayment: Bool, cardDescription: String, error: Error?)
+  func chargeResult(error: Error?)
 }
 
 class SetJobDetailsController: UIViewController {
@@ -125,7 +126,7 @@ class SetJobDetailsController: UIViewController {
     
     paymentContextImplementation = STPPaymentContextImplementation()
     paymentContextImplementation?.hostViewController = self
-    paymentContextImplementation?.delegate = self
+//    paymentContextImplementation?.delegate = self
   }
 }
 
@@ -163,24 +164,13 @@ extension SetJobDetailsController: JobDetailsDelegate {
   }
 }
 
-extension SetJobDetailsController: PaymentContextDelegate {
-  func paymentResultSent(_ wasSetPayment: Bool, cardDescription: String, error: Error?) {
-    
-    if let error = error {
-      DispatchQueue.main.async {
-        self.showErrorAlert(message: error.localizedDescription)
-      }
-      
-      return
-    }
-    
-    if wasSetPayment {
-      DispatchQueue.main.async {
-        self.performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToPurchaseService, sender: cardDescription)
-      }
-    }
-  }
-}
+//extension SetJobDetailsController: PaymentContextDelegate {
+//  func chargeResult(error: Error?) {
+//  }
+//
+//  func paymentSelectionResult(_ wasSetPayment: Bool, cardDescription: String, error: Error?) {
+//  }
+//}
 
 
 

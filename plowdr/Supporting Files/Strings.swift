@@ -13,10 +13,17 @@ struct Strings {
   static let companyName = "Plowdr"
   static let paymentCurrency = "usd"
   
+  struct Prices {
+    static let monthlyPrice = 50 * 100  // This is in cents, i.e. $50 USD
+    static let singlePrice = 60 * 100
+    static let unlimitedPrice = 70 * 100
+  }
+  
   struct Server {
 //    static let baseURLString = "https://polar-refuge-65538.herokuapp.com/"
     static let baseURLString = "http://localhost:5000/"
     static let createEphemeralKeyURLString = "\(baseURLString)ephemeral-keys"
+    static let chargeURLString = "\(baseURLString)charge"
   }
   
   struct Keys {
