@@ -100,7 +100,8 @@ extension User {
     stripeId: String,
     amount: Int,
     customerId: String,
-    completion: @escaping (Error?) -> Void
+    capture: Bool = true,
+    completion: @escaping (Error?, String?) -> Void
   ) {
     let urlString = Strings.Server.chargeURLString
     
@@ -108,6 +109,7 @@ extension User {
     parameters["customerId"] = customerId
     parameters["stripeId"] = stripeId
     parameters["amount"] = amount
+    parameters["capture"] = capture
     
     Alamofire.request(
       urlString,
@@ -117,7 +119,21 @@ extension User {
     )
     .responseJSON(completionHandler: { (response) in
       if response.response?.statusCode == 200 {
-         completion(nil)
+        if
+          let json = response.value as? [String: Any],
+          let chargeId = json["chargeId"] as? String
+        {
+          completion(nil, chargeId)
+          return
+        }
+        
+        let error = NSError(
+          domain: "Payment",
+          code: 0,
+          userInfo: [
+            NSLocalizedDescriptionKey: "Charge Id was not sent."
+          ])
+        completion(error, nil)
       } else {
         var errorMessage = "Someting happened, try again please."
         
@@ -134,7 +150,7 @@ extension User {
           userInfo: [
             NSLocalizedDescriptionKey: errorMessage
           ])
-        completion(error)
+        completion(error, nil)
       }
     })
   }

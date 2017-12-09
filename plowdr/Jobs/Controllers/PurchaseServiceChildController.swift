@@ -12,6 +12,8 @@ class PurchaseServiceChildController: UITableViewController {
   var delegate: PurchaseServiceDelegate?
   var parameters: [String: Any]?
   
+  var paymentAmount: Int = 0
+  
   @IBOutlet weak var jobTypeLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
@@ -30,6 +32,8 @@ class PurchaseServiceChildController: UITableViewController {
   var dateSelected: (String, Date)!
   var bestTime: BestTime!
   var jobDetail: JobDetail!
+  
+  var formatter = NumberFormatter()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -61,6 +65,21 @@ class PurchaseServiceChildController: UITableViewController {
     guard let jobDetail = parameters["jobDetail"] as? JobDetail else {
       return
     }
+    
+    switch jobType {
+    case .monthly:
+      paymentAmount = Strings.Prices.monthlyPrice
+    case .single:
+      paymentAmount = Strings.Prices.singlePrice
+    case .unlimited:
+      paymentAmount = Strings.Prices.unlimitedPrice
+    }
+
+    
+    let convertPrice = NSNumber(value: (paymentAmount / 100))
+    formatter.numberStyle = .currency
+    formatter.currencyCode = "USD"
+    priceLabel.text = formatter.string(from: convertPrice)
     
     jobTypeLabel.text = jobType.rawValue
     addressLabel.text = address.addressLine

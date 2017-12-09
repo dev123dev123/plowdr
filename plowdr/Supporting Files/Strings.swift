@@ -20,8 +20,8 @@ struct Strings {
   }
   
   struct Server {
-//    static let baseURLString = "https://polar-refuge-65538.herokuapp.com/"
-    static let baseURLString = "http://localhost:5000/"
+    static let baseURLString = "https://polar-refuge-65538.herokuapp.com/"
+//    static let baseURLString = "http://localhost:5000/"
     static let createEphemeralKeyURLString = "\(baseURLString)ephemeral-keys"
     static let chargeURLString = "\(baseURLString)charge"
   }

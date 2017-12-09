@@ -49,6 +49,8 @@ class SignupTwoController: UIViewController {
     let lastName = childController.lastNameTextField.text!
     
     SVProgressHUD.show()
+    signupLabel.isUserInteractionEnabled = false
+    signupLabel.alpha = 0.5
     User.signUp(
       email: email,
       mobile: mobile,
@@ -58,6 +60,8 @@ class SignupTwoController: UIViewController {
         User.currentUser = newUser
         
         DispatchQueue.main.async {
+          self.signupLabel.isUserInteractionEnabled = true
+          self.signupLabel.alpha = 1
           SVProgressHUD.dismiss()
         }
         

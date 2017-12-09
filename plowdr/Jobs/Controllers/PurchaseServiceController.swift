@@ -40,6 +40,8 @@ class PurchaseServiceController: UIViewController {
   
   @objc func purchaseServiceLabelTapped() {
     SVProgressHUD.show()
+    purchaseServiceLabel.isUserInteractionEnabled = false
+    purchaseServiceLabel.alpha = 0.5
     paymentContextImplementation?.requestPayment()
   }
   
@@ -99,13 +101,11 @@ class PurchaseServiceController: UIViewController {
     switch jobType {
     case .monthly:
       paymentContextImplementation?.paymentAmount = Strings.Prices.monthlyPrice
-      break
     case .single:
       paymentContextImplementation?.paymentAmount = Strings.Prices.singlePrice
-      break
+      paymentContextImplementation?.paymentWillBeChargedImmediately = false
     case .unlimited:
       paymentContextImplementation?.paymentAmount = Strings.Prices.unlimitedPrice
-      break
     }
 
   }
@@ -120,22 +120,37 @@ extension PurchaseServiceController: PurchaseServiceDelegate {
 }
 
 extension PurchaseServiceController: PaymentContextDelegate {
-  func chargeResult(error: Error?) {
+  func chargeResult(error: Error?, chargeIdCreated: String?) {
     
     if let error = error {
+      purchaseServiceLabel.isUserInteractionEnabled = true
+      purchaseServiceLabel.alpha = 1
+      
       DispatchQueue.main.async {
         SVProgressHUD.dismiss()
         self.showErrorAlert(message: error.localizedDescription)
       }
     } else {
+      guard let chargeId = chargeIdCreated else {
+        purchaseServiceLabel.isUserInteractionEnabled = true
+        purchaseServiceLabel.alpha = 1
+        
+        self.showErrorAlert(message: "Charge Id wasn't provided.")
+        return
+      }
+      
       Job.save(
         userId: currenUserId,
         jobType: jobType,
         address: address,
         dateSelected: dateSelected,
         bestTime: bestTime,
-        jobDetail: jobDetail) { (error) in
+        jobDetail: jobDetail,
+        chargeId: chargeId
+      ) { (error) in
           DispatchQueue.main.async {
+            self.purchaseServiceLabel.isUserInteractionEnabled = true
+            self.purchaseServiceLabel.alpha = 1
             SVProgressHUD.dismiss()
             
             if let error = error {

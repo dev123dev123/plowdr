@@ -29,6 +29,8 @@ class LoginController: UIViewController {
     let email = emailTextField.text!
     let password = passwordTextField.text!
     
+    loginLabel.alpha = 0.5
+    loginLabel.isUserInteractionEnabled = false
     SVProgressHUD.show()
     User.login(
       email: email,
@@ -37,6 +39,8 @@ class LoginController: UIViewController {
         
         DispatchQueue.main.async {
           SVProgressHUD.dismiss()
+          self.loginLabel.alpha = 1
+          self.loginLabel.isUserInteractionEnabled = true
         }
         
         if let error = error {

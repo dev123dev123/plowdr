@@ -52,11 +52,18 @@ class SetAddressController: UIViewController {
       
       let camera = GMSCameraPosition.camera(withLatitude: addressSelected.latitude, longitude: addressSelected.longitude, zoom: 15.0)
       self.addressMapView.camera = camera
+      self.addressLabel.text = addressSelected.addressLine
+      lastPositionMoved.latitude = addressSelected.latitude
+      lastPositionMoved.longitude = addressSelected.longitude
     } else {
       if let address = User.currentUser?.address {
         // comes from side menu
         let camera = GMSCameraPosition.camera(withLatitude: address.latitude, longitude: address.longitude, zoom: 15.0)
         self.addressMapView.camera = camera
+        
+        self.addressLabel.text = address.addressLine
+        lastPositionMoved.latitude = address.latitude
+        lastPositionMoved.longitude = address.longitude
       } else {
          // comes from flow of creating a job
         SVProgressHUD.show()
@@ -142,8 +149,12 @@ class SetAddressController: UIViewController {
         values["longitude"] = addressSelected!.longitude
         
         SVProgressHUD.show()
+        saveLabel.alpha = 0.5
+        saveLabel.isUserInteractionEnabled = false
         User.updateUser(byUserId: currentUserId, valuesToUpdate: values, completion: { (error) in
           DispatchQueue.main.async {
+            self.saveLabel.alpha = 1
+            self.saveLabel.isUserInteractionEnabled = true
             SVProgressHUD.dismiss()
             
             if let error = error {

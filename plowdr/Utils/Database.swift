@@ -10,7 +10,14 @@ import Foundation
 import FirebaseFirestore
 
 struct Database {
-  static var db = {
-    return Firestore.firestore()
+  static var db = { () -> Firestore in
+    let db = Firestore.firestore()
+    
+    let settings = FirestoreSettings()
+    settings.isPersistenceEnabled = false
+    
+    db.settings = settings
+    
+    return db
   }()
 }

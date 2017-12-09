@@ -24,7 +24,7 @@ protocol JobDetailsDelegate {
 
 protocol PaymentContextDelegate {
   func paymentSelectionResult(_ wasSetPayment: Bool, cardDescription: String, error: Error?)
-  func chargeResult(error: Error?)
+  func chargeResult(error: Error?, chargeIdCreated: String?)
 }
 
 class SetJobDetailsController: UIViewController {

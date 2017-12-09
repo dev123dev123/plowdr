@@ -17,6 +17,7 @@ class STPPaymentContextImplementation: NSObject {
     }
   }
   var delegate: PaymentContextDelegate?
+  private var chargeIdCreated: String?
   
   var paymentAmount: Int? {
     didSet {
@@ -25,6 +26,8 @@ class STPPaymentContextImplementation: NSObject {
       }
     }
   }
+  
+  var paymentWillBeChargedImmediately = true
   
   override init() {
     super.init()
@@ -88,19 +91,22 @@ extension STPPaymentContextImplementation: STPPaymentContextDelegate {
     User.completeCharge(
       stripeId: paymentResult.source.stripeID,
       amount: amount,
-      customerId: customerId) { (error) in
-        completion(error)
+      customerId: customerId,
+      capture: paymentWillBeChargedImmediately
+    ) { (error, chargeId) in
+      self.chargeIdCreated = chargeId
+      completion(error)
     }
     
   }
   
   func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
     if status == .error {
-      delegate?.chargeResult(error: error)
+      delegate?.chargeResult(error: error, chargeIdCreated: nil)
     } else if status == .success {
-      delegate?.chargeResult(error: nil)
+      delegate?.chargeResult(error: nil, chargeIdCreated: chargeIdCreated)
     } else {
-      delegate?.chargeResult(error: error)
+      delegate?.chargeResult(error: error, chargeIdCreated: nil)
     }
   }
 }

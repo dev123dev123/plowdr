@@ -21,15 +21,20 @@ class SetDateTimeController: UIViewController {
   var dateSelected: (String, Date)?
   var bestTimeSelected = BestTime.morning
   
+  let calendar = Calendar.current
+  var dateSnowFallFuture: Date?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    dateSnowFallFuture = calendar.date(byAdding: .year, value: 1, to: Date())
+    
     if dateSelected == nil {
-      dateSelected = (Strings.UI.newSnowFall, Date())
+      dateSelected = (Strings.UI.newSnowFall, dateSnowFallFuture!)
     }
     
     let font = UIFont.init(name: "HiraMaruProN-W4", size: 17)
-    segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
+    segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
     
     datesToShow = generateDates(currentDate: Date())
     
@@ -94,7 +99,7 @@ class SetDateTimeController: UIViewController {
 
 extension SetDateTimeController {
   func generateDates(currentDate: Date) -> [(String, Date)] {
-    let calendar = Calendar.current
+    
     var dates = [(String, Date)]()
     
     if let oneMonthFromNow = Calendar.current.date(byAdding: .day, value: 30, to: currentDate) {
@@ -109,7 +114,8 @@ extension SetDateTimeController {
         dateLooped = calendar.date(byAdding: .day, value: 1, to: dateLooped)!
       }
       
-      dates.insert((Strings.UI.newSnowFall, Date()), at: 0)
+      
+      dates.insert((Strings.UI.newSnowFall, dateSnowFallFuture!), at: 0)
     }
     
     return dates
