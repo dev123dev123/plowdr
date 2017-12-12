@@ -43,6 +43,11 @@ struct StoryboardSegues {
   static let HomeToJobDetail = "HomeToJobDetail"
   
   static let HomeToJobs = "HomeToJobs"
+  
+  static let JobDetailChildToInvoiceDetail = "JobDetailChildToInvoiceDetail"
+  
+  static let HomeToTaskDetail = "HomeToTaskDetail"
+  static let TaskDetailToUpdateService = "TaskDetailToUpdateService"
 }
 
 

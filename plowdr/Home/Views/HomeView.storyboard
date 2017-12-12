@@ -42,10 +42,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSR-r3-7ib">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="450.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="573"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops, it looks like you don't have anything booked yet! Press Schedule Plow below to make an appointment with us!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5n-R5-3Me">
-                                                <rect key="frame" x="10" y="0.0" width="355" height="450.5"/>
+                                                <rect key="frame" x="10" y="0.0" width="355" height="573"/>
                                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whD-dH-NXb">
-                                        <rect key="frame" x="0.0" y="450.5" width="375" height="136.5"/>
+                                        <rect key="frame" x="0.0" y="573" width="375" height="14"/>
                                         <connections>
                                             <segue destination="y2Z-gz-LRd" kind="embed" identifier="HomeToJobs" id="Tdi-w6-NOF"/>
                                         </connections>
@@ -105,6 +105,7 @@
                         <segue destination="BMM-uN-wzH" kind="presentation" identifier="HomeToSetAddress" id="O1W-Ev-CnG"/>
                         <segue destination="MwS-Sf-hbp" kind="presentation" identifier="HomeToSetAccount" id="tQS-W7-nQh"/>
                         <segue destination="BZt-3Y-xqx" kind="presentation" identifier="HomeToJobDetail" id="uhu-zF-2if"/>
+                        <segue destination="3rK-Mb-Ljm" kind="presentation" identifier="HomeToTaskDetail" id="WxI-xU-YoJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSl-R4-cyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,6 +159,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8B-aS-ok5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="358" y="302"/>
+        </scene>
+        <!--TaskDetailView-->
+        <scene sceneID="m0Z-8J-mUD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TaskDetailView" referencedIdentifier="TaskDetailView" id="3rK-Mb-Ljm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCZ-Os-NMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="478"/>
         </scene>
     </scenes>
 </document>

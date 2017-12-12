@@ -106,7 +106,8 @@ extension HomeController: JobsDelegate {
   }
   
   func didRowTap() {
-    performSegue(withIdentifier: StoryboardSegues.HomeToJobDetail, sender: nil)
+//    performSegue(withIdentifier: StoryboardSegues.HomeToJobDetail, sender: nil)
+    performSegue(withIdentifier: StoryboardSegues.HomeToTaskDetail, sender: nil)
   }
 }
 

@@ -58,10 +58,10 @@
                         <viewLayoutGuide key="safeArea" id="deo-BP-l8d"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.1176470588" green="0.30980392159999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="0.1176470588" green="0.30980392159999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -77,7 +77,7 @@
         <scene sceneID="eJi-EK-BtC">
             <objects>
                 <tableViewController id="3Xm-2v-Ufe" customClass="JobDetailChildController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BER-uV-CTh">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BER-uV-CTh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -88,24 +88,41 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9jt-qB-ShU" id="UVa-cp-deh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vul-pi-pFq">
-                                                    <rect key="frame" x="16" y="11" width="343" height="108"/>
+                                                    <rect key="frame" x="0.0" y="11" width="0.0" height="108"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for snowfall" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqW-aZ-etA">
-                                                            <rect key="frame" x="8" y="44.5" width="327" height="20"/>
-                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
-                                                            <color key="textColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K2S-de-p0G">
+                                                            <rect key="frame" x="0.0" y="19" width="0.0" height="70"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for snowfall" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqW-aZ-etA">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="jo9-cW-Koz"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We'll alert you when we dispatch a driver." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR7-YM-o0e">
+                                                                    <rect key="frame" x="0.0" y="40" width="0.0" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="Tuj-oF-FhL"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="xqW-aZ-etA" secondAttribute="trailing" constant="8" id="HcY-7t-lVO"/>
-                                                        <constraint firstItem="xqW-aZ-etA" firstAttribute="centerY" secondItem="vul-pi-pFq" secondAttribute="centerY" id="SQ9-M4-V57"/>
-                                                        <constraint firstItem="xqW-aZ-etA" firstAttribute="leading" secondItem="vul-pi-pFq" secondAttribute="leading" constant="8" id="vM8-Ha-HCS"/>
+                                                        <constraint firstItem="K2S-de-p0G" firstAttribute="centerY" secondItem="vul-pi-pFq" secondAttribute="centerY" id="0tJ-HP-IOT"/>
+                                                        <constraint firstItem="K2S-de-p0G" firstAttribute="leading" secondItem="vul-pi-pFq" secondAttribute="leading" constant="8" id="6g8-on-RQ9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="K2S-de-p0G" secondAttribute="trailing" constant="8" id="nUn-Sq-sOa"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -123,19 +140,19 @@
                                         <rect key="frame" x="0.0" y="130" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wFx-aK-1uF" id="HBL-T7-GoQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yx5-Q6-Dd9">
                                                     <rect key="frame" x="16" y="11" width="88.5" height="17"/>
                                                     <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n/a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jl-Xh-wg2">
-                                                    <rect key="frame" x="16" y="39" width="33" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="16" y="39" width="28" height="17"/>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -149,32 +166,67 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="MfS-EF-PkD">
-                                        <rect key="frame" x="0.0" y="230" width="375" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="230" id="MfS-EF-PkD">
+                                        <rect key="frame" x="0.0" y="230" width="375" height="230"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MfS-EF-PkD" id="O7N-lk-fH2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbx-Vx-4HM">
-                                                    <rect key="frame" x="16" y="11" width="97" height="17"/>
+                                                    <rect key="frame" x="16" y="11" width="96.5" height="17"/>
                                                     <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n/a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUa-cV-ZQM">
-                                                    <rect key="frame" x="16" y="39" width="33" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="au2-zp-jjv">
+                                                    <rect key="frame" x="16" y="36" width="343" height="91"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="91" id="XjV-aT-X9i"/>
+                                                    </constraints>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cTu-we-F2o">
+                                                    <rect key="frame" x="103" y="142" width="169" height="75"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Driver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqO-si-f8M">
+                                                            <rect key="frame" x="0.0" y="0.0" width="169" height="30"/>
+                                                            <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="169" id="fx3-2H-IOL"/>
+                                                                <constraint firstAttribute="height" constant="30" id="laC-2H-QTh"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                            <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Invoice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUt-Ea-ONj">
+                                                            <rect key="frame" x="0.0" y="45" width="169" height="30"/>
+                                                            <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="kab-Dz-eNV"/>
+                                                                <constraint firstAttribute="width" constant="169" id="wCY-GU-wjW"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                            <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="BUa-cV-ZQM" firstAttribute="top" secondItem="vbx-Vx-4HM" secondAttribute="bottom" constant="11" id="BdC-Ud-ayb"/>
+                                                <constraint firstItem="au2-zp-jjv" firstAttribute="trailing" secondItem="O7N-lk-fH2" secondAttribute="trailingMargin" id="0M1-bc-SJR"/>
+                                                <constraint firstItem="cTu-we-F2o" firstAttribute="top" secondItem="au2-zp-jjv" secondAttribute="bottom" constant="15" id="PiS-hd-xEW"/>
+                                                <constraint firstItem="cTu-we-F2o" firstAttribute="centerX" secondItem="O7N-lk-fH2" secondAttribute="centerX" id="T8A-UH-bDb"/>
+                                                <constraint firstItem="au2-zp-jjv" firstAttribute="leading" secondItem="O7N-lk-fH2" secondAttribute="leadingMargin" id="TCh-XR-wux"/>
                                                 <constraint firstItem="vbx-Vx-4HM" firstAttribute="top" secondItem="O7N-lk-fH2" secondAttribute="topMargin" id="XLq-gp-qQ0"/>
-                                                <constraint firstItem="BUa-cV-ZQM" firstAttribute="leading" secondItem="O7N-lk-fH2" secondAttribute="leadingMargin" id="nk9-or-qf3"/>
                                                 <constraint firstItem="vbx-Vx-4HM" firstAttribute="leading" secondItem="O7N-lk-fH2" secondAttribute="leadingMargin" id="xv5-r9-c0u"/>
+                                                <constraint firstItem="au2-zp-jjv" firstAttribute="top" secondItem="vbx-Vx-4HM" secondAttribute="bottom" constant="8" id="yZN-mV-eT1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -189,11 +241,26 @@
                     </tableView>
                     <connections>
                         <outlet property="borderView" destination="vul-pi-pFq" id="MP2-DW-YQK"/>
+                        <outlet property="callDriverLabel" destination="YqO-si-f8M" id="7tC-wS-Y3c"/>
+                        <outlet property="driverInfoLabel" destination="8Jl-Xh-wg2" id="r2r-4w-Qt4"/>
+                        <outlet property="subtitleJobLabel" destination="cR7-YM-o0e" id="GrS-36-CgN"/>
+                        <outlet property="titleJobLabel" destination="xqW-aZ-etA" id="CQo-9y-KLE"/>
+                        <outlet property="vehicleInfoTextView" destination="au2-zp-jjv" id="UXK-0D-CTO"/>
+                        <outlet property="viewInvoiceLabel" destination="WUt-Ea-ONj" id="Dbq-So-gdN"/>
+                        <segue destination="1V5-dn-gFx" kind="presentation" identifier="JobDetailChildToInvoiceDetail" id="XoR-oV-lO7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkQ-bx-AHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-510" y="-202"/>
+            <point key="canvasLocation" x="-702" y="-248"/>
+        </scene>
+        <!--InvoiceDetailView-->
+        <scene sceneID="ekb-ha-YOA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="InvoiceDetailView" referencedIdentifier="InvoiceDetailView" id="1V5-dn-gFx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ql-SH-OeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="197" y="-203"/>
         </scene>
     </scenes>
 </document>

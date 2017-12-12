@@ -78,12 +78,13 @@ extension JobsController {
     cell.backgroundColor = .clear
     cell.initUI()
     cell.setLabelText(values: values, jobState: .scheduled)
+    cell.showSubtitleLabel(show: false)
     
     return cell
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    delegate?.didRowTap()
+    delegate?.didRowTap()
   }
   
 }

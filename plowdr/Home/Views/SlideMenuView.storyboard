@@ -98,8 +98,8 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="92P-1K-ztP" firstAttribute="centerY" secondItem="X4m-S0-zdP" secondAttribute="centerY" id="QFU-ct-akm"/>
-                                                <constraint firstItem="92P-1K-ztP" firstAttribute="leading" secondItem="X4m-S0-zdP" secondAttribute="leadingMargin" constant="35" id="fiZ-JJ-XSS"/>
+                                                <constraint firstItem="92P-1K-ztP" firstAttribute="centerY" secondItem="X4m-S0-zdP" secondAttribute="centerY" priority="750" id="QFU-ct-akm"/>
+                                                <constraint firstItem="92P-1K-ztP" firstAttribute="leading" secondItem="X4m-S0-zdP" secondAttribute="leadingMargin" priority="750" constant="35" id="fiZ-JJ-XSS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -150,8 +150,8 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="address-icon" translatesAutoresizingMaskIntoConstraints="NO" id="d4P-bm-2aR">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="32"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="20" id="Fho-FJ-6jN"/>
-                                                                <constraint firstAttribute="height" constant="32" id="jHL-Be-klm"/>
+                                                                <constraint firstAttribute="width" priority="750" constant="20" id="Fho-FJ-6jN"/>
+                                                                <constraint firstAttribute="height" priority="750" constant="32" id="jHL-Be-klm"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbD-uf-ePy">
@@ -164,8 +164,8 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="sgB-DM-ShV" firstAttribute="leading" secondItem="S6t-bc-G8m" secondAttribute="leadingMargin" constant="35" id="1G0-bp-xIg"/>
-                                                <constraint firstItem="sgB-DM-ShV" firstAttribute="centerY" secondItem="S6t-bc-G8m" secondAttribute="centerY" id="Vqt-y7-SGk"/>
+                                                <constraint firstItem="sgB-DM-ShV" firstAttribute="leading" secondItem="S6t-bc-G8m" secondAttribute="leadingMargin" priority="750" constant="35" id="1G0-bp-xIg"/>
+                                                <constraint firstItem="sgB-DM-ShV" firstAttribute="centerY" secondItem="S6t-bc-G8m" secondAttribute="centerY" priority="750" id="Vqt-y7-SGk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -274,14 +274,16 @@
                         <outlet property="bookingsCell" destination="W7H-Ah-wIb" id="m8Z-nn-cD9"/>
                         <outlet property="logoutCell" destination="3F0-4N-MvP" id="y9Z-V1-LrI"/>
                         <outlet property="paymentCell" destination="9D8-5f-zGD" id="PKn-Bd-i7z"/>
+                        <outlet property="paymentOrEarningsLabel" destination="KWW-3s-fws" id="WUE-Zm-hs0"/>
                         <outlet property="scheduleJobCell" destination="OmF-1z-VYp" id="ssl-5A-B5R"/>
+                        <outlet property="scheduleOrViewPlowsLabel" destination="fDQ-Lg-Slm" id="KjE-rR-mDp"/>
                         <outlet property="supportCell" destination="s4X-du-RZ3" id="nuv-4x-wVV"/>
                         <outlet property="userLabel" destination="qtb-9G-pXH" id="kls-Dj-sld"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZD1-TM-3SN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1223" y="-39"/>
+            <point key="canvasLocation" x="-1551" y="-49"/>
         </scene>
     </scenes>
     <resources>

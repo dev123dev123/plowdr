@@ -51,6 +51,11 @@ struct Strings {
   struct UI {
     static let obstaclesPlaceHolderText = "Ex. I have a stack of wood I will leave marked with a red flag"
     static let newSnowFall = "Next Snowfall"
+    static let scheduleLabelClientTitle = "Schedule Plow"
+    static let scheduleLabelDriverTitle = "View Jobs"
+    
+    static let paymentLabelClientTitle = "Payment"
+    static let paymentLabelDriverTitle = "Earnings"
   }
   
   static let singleJobTitle = "Single Plow"

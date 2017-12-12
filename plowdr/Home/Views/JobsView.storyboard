@@ -34,19 +34,32 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MN0-K8-emE">
                                             <rect key="frame" x="16" y="11" width="343" height="78"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKI-2K-F83">
-                                                    <rect key="frame" x="0.0" y="8" width="343" height="62"/>
-                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xrS-O4-783">
+                                                    <rect key="frame" x="8" y="18" width="327" height="42"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKI-2K-F83">
+                                                            <rect key="frame" x="0.0" y="0.0" width="327" height="17"/>
+                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqG-7o-2T8">
+                                                            <rect key="frame" x="0.0" y="22" width="327" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="BbZ-sO-WfF"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="13"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="kKI-2K-F83" firstAttribute="top" secondItem="MN0-K8-emE" secondAttribute="top" constant="8" id="SGt-UQ-A7n"/>
-                                                <constraint firstItem="kKI-2K-F83" firstAttribute="leading" secondItem="MN0-K8-emE" secondAttribute="leading" id="bxj-HV-MlI"/>
-                                                <constraint firstAttribute="trailing" secondItem="kKI-2K-F83" secondAttribute="trailing" id="hvm-si-vyg"/>
-                                                <constraint firstAttribute="bottom" secondItem="kKI-2K-F83" secondAttribute="bottom" constant="8" id="qxd-Wa-nBR"/>
+                                                <constraint firstItem="xrS-O4-783" firstAttribute="centerY" secondItem="MN0-K8-emE" secondAttribute="centerY" id="5yh-fk-xIj"/>
+                                                <constraint firstItem="xrS-O4-783" firstAttribute="leading" secondItem="MN0-K8-emE" secondAttribute="leading" constant="8" id="Jxg-d0-Rde"/>
+                                                <constraint firstAttribute="trailing" secondItem="xrS-O4-783" secondAttribute="trailing" constant="8" id="Smk-po-2BG"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -60,6 +73,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="borderView" destination="MN0-K8-emE" id="sIs-2Z-Gu1"/>
+                                    <outlet property="subtitleLabel" destination="cqG-7o-2T8" id="ZeQ-it-76p"/>
                                     <outlet property="titleLabel" destination="kKI-2K-F83" id="mCG-Of-fGp"/>
                                 </connections>
                             </tableViewCell>

@@ -18,8 +18,18 @@ protocol MenuOptionsDelegate: class {
   func didLogoutTap()
 }
 
+enum SlideMenuType {
+  case client
+  case driver
+}
+
 class SlideMenuController: UITableViewController {
   weak var delegate: MenuOptionsDelegate?
+  
+  var slideMenuType: SlideMenuType = .client
+  
+  @IBOutlet weak var scheduleOrViewPlowsLabel: UILabel!
+  @IBOutlet weak var paymentOrEarningsLabel: UILabel!
   
   @IBOutlet weak var userLabel: UILabel!
   @IBOutlet weak var scheduleJobCell: UITableViewCell!
@@ -47,6 +57,15 @@ extension SlideMenuController {
     }
     
     userLabel.text = fullName
+    
+    switch slideMenuType {
+    case .client:
+      scheduleOrViewPlowsLabel.text = Strings.UI.scheduleLabelClientTitle
+      paymentOrEarningsLabel.text = Strings.UI.paymentLabelClientTitle
+    case .driver:
+      scheduleOrViewPlowsLabel.text = Strings.UI.scheduleLabelDriverTitle
+      paymentOrEarningsLabel.text = Strings.UI.paymentLabelDriverTitle
+    }
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -74,8 +93,35 @@ extension SlideMenuController {
       delegate?.didLogoutTap()
     }
   }
+
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let cell = super.tableView(tableView, cellForRowAt: indexPath)
+    let height = super.tableView(tableView, heightForRowAt: indexPath)
+    
+    switch slideMenuType {
+    case .client:
+      break
+    case .driver:
+      if bookingsCell === cell {
+        return 0
+      } else if addressCell === cell {
+        return 0
+      }
+    }
+    
+    return height
+  }
   
 }
+
+//@IBOutlet weak var scheduleJobCell: UITableViewCell!
+//@IBOutlet weak var bookingsCell: UITableViewCell!
+//@IBOutlet weak var paymentCell: UITableViewCell!
+//@IBOutlet weak var addressCell: UITableViewCell!
+//@IBOutlet weak var accountCell: UITableViewCell!
+//@IBOutlet weak var supportCell: UITableViewCell!
+//@IBOutlet weak var logoutCell: UITableViewCell!
 
 
 

@@ -16,6 +16,8 @@ class JobCellController: UITableViewCell {
   
   @IBOutlet weak var borderView: UIView!
   @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var subtitleLabel: UILabel!
+  
   var jobState: JobState?
   
   func initUI() {
@@ -24,10 +26,16 @@ class JobCellController: UITableViewCell {
     borderView.layer.borderColor = UIColor.white.cgColor
   }
   
+  func showTitleLabel(show: Bool) {
+    titleLabel.isHidden = !show
+  }
+  
+  func showSubtitleLabel(show: Bool) {
+    subtitleLabel.isHidden = !show
+  }
+  
   func setLabelText(values: [String: String], jobState: JobState) {
     self.jobState = jobState
-    
-//    if let jobState = jobState {
     
     switch jobState {
     case .scheduled:
@@ -52,8 +60,6 @@ class JobCellController: UITableViewCell {
       titleLabel.attributedText = monthAttributedString
       break
     }
-      
-//    }
   }
 }
 
