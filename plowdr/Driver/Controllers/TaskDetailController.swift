@@ -25,6 +25,10 @@ class TaskDetailController: UIViewController {
     super.viewDidLoad()
   }
   
+  @IBAction func closeButtonTapped() {
+    dismiss(animated: true)
+  }
+  
   @objc func updateServiceLabelTapped() {
     performSegue(withIdentifier: StoryboardSegues.TaskDetailToUpdateService, sender: nil)
   }

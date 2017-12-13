@@ -37,7 +37,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oN-pG-cwV">
                                 <rect key="frame" x="0.0" y="50" width="375" height="549"/>
                                 <connections>
-                                    <segue destination="GhV-uI-gpH" kind="embed" id="cbR-TE-3fm"/>
+                                    <segue destination="GhV-uI-gpH" kind="embed" identifier="TaskDetailChild" id="cbR-TE-3fm"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxb-w7-eCo">
@@ -49,6 +49,9 @@
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="closeButtonTapped" destination="hzP-Tv-G3d" eventType="touchUpInside" id="Uje-fZ-0Eg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Client name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYE-uY-eve">
                                 <rect key="frame" x="130" y="20" width="115" height="20"/>

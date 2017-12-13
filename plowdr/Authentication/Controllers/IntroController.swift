@@ -37,15 +37,6 @@ class IntroController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    for family: String in UIFont.familyNames
-    {
-      print("\(family)")
-      for names: String in UIFont.fontNames(forFamilyName: family)
-      {
-        print("== \(names)")
-      }
-    }
-    
     setupLabels()
     
 

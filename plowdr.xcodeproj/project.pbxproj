@@ -69,6 +69,7 @@
 		69A008F81FDF1F4D0044C6B6 /* UpdateServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A008F71FDF1F4D0044C6B6 /* UpdateServiceController.swift */; };
 		69A008FA1FDF1F5A0044C6B6 /* UpdateServiceChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A008F91FDF1F5A0044C6B6 /* UpdateServiceChildController.swift */; };
 		69A008FC1FDF2FC00044C6B6 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A008FB1FDF2FC00044C6B6 /* UILabel+.swift */; };
+		69A008FE1FE01C410044C6B6 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A008FD1FE01C410044C6B6 /* Task.swift */; };
 		69C6A0711FD731BA003B52BA /* StripeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6A0701FD731BA003B52BA /* StripeConfigurator.swift */; };
 		69C6A0731FD7326D003B52BA /* StripeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6A0721FD7326D003B52BA /* StripeAPIClient.swift */; };
 		69C6A0791FD7475D003B52BA /* STPPaymentContextImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6A0781FD7475D003B52BA /* STPPaymentContextImplementation.swift */; };
@@ -157,6 +158,7 @@
 		69A008F71FDF1F4D0044C6B6 /* UpdateServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateServiceController.swift; sourceTree = "<group>"; };
 		69A008F91FDF1F5A0044C6B6 /* UpdateServiceChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateServiceChildController.swift; sourceTree = "<group>"; };
 		69A008FB1FDF2FC00044C6B6 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		69A008FD1FE01C410044C6B6 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		69C6A0701FD731BA003B52BA /* StripeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeConfigurator.swift; sourceTree = "<group>"; };
 		69C6A0721FD7326D003B52BA /* StripeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPIClient.swift; sourceTree = "<group>"; };
 		69C6A0781FD7475D003B52BA /* STPPaymentContextImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPPaymentContextImplementation.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				698CC5721FC7193400FEE976 /* Address.swift */,
 				698CC5741FC71A9400FEE976 /* Schedule.swift */,
 				698CC5761FC71B2400FEE976 /* JobDetail.swift */,
+				69A008FD1FE01C410044C6B6 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				69A008F81FDF1F4D0044C6B6 /* UpdateServiceController.swift in Sources */,
 				69D589101FBE32C600F23C76 /* JobDescriptionController.swift in Sources */,
 				69678A5A1FC37A7200860689 /* JobDetailListController.swift in Sources */,
+				69A008FE1FE01C410044C6B6 /* Task.swift in Sources */,
 				69A008F21FDF1B5F0044C6B6 /* TaskDetailController.swift in Sources */,
 				698CC5731FC7193400FEE976 /* Address.swift in Sources */,
 				69678A4A1FC3110300860689 /* SetJobDetailsChildController.swift in Sources */,

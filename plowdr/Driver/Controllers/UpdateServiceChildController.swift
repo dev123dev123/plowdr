@@ -15,11 +15,43 @@ class UpdateServiceChildController: UITableViewController {
   @IBOutlet weak var completedLabel: UILabel!
   @IBOutlet weak var callCustomerLabel: UILabel!
   
+  var isEnrouteSelected = false {
+    didSet {
+      print(isEnrouteSelected)
+      if isEnrouteSelected {
+        enrouteLabel.makeSelected()
+      } else {
+        enrouteLabel.makeNotSelected()
+      }
+    }
+  }
+  
+  var isCurrentlyPlowingSelected = false {
+    didSet {
+      print(isCurrentlyPlowingSelected)
+      if isCurrentlyPlowingSelected {
+        currentlyPlowingLabel.makeSelected()
+      } else {
+        currentlyPlowingLabel.makeNotSelected()
+      }
+    }
+  }
+  
+  var isCompletedSelected = false {
+    didSet {
+      print(isCompletedSelected)
+      if isCompletedSelected {
+        completedLabel.makeSelected()
+      } else {
+        completedLabel.makeNotSelected()
+      }
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    setupUI()
+    setupUI()
     
     enrouteLabel.layer.cornerRadius = 5.0
     enrouteLabel.layer.masksToBounds = true
@@ -33,10 +65,86 @@ class UpdateServiceChildController: UITableViewController {
     callCustomerLabel.layer.cornerRadius = 5.0
     callCustomerLabel.layer.masksToBounds = true
     
-    enrouteLabel.makeNotSelected()
-    currentlyPlowingLabel.makeNotSelected()
-    completedLabel.makeNotSelected()
+    isEnrouteSelected = false
+    isCurrentlyPlowingSelected = false
+    isCompletedSelected = false
     
     callCustomerLabel.makeSelected()
   }
+  
+  func setupUI() {
+    let enrouteTapGesture = UITapGestureRecognizer(target: self, action: #selector(enrouteLabelTapped))
+    enrouteTapGesture.numberOfTouchesRequired = 1
+    enrouteTapGesture.numberOfTapsRequired = 1
+    enrouteLabel.isUserInteractionEnabled = true
+    enrouteLabel.addGestureRecognizer(enrouteTapGesture)
+    
+    let currentlPlowingTapGesture = UITapGestureRecognizer(target: self, action: #selector(currentlyPlowingLabelTapped))
+    currentlPlowingTapGesture.numberOfTouchesRequired = 1
+    currentlPlowingTapGesture.numberOfTapsRequired = 1
+    currentlyPlowingLabel.isUserInteractionEnabled = true
+    currentlyPlowingLabel.addGestureRecognizer(currentlPlowingTapGesture)
+    
+    let completedTapGesture = UITapGestureRecognizer(target: self, action: #selector(completedLabelTapped))
+    completedTapGesture.numberOfTouchesRequired = 1
+    completedTapGesture.numberOfTapsRequired = 1
+    completedLabel.isUserInteractionEnabled = true
+    completedLabel.addGestureRecognizer(completedTapGesture)
+  }
+  
+  @objc func enrouteLabelTapped() {
+    isEnrouteSelected = !isEnrouteSelected
+    isCurrentlyPlowingSelected = false
+    isCompletedSelected = false
+  }
+  
+  @objc func currentlyPlowingLabelTapped() {
+    isCurrentlyPlowingSelected = !isCurrentlyPlowingSelected
+    isEnrouteSelected = false
+    isCompletedSelected = false
+  }
+  
+  @objc  func completedLabelTapped() {
+    isCompletedSelected = !isCompletedSelected
+    isEnrouteSelected = false
+    isCurrentlyPlowingSelected = false
+    
+//    dismiss
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

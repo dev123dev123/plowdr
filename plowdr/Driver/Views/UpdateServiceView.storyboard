@@ -37,7 +37,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-ov-ctB">
                                 <rect key="frame" x="0.0" y="50" width="375" height="549"/>
                                 <connections>
-                                    <segue destination="LIo-Jr-chY" kind="embed" id="lkJ-LD-bau"/>
+                                    <segue destination="LIo-Jr-chY" kind="embed" identifier="UpdateServiceChild" id="lkJ-LD-bau"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-t8-aGP">
@@ -55,6 +55,9 @@
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="yEw-yS-4Xl" eventType="touchUpInside" id="9io-fy-mKT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,6 +84,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="updateLabel" destination="lSk-9u-iK1" id="oyt-Ia-B6c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcC-7i-cSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

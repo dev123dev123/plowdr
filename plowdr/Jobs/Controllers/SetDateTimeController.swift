@@ -27,7 +27,7 @@ class SetDateTimeController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    dateSnowFallFuture = calendar.date(byAdding: .year, value: 1, to: Date())
+    dateSnowFallFuture = calendar.date(byAdding: .year, value: 10, to: Date())
     
     if dateSelected == nil {
       dateSelected = (Strings.UI.newSnowFall, dateSnowFallFuture!)

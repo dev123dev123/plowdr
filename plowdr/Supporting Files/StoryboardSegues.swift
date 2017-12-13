@@ -48,6 +48,8 @@ struct StoryboardSegues {
   
   static let HomeToTaskDetail = "HomeToTaskDetail"
   static let TaskDetailToUpdateService = "TaskDetailToUpdateService"
+  static let UpdateServiceChild = "UpdateServiceChild"
+  
 }
 
 

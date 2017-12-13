@@ -30,6 +30,11 @@ import FirebaseFirestore
 //values["howDeepSnow"] = jobDetail.howDeepSnow
 //values["obstacles"] = jobDetail.obstacles
 
+enum PlanState: String {
+  case active
+  case expired
+}
+
 struct Job {
 //  var id: String
 //  var userId: String
@@ -43,6 +48,8 @@ struct Job {
 //  var howDeepSnow: String
 //  var obstacles: String
   
+//  var expired: String
+  
   
   var date: Date
   var isNextSnowFall: Bool
@@ -50,18 +57,16 @@ struct Job {
   
   init?(dictionary: [String: Any]) {
     guard
-      let date = dictionary["dateSelected"] as? Date,
+      let date = dictionary["dateSelected"] as? Double,
       let isNextSnowFall = dictionary["isNextSnowFall"] as? Bool,
       let chargeId = dictionary["chargeId"] as? String
     else {
       return nil
     }
     
-    self.date = date
+    self.date = Date.init(timeIntervalSince1970: date)
     self.isNextSnowFall = isNextSnowFall
     self.chargeId = chargeId
-    
-    
   }
   
 }
@@ -78,12 +83,17 @@ extension Job {
     let options = QueryListenOptions()
     options.includeQueryMetadataChanges(true)
     
+    print("""
+      userId: \(userId)
+      planState: \(PlanState.active.rawValue)
+    """)
+    
     var jobs = [Job]()
     let query = dbJobs
                   .whereField("userId", isEqualTo: userId)
+                  .whereField("planState", isEqualTo: PlanState.active.rawValue)
                   .order(by: "dateSelected", descending: true)
     query.addSnapshotListener(options: options) { (snap, error) in
-      print(error)
       if let documents = snap?.documents {
         jobs = documents.flatMap {
           print($0.metadata.isFromCache)
@@ -109,12 +119,14 @@ extension Job {
     
     var values = [String: Any]()
     values["id"] = jobDocument.documentID
-    values["userId"] = userId
     values["jobType"] = jobType.rawValue
+    values["dateCreated"] = FieldValue.serverTimestamp()
+    
+    values["userId"] = userId
     values["latitude"] = address.latitude
     values["longitude"] = address.longitude
     values["address"] = address.addressLine
-    values["dateSelected"] = dateSelected.1
+    values["dateSelected"] = dateSelected.1.timeIntervalSince1970
     values["chargeId"] = chargeId
     
     if dateSelected.0 == Strings.UI.newSnowFall {
@@ -127,6 +139,7 @@ extension Job {
     values["howLong"] = jobDetail.howLong
     values["howDeepSnow"] = jobDetail.howDeepSnow
     values["obstacles"] = jobDetail.obstacles
+    values["planState"] = PlanState.active.rawValue
     
     jobDocument.setData(values) { (error) in
       completion(error)
