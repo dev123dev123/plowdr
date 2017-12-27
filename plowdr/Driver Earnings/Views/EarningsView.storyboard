@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+        <array key="HiraginoMaruGothProN.ttc">
+            <string>HiraMaruProN-W4</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Earnings Controller-->
+        <scene sceneID="YgQ-4B-FIe">
+            <objects>
+                <viewController storyboardIdentifier="EarningsView" id="CFG-Se-CxC" customClass="EarningsController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7r1-la-Vgv" customClass="GradientView" customModule="plowdr" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Completed Services" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NK6-N2-93E">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="g4P-vn-xxc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBh-yT-IOE">
+                                <rect key="frame" x="0.0" y="60" width="375" height="539"/>
+                                <connections>
+                                    <segue destination="Mfg-SD-hMe" kind="embed" identifier="EarningsChild" id="9YV-QB-3gp"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Earnings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUT-yZ-0td">
+                                <rect key="frame" x="115" y="20" width="145.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsz-ay-mYO">
+                                <rect key="frame" x="16" y="20" width="30" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped" destination="CFG-Se-CxC" eventType="touchUpInside" id="1VO-WL-eXi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KBh-yT-IOE" firstAttribute="top" secondItem="1TZ-FO-trJ" secondAttribute="top" constant="40" id="B6b-PW-nZV"/>
+                            <constraint firstItem="NK6-N2-93E" firstAttribute="leading" secondItem="1TZ-FO-trJ" secondAttribute="leading" id="Bgz-RK-nxp"/>
+                            <constraint firstItem="KBh-yT-IOE" firstAttribute="trailing" secondItem="1TZ-FO-trJ" secondAttribute="trailing" id="HTS-Kl-g55"/>
+                            <constraint firstItem="qsz-ay-mYO" firstAttribute="leading" secondItem="1TZ-FO-trJ" secondAttribute="leading" constant="16" id="R9J-6I-gIv"/>
+                            <constraint firstItem="KBh-yT-IOE" firstAttribute="leading" secondItem="1TZ-FO-trJ" secondAttribute="leading" id="RXr-Gd-PbK"/>
+                            <constraint firstItem="NK6-N2-93E" firstAttribute="top" secondItem="KBh-yT-IOE" secondAttribute="bottom" constant="8" id="YU6-PP-cAz"/>
+                            <constraint firstItem="NK6-N2-93E" firstAttribute="trailing" secondItem="1TZ-FO-trJ" secondAttribute="trailing" id="cOy-Na-iPt"/>
+                            <constraint firstItem="yUT-yZ-0td" firstAttribute="centerX" secondItem="1TZ-FO-trJ" secondAttribute="centerX" id="co8-aU-CvY"/>
+                            <constraint firstItem="qsz-ay-mYO" firstAttribute="top" secondItem="1TZ-FO-trJ" secondAttribute="top" id="h9i-x8-DAS"/>
+                            <constraint firstItem="NK6-N2-93E" firstAttribute="bottom" secondItem="1TZ-FO-trJ" secondAttribute="bottom" id="jt8-Js-RpS"/>
+                            <constraint firstItem="yUT-yZ-0td" firstAttribute="top" secondItem="1TZ-FO-trJ" secondAttribute="top" id="vvp-pY-SQS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1TZ-FO-trJ"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.1176470588" green="0.30980392159999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="yUT-yZ-0td" id="kQB-71-G6H"/>
+                        <outlet property="viewServicesLabel" destination="NK6-N2-93E" id="NtX-BQ-2Uj"/>
+                        <segue destination="nk3-pp-Z69" kind="presentation" identifier="EarningsToPayStubs" id="ytb-L7-EWr"/>
+                        <segue destination="3Vp-OT-gHD" kind="presentation" identifier="EarningsToBankInfo" id="Q5O-Zr-QQF"/>
+                        <segue destination="q0P-q3-2wR" kind="presentation" identifier="EarningsToCompletedServices" id="Geq-dw-wCs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i9T-Gx-zwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-362.39999999999998" y="89.505247376311857"/>
+        </scene>
+        <!--Earnings Child Controller-->
+        <scene sceneID="jGA-D8-Wwa">
+            <objects>
+                <tableViewController id="Mfg-SD-hMe" customClass="EarningsChildController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r14-Yd-gab">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="zKM-PE-Lmo">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="500" id="ngG-lY-LbN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ngG-lY-LbN" id="Yjc-Zc-zj1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6aY-dD-sE8">
+                                                    <rect key="frame" x="16" y="11" width="120.5" height="364"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zOd-zF-bfF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="120.5" height="253"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDj-aL-6eV">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="17"/>
+                                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-ks-ElT">
+                                                                    <rect key="frame" x="0.0" y="37" width="99" height="39"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Small Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snJ-pO-qRu">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="99" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BJ-4l-bWI">
+                                                                            <rect key="frame" x="0.0" y="22" width="11.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NL9-6B-biR">
+                                                                    <rect key="frame" x="0.0" y="96" width="120.5" height="39"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ih-60-a0p">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="120.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nft-8T-rCI">
+                                                                            <rect key="frame" x="0.0" y="22" width="11.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qzP-FZ-oxS">
+                                                                    <rect key="frame" x="0.0" y="155" width="103" height="39"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Large Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CM-7N-bRR">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="103" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irs-fS-tQQ">
+                                                                            <rect key="frame" x="0.0" y="22" width="11.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="i4K-Si-cuy">
+                                                                    <rect key="frame" x="0.0" y="214" width="118.5" height="39"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Set-p0-Oie">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9y-8A-dGj">
+                                                                            <rect key="frame" x="0.0" y="22" width="11.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hKJ-7N-RSo">
+                                                            <rect key="frame" x="0.0" y="283" width="76.5" height="81"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12W-OR-chm">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="31" height="17"/>
+                                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7kE-h9-Q3t">
+                                                                    <rect key="frame" x="0.0" y="37" width="76.5" height="44"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRF-df-OMK">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="76.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ4-DR-8pJ">
+                                                                            <rect key="frame" x="0.0" y="27" width="11.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay Stubs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyd-Vm-5aU">
+                                                    <rect key="frame" x="87.5" y="395" width="200" height="30"/>
+                                                    <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="07u-q5-EHK"/>
+                                                        <constraint firstAttribute="width" constant="200" id="YbX-U0-ndx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpK-jS-z3y">
+                                                    <rect key="frame" x="87" y="445" width="200" height="30"/>
+                                                    <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="mpu-Gu-Lny"/>
+                                                        <constraint firstAttribute="width" constant="200" id="xXd-ib-NwG"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="6aY-dD-sE8" firstAttribute="leading" secondItem="Yjc-Zc-zj1" secondAttribute="leadingMargin" id="Hja-Qx-idK"/>
+                                                <constraint firstItem="Eyd-Vm-5aU" firstAttribute="centerX" secondItem="Yjc-Zc-zj1" secondAttribute="centerX" id="J8y-Hm-QgU"/>
+                                                <constraint firstItem="PpK-jS-z3y" firstAttribute="centerX" secondItem="Yjc-Zc-zj1" secondAttribute="centerX" id="Nk5-E4-aXh"/>
+                                                <constraint firstItem="Eyd-Vm-5aU" firstAttribute="top" secondItem="6aY-dD-sE8" secondAttribute="bottom" constant="20" id="ZvH-uZ-Fng"/>
+                                                <constraint firstItem="6aY-dD-sE8" firstAttribute="top" secondItem="Yjc-Zc-zj1" secondAttribute="topMargin" id="dOe-R4-IeC"/>
+                                                <constraint firstItem="PpK-jS-z3y" firstAttribute="top" secondItem="Eyd-Vm-5aU" secondAttribute="bottom" constant="20" id="g5M-QL-3vb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Mfg-SD-hMe" id="DS0-Fs-1S0"/>
+                            <outlet property="delegate" destination="Mfg-SD-hMe" id="Db8-kr-H2J"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="bankInfoLabel" destination="PpK-jS-z3y" id="RoR-au-38p"/>
+                        <outlet property="dateFromToLabel" destination="cRF-df-OMK" id="Xsv-nm-vPo"/>
+                        <outlet property="payStubsLabel" destination="Eyd-Vm-5aU" id="mug-nZ-jqX"/>
+                        <outlet property="paymentLabel" destination="eZ4-DR-8pJ" id="aIT-Pj-XNU"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t2a-F8-dkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="421.60000000000002" y="89.505247376311857"/>
+        </scene>
+        <!--CompletedServicesView-->
+        <scene sceneID="TbS-Hi-SzC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CompletedServicesView" referencedIdentifier="CompletedServicesView" id="q0P-q3-2wR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YUg-5E-0XC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-905" y="613"/>
+        </scene>
+        <!--BankInfoView-->
+        <scene sceneID="zv6-Kh-Zmq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BankInfoView" referencedIdentifier="BankInfoView" id="3Vp-OT-gHD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OVf-Rk-CNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-570" y="614"/>
+        </scene>
+        <!--PayStubsView-->
+        <scene sceneID="jjp-d0-ad7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PayStubsView" referencedIdentifier="PayStubsView" id="nk3-pp-Z69" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tt1-8e-JVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240" y="560"/>
+        </scene>
+    </scenes>
+</document>

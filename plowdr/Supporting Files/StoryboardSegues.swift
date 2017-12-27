@@ -49,7 +49,25 @@ struct StoryboardSegues {
   static let HomeToTaskDetail = "HomeToTaskDetail"
   static let TaskDetailToUpdateService = "TaskDetailToUpdateService"
   static let UpdateServiceChild = "UpdateServiceChild"
+  static let TaskDetailChild = "TaskDetailChild"
   
+  static let HomeToEarnings = "HomeToEarnings"
+  static let EarningsChild = "EarningsChild"
+  
+  static let EarningsToPayStubs = "EarningsToPayStubs"
+  static let PayStubsChild = "PayStubsChild"
+  
+  static let PayStubsToEarnings = "PayStubsToEarnings"
+  
+  static let EarningsToBankInfo = "EarningsToBankInfo"
+  
+  static let EarningsToCompletedServices = "EarningsToCompletedServices"
+  static let CompletedServicesChild = "CompletedServicesChild"
+  
+  static let CompletedServiceDetailChild = "CompletedServiceDetailChild"
+  static let CompletedServicesToCompletedServiceDetail = "CompletedServicesToCompletedServiceDetail"
+  
+  static let InvoiceDetailChild = "InvoiceDetailChild"
 }
 
 

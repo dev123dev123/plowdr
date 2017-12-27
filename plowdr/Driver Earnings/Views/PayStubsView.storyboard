@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoMaruGothProN.ttc">
+            <string>HiraMaruProN-W4</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Pay Stubs Controller-->
+        <scene sceneID="PsH-8E-WOJ">
+            <objects>
+                <viewController storyboardIdentifier="PayStubsView" id="abB-C3-wne" customClass="PayStubsController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7RF-X4-lVZ" customClass="GradientView" customModule="plowdr" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Li4-Is-dea">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <connections>
+                                    <segue destination="f6E-Y2-PQQ" kind="embed" identifier="PayStubsChild" id="Me6-02-CCn"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-ft-aKv">
+                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped" destination="abB-C3-wne" eventType="touchUpInside" id="hgo-N2-TXw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay Stubs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnN-Xc-wUZ">
+                                <rect key="frame" x="137.5" y="25" width="100" height="20"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Li4-Is-dea" firstAttribute="leading" secondItem="61D-x6-HWD" secondAttribute="leading" id="3iR-Cv-2pQ"/>
+                            <constraint firstItem="Li4-Is-dea" firstAttribute="trailing" secondItem="61D-x6-HWD" secondAttribute="trailing" id="Gjn-4d-Uet"/>
+                            <constraint firstItem="sPe-ft-aKv" firstAttribute="leading" secondItem="61D-x6-HWD" secondAttribute="leading" constant="16" id="LHc-np-9Vh"/>
+                            <constraint firstItem="MnN-Xc-wUZ" firstAttribute="centerX" secondItem="61D-x6-HWD" secondAttribute="centerX" id="PbN-tO-gv0"/>
+                            <constraint firstItem="Li4-Is-dea" firstAttribute="top" secondItem="61D-x6-HWD" secondAttribute="top" constant="40" id="j6k-m5-yNr"/>
+                            <constraint firstItem="sPe-ft-aKv" firstAttribute="top" secondItem="61D-x6-HWD" secondAttribute="top" id="pCF-a5-z8a"/>
+                            <constraint firstItem="MnN-Xc-wUZ" firstAttribute="top" secondItem="61D-x6-HWD" secondAttribute="top" constant="5" id="y29-1E-IrK"/>
+                            <constraint firstItem="Li4-Is-dea" firstAttribute="bottom" secondItem="61D-x6-HWD" secondAttribute="bottom" id="yB1-Bw-hbX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="61D-x6-HWD"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.1176470588" green="0.30980392159999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <segue destination="uNI-4B-cq0" kind="presentation" identifier="PayStubsToEarnings" id="hHA-Lu-tnj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zaj-t9-iuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-226.40000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Pay Stubs Child Controller-->
+        <scene sceneID="NVU-Th-pmQ">
+            <objects>
+                <tableViewController id="f6E-Y2-PQQ" customClass="PayStubsChildController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uF6-k2-c3a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StubCellId" rowHeight="100" id="Lci-Il-keq" customClass="StubCellController" customModule="plowdr" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lci-Il-keq" id="uC0-Uz-fjl">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJh-Ka-Vmu">
+                                            <rect key="frame" x="16" y="11" width="343" height="78"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/01/17 - 11/14/17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V66-yc-nTP">
+                                                    <rect key="frame" x="8" y="29.5" width="327" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="V66-yc-nTP" firstAttribute="centerY" secondItem="QJh-Ka-Vmu" secondAttribute="centerY" id="Nte-GU-Kql"/>
+                                                <constraint firstAttribute="trailing" secondItem="V66-yc-nTP" secondAttribute="trailing" constant="8" id="PHu-R9-byk"/>
+                                                <constraint firstItem="V66-yc-nTP" firstAttribute="leading" secondItem="QJh-Ka-Vmu" secondAttribute="leading" constant="8" id="kSi-kr-t4Z"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="QJh-Ka-Vmu" firstAttribute="top" secondItem="uC0-Uz-fjl" secondAttribute="topMargin" id="2eD-62-H8c"/>
+                                        <constraint firstItem="QJh-Ka-Vmu" firstAttribute="bottom" secondItem="uC0-Uz-fjl" secondAttribute="bottomMargin" id="LJv-lW-Io6"/>
+                                        <constraint firstItem="QJh-Ka-Vmu" firstAttribute="leading" secondItem="uC0-Uz-fjl" secondAttribute="leadingMargin" id="bcP-UC-8wW"/>
+                                        <constraint firstItem="QJh-Ka-Vmu" firstAttribute="trailing" secondItem="uC0-Uz-fjl" secondAttribute="trailingMargin" id="fnA-gs-l6s"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="borderView" destination="QJh-Ka-Vmu" id="f2l-k1-BJd"/>
+                                    <outlet property="datesLabel" destination="V66-yc-nTP" id="Ow8-9b-JWM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="f6E-Y2-PQQ" id="DJm-1z-WVQ"/>
+                            <outlet property="delegate" destination="f6E-Y2-PQQ" id="EAN-f3-VTL"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="67D-0Z-Djz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="597.60000000000002" y="127.28635682158921"/>
+        </scene>
+        <!--EarningsView-->
+        <scene sceneID="yeb-Wc-nwP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EarningsView" referencedIdentifier="EarningsView" id="uNI-4B-cq0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQq-d5-K0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="580"/>
+        </scene>
+    </scenes>
+</document>

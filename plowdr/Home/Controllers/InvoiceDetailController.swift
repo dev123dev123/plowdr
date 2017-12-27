@@ -9,6 +9,14 @@
 import UIKit
 
 class InvoiceDetailController: UIViewController {
+  var currentTask: Task!
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == StoryboardSegues.InvoiceDetailChild {
+      let destinationVC = segue.destination as? InvoiceDetailChildController
+      destinationVC?.currentTask = currentTask
+    }
+  }
   
   @IBAction func cancelButtonTapped() {
     dismiss(animated: true)

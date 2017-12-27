@@ -12,20 +12,29 @@ extension UILabel {
   static let mainColor = UIColor(red: 95.0/255.0, green: 142.0/255.0, blue: 174.0/255.0, alpha: 1.0)
   static let secondColor = UIColor(red: 13.0/255.0, green: 39.0/255.0, blue: 62.0/255.0, alpha: 1.0)
   
+  func makeDisabled() {
+    makeSelected()
+    self.alpha = 0.5
+    self.backgroundColor = UIColor.gray
+    self.isUserInteractionEnabled = false
+  }
+  
   func makeNotSelected() {
-    
+    self.isUserInteractionEnabled = true
+    self.alpha = 1
     self.layer.borderColor = UILabel.mainColor.cgColor
     self.layer.borderWidth = 5.0
-    self.layer.backgroundColor = UIColor.clear.cgColor
+    self.backgroundColor = UIColor.clear
     self.textColor = UILabel.mainColor
   }
   
   func makeSelected() {
+    self.isUserInteractionEnabled = false
+    self.alpha = 1
     self.backgroundColor = .clear
-    
     self.layer.borderColor = UIColor.clear.cgColor
     self.layer.borderWidth = 0.0
-    self.layer.backgroundColor = UILabel.mainColor.cgColor
+    self.backgroundColor = UILabel.mainColor
     self.textColor = UILabel.secondColor
   }
   

@@ -21,9 +21,11 @@ struct Strings {
   
   struct Server {
     static let baseURLString = "https://polar-refuge-65538.herokuapp.com/"
+    static let baseURLFirebaseString = "https://us-central1-plowdr.cloudfunctions.net/"
 //    static let baseURLString = "http://localhost:5000/"
     static let createEphemeralKeyURLString = "\(baseURLString)ephemeral-keys"
     static let chargeURLString = "\(baseURLString)charge"
+    static let getTasksOrderedByHalfMonthsURLString = "\(baseURLFirebaseString)getTasksOrderedByHalfMonths"
   }
   
   struct Keys {
@@ -56,6 +58,17 @@ struct Strings {
     
     static let paymentLabelClientTitle = "Payment"
     static let paymentLabelDriverTitle = "Earnings"
+    
+    static let earningsLabelTitle = "Current Earnings"
+    
+    struct TaskState {
+      static let isNextSnowFall = ("Waiting for snowfall", "")
+      static let noneTitles = ("Looking for drivers..", "We'll alert you when we assign you a driver")
+      static let assignedTitles = ("Driver Assigned", "We'll alert you when we dispatch a driver")
+      static let enrouteTitles = ("Dispatched", "Driver en route")
+      static let plowingTitles = ("Plowing", "")
+      static let completedTitles = ("", "Completed")
+    }
   }
   
   static let singleJobTitle = "Single Plow"

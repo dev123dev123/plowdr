@@ -58,11 +58,10 @@ extension SlideMenuController {
     
     userLabel.text = fullName
     
-    switch slideMenuType {
-    case .client:
+    if User.currentUser!.role == UserRole.client.rawValue {
       scheduleOrViewPlowsLabel.text = Strings.UI.scheduleLabelClientTitle
       paymentOrEarningsLabel.text = Strings.UI.paymentLabelClientTitle
-    case .driver:
+    } else {
       scheduleOrViewPlowsLabel.text = Strings.UI.scheduleLabelDriverTitle
       paymentOrEarningsLabel.text = Strings.UI.paymentLabelDriverTitle
     }
@@ -99,10 +98,7 @@ extension SlideMenuController {
     let cell = super.tableView(tableView, cellForRowAt: indexPath)
     let height = super.tableView(tableView, heightForRowAt: indexPath)
     
-    switch slideMenuType {
-    case .client:
-      break
-    case .driver:
+    if User.currentUser!.role == UserRole.driver.rawValue {
       if bookingsCell === cell {
         return 0
       } else if addressCell === cell {

@@ -9,6 +9,7 @@
 import UIKit
 
 class UpdateServiceChildController: UITableViewController {
+  var currentTask: Task!
   
   @IBOutlet weak var enrouteLabel: UILabel!
   @IBOutlet weak var currentlyPlowingLabel: UILabel!
@@ -41,6 +42,8 @@ class UpdateServiceChildController: UITableViewController {
     didSet {
       print(isCompletedSelected)
       if isCompletedSelected {
+        enrouteLabel.makeDisabled()
+        currentlyPlowingLabel.makeDisabled()
         completedLabel.makeSelected()
       } else {
         completedLabel.makeNotSelected()
@@ -50,8 +53,41 @@ class UpdateServiceChildController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     setupUI()
+    
+    let state = currentTask.state
+    
+    switch state {
+    case .none:
+      isEnrouteSelected = false
+      isCurrentlyPlowingSelected = false
+      isCompletedSelected = false
+      break
+    case .assigned:
+      isEnrouteSelected = false
+      isCurrentlyPlowingSelected = false
+      isCompletedSelected = false
+      break
+    case .enroute:
+      isEnrouteSelected = true
+      isCurrentlyPlowingSelected = false
+      isCompletedSelected = false
+      break
+    case .plowing:
+      isEnrouteSelected = false
+      isCurrentlyPlowingSelected = true
+      isCompletedSelected = false
+      enrouteLabel.makeDisabled()
+      break
+    case .completed:
+      isEnrouteSelected = false
+      isCurrentlyPlowingSelected = false
+      isCompletedSelected = true
+      enrouteLabel.makeDisabled()
+      currentlyPlowingLabel.makeDisabled()
+      break
+    }
+    
     
     enrouteLabel.layer.cornerRadius = 5.0
     enrouteLabel.layer.masksToBounds = true
@@ -65,9 +101,7 @@ class UpdateServiceChildController: UITableViewController {
     callCustomerLabel.layer.cornerRadius = 5.0
     callCustomerLabel.layer.masksToBounds = true
     
-    isEnrouteSelected = false
-    isCurrentlyPlowingSelected = false
-    isCompletedSelected = false
+
     
     callCustomerLabel.makeSelected()
   }
@@ -92,7 +126,7 @@ class UpdateServiceChildController: UITableViewController {
     completedLabel.addGestureRecognizer(completedTapGesture)
   }
   
-  @objc func enrouteLabelTapped() {
+  @objc func enrouteLabelTapped() {    
     isEnrouteSelected = !isEnrouteSelected
     isCurrentlyPlowingSelected = false
     isCompletedSelected = false
@@ -102,6 +136,8 @@ class UpdateServiceChildController: UITableViewController {
     isCurrentlyPlowingSelected = !isCurrentlyPlowingSelected
     isEnrouteSelected = false
     isCompletedSelected = false
+    
+    enrouteLabel.makeDisabled()
   }
   
   @objc  func completedLabelTapped() {
@@ -109,7 +145,8 @@ class UpdateServiceChildController: UITableViewController {
     isEnrouteSelected = false
     isCurrentlyPlowingSelected = false
     
-//    dismiss
+    enrouteLabel.makeDisabled()
+    currentlyPlowingLabel.makeDisabled()
   }
 }
 

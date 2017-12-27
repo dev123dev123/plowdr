@@ -107,12 +107,14 @@ extension Job {
   
   static func save(
     userId: String,
+    clientName: String,
     jobType: JobType,
     address: Address,
     dateSelected: (String, Date),
     bestTime: BestTime,
     jobDetail: JobDetail,
     chargeId: String,
+    payment: Int,
     completion: @escaping (Error?) -> Void
   ) {
     let jobDocument = dbJobs.document()
@@ -121,12 +123,13 @@ extension Job {
     values["id"] = jobDocument.documentID
     values["jobType"] = jobType.rawValue
     values["dateCreated"] = FieldValue.serverTimestamp()
+    values["clientName"] = clientName
     
     values["userId"] = userId
     values["latitude"] = address.latitude
     values["longitude"] = address.longitude
     values["address"] = address.addressLine
-    values["dateSelected"] = dateSelected.1.timeIntervalSince1970
+    values["dateSelected"] = dateSelected.1.timeIntervalSince1970 * 1000
     values["chargeId"] = chargeId
     
     if dateSelected.0 == Strings.UI.newSnowFall {
@@ -140,6 +143,7 @@ extension Job {
     values["howDeepSnow"] = jobDetail.howDeepSnow
     values["obstacles"] = jobDetail.obstacles
     values["planState"] = PlanState.active.rawValue
+    values["payment"] = payment
     
     jobDocument.setData(values) { (error) in
       completion(error)

@@ -1,14 +1,15 @@
 //
-//  TaskDetailChildController.swift
+//  CompletedServiceDetailChildController.swift
 //  plowdr
 //
-//  Created by Wilson Balderrama on 12/11/17.
+//  Created by Wilson Balderrama on 12/20/17.
 //  Copyright © 2017 plowdr. All rights reserved.
 //
 
 import UIKit
 
-class TaskDetailChildController: UITableViewController {
+
+class CompletedServiceDetailChildController: UITableViewController {
   
   var currentTask: Task!
   let formatter = DateFormatter()
@@ -25,8 +26,6 @@ class TaskDetailChildController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
-    
     formatter.dateFormat = "E, MMM dd"
     
     jobTypeLabel.text = currentTask.jobType.rawValue
@@ -38,8 +37,25 @@ class TaskDetailChildController: UITableViewController {
     howDeepSnowLabel.text = currentTask.howDeepSnow
     obstaclesTextView.text = currentTask.obstacles
   }
-    
+  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

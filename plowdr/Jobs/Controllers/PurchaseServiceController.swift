@@ -141,12 +141,14 @@ extension PurchaseServiceController: PaymentContextDelegate {
       
       Job.save(
         userId: currenUserId,
+        clientName: "\(User.currentUser!.firstName ) \(User.currentUser!.lastName)",
         jobType: jobType,
         address: address,
         dateSelected: dateSelected,
         bestTime: bestTime,
         jobDetail: jobDetail,
-        chargeId: chargeId
+        chargeId: chargeId,
+        payment: paymentContextImplementation?.paymentAmount ?? 0
       ) { (error) in
           DispatchQueue.main.async {
             self.purchaseServiceLabel.isUserInteractionEnabled = true

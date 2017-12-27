@@ -8,6 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		4770B0FC479BA982BBD7CFF9 /* Pods_plowdr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16A75D0DA93105D906F305D /* Pods_plowdr.framework */; };
+		6903497C1FEA97D300FEF1FA /* EarningsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903497B1FEA97D300FEF1FA /* EarningsController.swift */; };
+		6903497E1FEA97E000FEF1FA /* EarningsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6903497D1FEA97E000FEF1FA /* EarningsView.storyboard */; };
+		690349801FEA9F7600FEF1FA /* EarningsChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903497F1FEA9F7600FEF1FA /* EarningsChildController.swift */; };
+		690349821FEAA4F300FEF1FA /* PayStubsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690349811FEAA4F300FEF1FA /* PayStubsView.storyboard */; };
+		690349841FEAA60E00FEF1FA /* PayStubsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690349831FEAA60E00FEF1FA /* PayStubsController.swift */; };
+		690349861FEAA61E00FEF1FA /* PayStubsChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690349851FEAA61E00FEF1FA /* PayStubsChildController.swift */; };
+		690349881FEAA75400FEF1FA /* StubCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690349871FEAA75400FEF1FA /* StubCellController.swift */; };
+		6903498A1FEAB7CC00FEF1FA /* BankInfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690349891FEAB7CC00FEF1FA /* BankInfoView.storyboard */; };
+		6903498C1FEAB7E600FEF1FA /* BankInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903498B1FEAB7E600FEF1FA /* BankInfoController.swift */; };
+		6903498E1FEAF52100FEF1FA /* BankInfoChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903498D1FEAF52100FEF1FA /* BankInfoChildController.swift */; };
+		690349901FEAF8B800FEF1FA /* CompletedServicesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6903498F1FEAF8B800FEF1FA /* CompletedServicesView.storyboard */; };
+		690349921FEAF8CA00FEF1FA /* CompletedServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690349911FEAF8CA00FEF1FA /* CompletedServicesController.swift */; };
+		690349941FEAF8D800FEF1FA /* CompletedServicesChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690349931FEAF8D800FEF1FA /* CompletedServicesChildController.swift */; };
+		690349961FEAFA4C00FEF1FA /* CompletedServiceCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690349951FEAFA4C00FEF1FA /* CompletedServiceCellController.swift */; };
+		690349981FEB027000FEF1FA /* CompletedServiceDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690349971FEB027000FEF1FA /* CompletedServiceDetailView.storyboard */; };
+		6903499A1FEB027B00FEF1FA /* CompletedServiceDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690349991FEB027B00FEF1FA /* CompletedServiceDetailController.swift */; };
+		6903499C1FEB038600FEF1FA /* CompletedServiceDetailChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903499B1FEB038600FEF1FA /* CompletedServiceDetailChildController.swift */; };
 		693819801FCEF44C007CBA2F /* NotificationsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6938197F1FCEF44C007CBA2F /* NotificationsView.storyboard */; };
 		693819851FCEFBB8007CBA2F /* GenericErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693819841FCEFBB8007CBA2F /* GenericErrorController.swift */; };
 		69515A8A1FB1E3F10012E1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69515A891FB1E3F10012E1B7 /* AppDelegate.swift */; };
@@ -94,6 +111,23 @@
 
 /* Begin PBXFileReference section */
 		018192314C85C7D6DFEA43D9 /* Pods-plowdr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-plowdr.release.xcconfig"; path = "Pods/Target Support Files/Pods-plowdr/Pods-plowdr.release.xcconfig"; sourceTree = "<group>"; };
+		6903497B1FEA97D300FEF1FA /* EarningsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsController.swift; sourceTree = "<group>"; };
+		6903497D1FEA97E000FEF1FA /* EarningsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EarningsView.storyboard; sourceTree = "<group>"; };
+		6903497F1FEA9F7600FEF1FA /* EarningsChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsChildController.swift; sourceTree = "<group>"; };
+		690349811FEAA4F300FEF1FA /* PayStubsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PayStubsView.storyboard; sourceTree = "<group>"; };
+		690349831FEAA60E00FEF1FA /* PayStubsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayStubsController.swift; sourceTree = "<group>"; };
+		690349851FEAA61E00FEF1FA /* PayStubsChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayStubsChildController.swift; sourceTree = "<group>"; };
+		690349871FEAA75400FEF1FA /* StubCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCellController.swift; sourceTree = "<group>"; };
+		690349891FEAB7CC00FEF1FA /* BankInfoView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BankInfoView.storyboard; sourceTree = "<group>"; };
+		6903498B1FEAB7E600FEF1FA /* BankInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInfoController.swift; sourceTree = "<group>"; };
+		6903498D1FEAF52100FEF1FA /* BankInfoChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInfoChildController.swift; sourceTree = "<group>"; };
+		6903498F1FEAF8B800FEF1FA /* CompletedServicesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompletedServicesView.storyboard; sourceTree = "<group>"; };
+		690349911FEAF8CA00FEF1FA /* CompletedServicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedServicesController.swift; sourceTree = "<group>"; };
+		690349931FEAF8D800FEF1FA /* CompletedServicesChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedServicesChildController.swift; sourceTree = "<group>"; };
+		690349951FEAFA4C00FEF1FA /* CompletedServiceCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedServiceCellController.swift; sourceTree = "<group>"; };
+		690349971FEB027000FEF1FA /* CompletedServiceDetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompletedServiceDetailView.storyboard; sourceTree = "<group>"; };
+		690349991FEB027B00FEF1FA /* CompletedServiceDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedServiceDetailController.swift; sourceTree = "<group>"; };
+		6903499B1FEB038600FEF1FA /* CompletedServiceDetailChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedServiceDetailChildController.swift; sourceTree = "<group>"; };
 		6938197F1FCEF44C007CBA2F /* NotificationsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationsView.storyboard; sourceTree = "<group>"; };
 		693819841FCEFBB8007CBA2F /* GenericErrorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorController.swift; sourceTree = "<group>"; };
 		69515A861FB1E3F10012E1B7 /* plowdr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plowdr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +229,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		690349771FEA957400FEF1FA /* Driver Earnings */ = {
+			isa = PBXGroup;
+			children = (
+				6903497A1FEA960900FEF1FA /* Controllers */,
+				690349791FEA960300FEF1FA /* Views */,
+				690349781FEA958D00FEF1FA /* Model */,
+			);
+			path = "Driver Earnings";
+			sourceTree = "<group>";
+		};
+		690349781FEA958D00FEF1FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		690349791FEA960300FEF1FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6903497D1FEA97E000FEF1FA /* EarningsView.storyboard */,
+				690349811FEAA4F300FEF1FA /* PayStubsView.storyboard */,
+				690349891FEAB7CC00FEF1FA /* BankInfoView.storyboard */,
+				6903498F1FEAF8B800FEF1FA /* CompletedServicesView.storyboard */,
+				690349971FEB027000FEF1FA /* CompletedServiceDetailView.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6903497A1FEA960900FEF1FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6903497B1FEA97D300FEF1FA /* EarningsController.swift */,
+				6903497F1FEA9F7600FEF1FA /* EarningsChildController.swift */,
+				690349831FEAA60E00FEF1FA /* PayStubsController.swift */,
+				690349851FEAA61E00FEF1FA /* PayStubsChildController.swift */,
+				690349871FEAA75400FEF1FA /* StubCellController.swift */,
+				6903498B1FEAB7E600FEF1FA /* BankInfoController.swift */,
+				6903498D1FEAF52100FEF1FA /* BankInfoChildController.swift */,
+				690349911FEAF8CA00FEF1FA /* CompletedServicesController.swift */,
+				690349931FEAF8D800FEF1FA /* CompletedServicesChildController.swift */,
+				690349951FEAFA4C00FEF1FA /* CompletedServiceCellController.swift */,
+				690349991FEB027B00FEF1FA /* CompletedServiceDetailController.swift */,
+				6903499B1FEB038600FEF1FA /* CompletedServiceDetailChildController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		692A9B0A1FDEBFAA00E0A743 /* Driver */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +360,7 @@
 		69515A881FB1E3F10012E1B7 /* plowdr */ = {
 			isa = PBXGroup;
 			children = (
+				690349771FEA957400FEF1FA /* Driver Earnings */,
 				692A9B0A1FDEBFAA00E0A743 /* Driver */,
 				698CC57C1FCC4F3D00FEE976 /* User */,
 				69F229811FC5BE9F00A271AB /* Utils */,
@@ -616,6 +699,8 @@
 				698CC58D1FCCA2C100FEE976 /* HiraginoCustom.otf in Resources */,
 				69D589141FBE43FB00F23C76 /* SetJobDetailsView.storyboard in Resources */,
 				69515A941FB1E3F10012E1B7 /* LaunchScreen.storyboard in Resources */,
+				690349821FEAA4F300FEF1FA /* PayStubsView.storyboard in Resources */,
+				6903497E1FEA97E000FEF1FA /* EarningsView.storyboard in Resources */,
 				69678A4C1FC3202400860689 /* SetAddressView.storyboard in Resources */,
 				695706EE1FD1FD0B006CCA93 /* JobDetailView.storyboard in Resources */,
 				69515AB71FB3A3830012E1B7 /* SlideMenuView.storyboard in Resources */,
@@ -623,13 +708,16 @@
 				69515A911FB1E3F10012E1B7 /* Assets.xcassets in Resources */,
 				69678A541FC32ACF00860689 /* SetJobDetailView.storyboard in Resources */,
 				698CC58B1FCC9F6200FEE976 /* AG-Stencil.ttf in Resources */,
+				6903498A1FEAB7CC00FEF1FA /* BankInfoView.storyboard in Resources */,
 				69515A8F1FB1E3F10012E1B7 /* Main.storyboard in Resources */,
 				69515AAC1FB24B7F0012E1B7 /* SignupTwoView.storyboard in Resources */,
 				69D589021FBE21DC00F23C76 /* JobsView.storyboard in Resources */,
 				69515AB21FB24FC60012E1B7 /* HomeView.storyboard in Resources */,
 				69A008F01FDF1B350044C6B6 /* TaskDetailView.storyboard in Resources */,
 				69515AA41FB1EF580012E1B7 /* LoginView.storyboard in Resources */,
+				690349981FEB027000FEF1FA /* CompletedServiceDetailView.storyboard in Resources */,
 				69A008F61FDF1F300044C6B6 /* UpdateServiceView.storyboard in Resources */,
+				690349901FEAF8B800FEF1FA /* CompletedServicesView.storyboard in Resources */,
 				698CC5801FCC500900FEE976 /* SetAccountView.storyboard in Resources */,
 				69D5890E1FBE32B400F23C76 /* JobDescriptionView.storyboard in Resources */,
 				6979077F1FCDA06800E233C1 /* GoogleService-Info.plist in Resources */,
@@ -732,10 +820,13 @@
 				69A008FC1FDF2FC00044C6B6 /* UILabel+.swift in Sources */,
 				698CC57B1FCC440300FEE976 /* UINavigationController+.swift in Sources */,
 				69F229851FC5C93600A271AB /* SetPaymentController.swift in Sources */,
+				690349881FEAA75400FEF1FA /* StubCellController.swift in Sources */,
 				69C6A0791FD7475D003B52BA /* STPPaymentContextImplementation.swift in Sources */,
 				695706F21FD2011A006CCA93 /* JobDetailChildController.swift in Sources */,
+				6903499A1FEB027B00FEF1FA /* CompletedServiceDetailController.swift in Sources */,
 				69515AB01FB24C6E0012E1B7 /* SignupTwoController.swift in Sources */,
 				69678A5E1FC37B7300860689 /* Job.swift in Sources */,
+				6903498C1FEAB7E600FEF1FA /* BankInfoController.swift in Sources */,
 				69F229831FC5BEB800A271AB /* UIViewController+.swift in Sources */,
 				69A008FA1FDF1F5A0044C6B6 /* UpdateServiceChildController.swift in Sources */,
 				69515A8A1FB1E3F10012E1B7 /* AppDelegate.swift in Sources */,
@@ -743,6 +834,8 @@
 				69515AB51FB250140012E1B7 /* HomeController.swift in Sources */,
 				69678A521FC323A200860689 /* SetDateTimeController.swift in Sources */,
 				69C6A0731FD7326D003B52BA /* StripeAPIClient.swift in Sources */,
+				6903497C1FEA97D300FEF1FA /* EarningsController.swift in Sources */,
+				690349961FEAFA4C00FEF1FA /* CompletedServiceCellController.swift in Sources */,
 				69D589161FBE440D00F23C76 /* SetJobDetailsController.swift in Sources */,
 				69D589121FBE394600F23C76 /* JobType.swift in Sources */,
 				69678A581FC3698F00860689 /* SetJobDetailChildController.swift in Sources */,
@@ -751,6 +844,7 @@
 				695706E81FD18F49006CCA93 /* Objective-CBridgingHeade.m in Sources */,
 				69E92F801FCDEC3000B3861D /* SignupTwoChildController.swift in Sources */,
 				69515AAE1FB24C630012E1B7 /* SignupOneController.swift in Sources */,
+				690349921FEAF8CA00FEF1FA /* CompletedServicesController.swift in Sources */,
 				697907811FCDA41200E233C1 /* User.swift in Sources */,
 				69F2298B1FC5CB1700A271AB /* PurchaseServiceController.swift in Sources */,
 				698CC5771FC71B2400FEE976 /* JobDetail.swift in Sources */,
@@ -759,6 +853,7 @@
 				69678A5C1FC37A8B00860689 /* JobDetailListChildController.swift in Sources */,
 				69515AAA1FB2449C0012E1B7 /* StoryboardSegues.swift in Sources */,
 				69515ABD1FB3A4EC0012E1B7 /* SlideMenuController.swift in Sources */,
+				6903499C1FEB038600FEF1FA /* CompletedServiceDetailChildController.swift in Sources */,
 				697907831FCDA82D00E233C1 /* Ax.swift in Sources */,
 				69A008EC1FDED2310044C6B6 /* InvoiceDetailController.swift in Sources */,
 				698CC5821FCC508700FEE976 /* SetAccountController.swift in Sources */,
@@ -767,22 +862,27 @@
 				69D589101FBE32C600F23C76 /* JobDescriptionController.swift in Sources */,
 				69678A5A1FC37A7200860689 /* JobDetailListController.swift in Sources */,
 				69A008FE1FE01C410044C6B6 /* Task.swift in Sources */,
+				690349941FEAF8D800FEF1FA /* CompletedServicesChildController.swift in Sources */,
 				69A008F21FDF1B5F0044C6B6 /* TaskDetailController.swift in Sources */,
 				698CC5731FC7193400FEE976 /* Address.swift in Sources */,
 				69678A4A1FC3110300860689 /* SetJobDetailsChildController.swift in Sources */,
 				69515AA21FB1E76D0012E1B7 /* IntroController.swift in Sources */,
 				69678A561FC32B0100860689 /* SetJobDetailController.swift in Sources */,
+				690349841FEAA60E00FEF1FA /* PayStubsController.swift in Sources */,
 				698CC5861FCC9DED00FEE976 /* GradientView.swift in Sources */,
 				698CC5791FCC3C7900FEE976 /* PurchaseServiceChildController.swift in Sources */,
 				695706F41FD35B2A006CCA93 /* Database.swift in Sources */,
+				6903498E1FEAF52100FEF1FA /* BankInfoChildController.swift in Sources */,
 				695706EC1FD1F035006CCA93 /* JobCellController.swift in Sources */,
 				69678A4E1FC3203700860689 /* SetAddressController.swift in Sources */,
 				69515AC01FB3B4460012E1B7 /* ContainerController.swift in Sources */,
 				695706F01FD2010D006CCA93 /* JobDetailController.swift in Sources */,
+				690349861FEAA61E00FEF1FA /* PayStubsChildController.swift in Sources */,
 				69D5890A1FBE23AF00F23C76 /* ChooseJobController.swift in Sources */,
 				69D5890C1FBE322D00F23C76 /* Strings.swift in Sources */,
 				693819851FCEFBB8007CBA2F /* GenericErrorController.swift in Sources */,
 				698CC5751FC71A9400FEE976 /* Schedule.swift in Sources */,
+				690349801FEA9F7600FEF1FA /* EarningsChildController.swift in Sources */,
 				69D589001FBE21B800F23C76 /* JobsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -37,10 +37,16 @@ class HomeController: UIViewController {
     
     paymentContextImplementation = STPPaymentContextImplementation()
     paymentContextImplementation.hostViewController = self
-    
-    labelView.isHidden = true
-    containerView.isHidden = true
-    scheduleLabel.isHidden = true
+
+    if User.currentUser!.role == UserRole.client.rawValue {
+      labelView.isHidden = true
+      containerView.isHidden = true
+      scheduleLabel.isHidden = true
+    } else {
+      self.labelView.isHidden = true
+      self.scheduleLabel.isHidden = true
+      self.containerView.isHidden = false
+    }
     
     let button = UIButton(frame: CGRect(x: 0, y: 0, width: 39, height: 33))
     button.setBackgroundImage(UIImage(named: "settings-icon"), for: .normal)
@@ -84,6 +90,12 @@ class HomeController: UIViewController {
     } else if segue.identifier == StoryboardSegues.HomeToSetAddress {
       let destinationVC = segue.destination as? SetAddressController
       destinationVC?.startedFromSideMenu = true
+    } else if segue.identifier == StoryboardSegues.HomeToTaskDetail {
+      let destinationVC = segue.destination as? TaskDetailController
+      destinationVC?.currentTask = sender as! Task
+    } else if segue.identifier == StoryboardSegues.HomeToJobDetail {
+      let destinationVC = segue.destination as? JobDetailController
+      destinationVC?.currentTask = sender as! Task
     }
   }
   
@@ -105,16 +117,21 @@ extension HomeController: JobsDelegate {
     }
   }
   
-  func didRowTap() {
-//    performSegue(withIdentifier: StoryboardSegues.HomeToJobDetail, sender: nil)
-    performSegue(withIdentifier: StoryboardSegues.HomeToTaskDetail, sender: nil)
+  func didRowTap(with task: Task) {
+    if User.currentUser!.role == UserRole.client.rawValue {
+      performSegue(withIdentifier: StoryboardSegues.HomeToJobDetail, sender: task)
+    } else {
+      performSegue(withIdentifier: StoryboardSegues.HomeToTaskDetail, sender: task)
+    }
   }
 }
 
 extension HomeController: MenuOptionsDelegate {
   
   func didScheduleJobTap() {
-    performSegue(withIdentifier: StoryboardSegues.HomeToChooseJob, sender: nil)
+    if User.currentUser!.role == UserRole.client.rawValue {
+      performSegue(withIdentifier: StoryboardSegues.HomeToChooseJob, sender: nil)
+    }
     sideMenuManager.toggleShowSideMenu()
   }
   
@@ -124,7 +141,12 @@ extension HomeController: MenuOptionsDelegate {
   
   func didPaymentTap() {
 //    performSegue(withIdentifier: StoryboardSegues.HomeToSetPayment, sender: nil)
-    paymentContextImplementation.showPaymentFormOnHostViewController()
+    
+    if User.currentUser!.role == UserRole.client.rawValue {
+      paymentContextImplementation.showPaymentFormOnHostViewController()
+    } else {
+      performSegue(withIdentifier: StoryboardSegues.HomeToEarnings, sender: nil)
+    }
     sideMenuManager.toggleShowSideMenu()
   }
   

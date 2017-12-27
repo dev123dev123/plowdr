@@ -27,7 +27,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHu-Jg-pqz">
                                 <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <connections>
-                                    <segue destination="JVC-1B-dcy" kind="embed" id="DtO-Vj-soi"/>
+                                    <segue destination="JVC-1B-dcy" kind="embed" identifier="InvoiceDetailChild" id="DtO-Vj-soi"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zc-Wc-TM4">
@@ -223,6 +223,13 @@
                             <outlet property="delegate" destination="JVC-1B-dcy" id="RY8-3D-YT1"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="creditCardLabel" destination="JaQ-d0-kRr" id="1su-KM-Zlv"/>
+                        <outlet property="detailsLabel" destination="wBh-Gb-1v6" id="3gi-Yq-JqH"/>
+                        <outlet property="drivewayLabel" destination="rkK-qs-Qoo" id="lrT-DJ-ZM0"/>
+                        <outlet property="jobTypeLabel" destination="Sqh-kx-M0U" id="RtG-8c-MXa"/>
+                        <outlet property="paymentLabel" destination="6li-of-FDh" id="v2W-Xd-2ii"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmM-Vm-rAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

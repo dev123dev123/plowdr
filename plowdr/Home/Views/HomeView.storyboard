@@ -106,6 +106,7 @@
                         <segue destination="MwS-Sf-hbp" kind="presentation" identifier="HomeToSetAccount" id="tQS-W7-nQh"/>
                         <segue destination="BZt-3Y-xqx" kind="presentation" identifier="HomeToJobDetail" id="uhu-zF-2if"/>
                         <segue destination="3rK-Mb-Ljm" kind="presentation" identifier="HomeToTaskDetail" id="WxI-xU-YoJ"/>
+                        <segue destination="OT3-Bh-92i" kind="presentation" identifier="HomeToEarnings" id="YYX-XK-NYQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSl-R4-cyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,6 +168,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCZ-Os-NMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="358" y="478"/>
+        </scene>
+        <!--EarningsView-->
+        <scene sceneID="VPn-gf-64d">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EarningsView" referencedIdentifier="EarningsView" id="OT3-Bh-92i" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kcQ-1S-QNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="568"/>
         </scene>
     </scenes>
 </document>

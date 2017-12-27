@@ -13,6 +13,11 @@ import FirebaseFirestore
 
 import Alamofire
 
+enum  UserRole: String {
+  case client
+  case driver
+}
+
 enum AuthError: Error {
   case invalidFormInput(description: String)
   
@@ -31,6 +36,8 @@ struct User {
   let lastName: String
   let mobile: String
   let customerId: String
+  let role: String
+  var vehicleInfo: String?
   
   var activeCardDescription: String?
   var address: Address?
@@ -42,7 +49,8 @@ struct User {
     lastName: String,
     mobile: String,
     customerId: String,
-    activeCardDescription: String
+    activeCardDescription: String,
+    role: String
   ) {
     self.id = id
     self.email = email
@@ -51,6 +59,7 @@ struct User {
     self.mobile = mobile
     self.customerId = customerId
     self.activeCardDescription = activeCardDescription
+    self.role = role
   }
   
   init?(dictionary: [String: Any]) {
@@ -60,7 +69,8 @@ struct User {
       let firstName = dictionary["firstName"] as? String,
       let lastName = dictionary["lastName"] as? String,
       let mobile = dictionary["mobile"] as? String,
-      let customerId = dictionary["customerId"] as? String
+      let customerId = dictionary["customerId"] as? String,
+      let role = dictionary["role"] as? String
     else {
       return nil
     }
@@ -72,6 +82,8 @@ struct User {
     self.mobile = mobile
     self.customerId = customerId
     self.activeCardDescription = dictionary["activeCardDescription"] as? String
+    self.role = role
+    self.vehicleInfo = dictionary["vehicleInfo"] as? String
     
     if
       let addressLine = dictionary["address"] as? String,
@@ -264,6 +276,7 @@ extension User {
         values["firstName"] = firstName
         values["lastName"] = lastName
         values["customerId"] = customerId
+        values["role"] = UserRole.client.rawValue
         
         user = User(dictionary: values)
         
@@ -340,6 +353,32 @@ extension User {
     
     dbUsers.document("\(userId)").updateData(valuesToUpdate) { (error) in
       completion(error)
+    }
+  }
+  
+  static func getUserFromDatabase(
+    byUserId userId: String,
+    completion: @escaping (User?, Error?) -> Void
+  ) {
+    let query = dbUsers.document(userId)
+    
+    query.getDocument { (snap, error) in
+      if let error = error {
+        completion(nil, error)
+      } else {
+        if let document = snap {
+          if let user = User.init(dictionary: document.data()) {
+            completion(user, nil)
+            return
+          }
+        }
+        
+        let error = NSError(domain: "Auth", code: 0, userInfo: [
+          NSLocalizedDescriptionKey: "No user found."
+        ])
+        
+        completion(nil, error)
+      }
     }
   }
   

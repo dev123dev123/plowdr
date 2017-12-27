@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 
 protocol JobsDelegate {
-  func didRowTap()
+  func didRowTap(with task: Task)
   func hasJobs(result: Bool)
 }
 
@@ -31,15 +31,32 @@ class JobsController: UITableViewController {
     }
     
     SVProgressHUD.show()
-    Task.listenNewAndChangesOnTasksForClient(userId: currentUserId) { (tasks) in
-      SVProgressHUD.dismiss()
-      
-      self.delegate?.hasJobs(result: tasks.count > 0)
-      self.tasks = tasks
-      
-      DispatchQueue.main.async {
-        self.tableView.reloadData()
+    
+    if User.currentUser!.role == UserRole.client.rawValue {
+      Task.listenNewAndChangesOnTasksForClient(userId: currentUserId) { (tasks) in
+        SVProgressHUD.dismiss()
+        
+        self.delegate?.hasJobs(result: tasks.count > 0)
+        self.tasks = tasks
+//        self.tasks = tasks.filter {
+//          return $0.state != TaskState.none
+//
+//        }
+        
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+        }
       }
+    } else {
+      Task.listenNewAndChangesOnTasksForDriver(driverId: currentUserId, completion: { (tasks) in
+        SVProgressHUD.dismiss()
+        
+        self.tasks = tasks
+        
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+        }
+      })
     }
   }
 }
@@ -55,36 +72,25 @@ extension JobsController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! JobCellController
-    
     let task = tasks[indexPath.row]
-    var month = ""
-    var day = ""
     
-    if task.isNextSnowFall {
-      month = Strings.UI.newSnowFall
-    } else {
-      formatter.dateFormat = "MMMM"
-      month = formatter.string(from: task.dateSelected)
-      
-      formatter.dateFormat = "d"
-      day = formatter.string(from: task.dateSelected)
-    }
-    
-    let values = [
-      "month": month,
-      "day": day
-    ]
-    cell.backgroundColor = .clear
-    cell.initUI()
-    cell.setLabelText(values: values, jobState: .scheduled)
-    cell.showSubtitleLabel(show: false)
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! JobCellController
+    cell.task = task
+    cell.initValues()
     
     return cell
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    delegate?.didRowTap()
+    let task = tasks[indexPath.row]
+    
+    guard let currentUser = User.currentUser else {
+      return
+    }
+    
+//    if (currentUser.role != UserRole.client.rawValue) {
+      delegate?.didRowTap(with: task)
+//    }
   }
   
 }

@@ -9,23 +9,36 @@
 import UIKit
 
 class JobDetailController: UIViewController {
+  var currentTask: Task!
+  var formatter = DateFormatter()
+  
   @IBOutlet weak var titleLabel: UILabel!
   var childController: JobDetailChildController?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    formatter.dateFormat = "E, MMM dd"
+    
     setUIValues()
   }
   
   func setUIValues() {
-    titleLabel.text = "November 30, 2017"
+    titleLabel.text = "Loading.."
+   
+    if currentTask.isNextSnowFall {
+      titleLabel.text = Strings.UI.TaskState.isNextSnowFall.0
+    } else {
+      titleLabel.text = formatter.string(from: currentTask.dateSelected)
+    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == StoryboardSegues.JobDetailChild {
       let destinationVC = segue.destination as? JobDetailChildController
       childController = destinationVC
+      childController?.currentTask = currentTask
+      childController?.delegate = self
     }
   }
   
@@ -33,3 +46,45 @@ class JobDetailController: UIViewController {
     dismiss(animated: true)
   }
 }
+
+extension JobDetailController: JobDetailDelegate {
+  func taskChanged(task: Task) {
+    currentTask = task
+    self.setUIValues()
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
