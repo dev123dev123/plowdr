@@ -9,26 +9,6 @@
 import Foundation
 import FirebaseFirestore
 
-//var values = [String: Any]()
-//values["id"] = jobDocument.documentID
-//values["userId"] = userId
-//values["jobType"] = jobType.rawValue
-//values["latitude"] = address.latitude
-//values["longitude"] = address.longitude
-//values["address"] = address.addressLine
-//values["dateSelected"] = dateSelected.1
-//values["chargeId"] = chargeId
-//
-//if dateSelected.0 == Strings.UI.newSnowFall {
-//  values["isNextSnowFall"] = true
-//} else {
-//  values["isNextSnowFall"] = false
-//}
-//values["bestTime"] = bestTime.rawValue
-//values["howWide"] = jobDetail.howWide
-//values["howLong"] = jobDetail.howLong
-//values["howDeepSnow"] = jobDetail.howDeepSnow
-//values["obstacles"] = jobDetail.obstacles
 
 enum PlanState: String {
   case active
@@ -36,21 +16,6 @@ enum PlanState: String {
 }
 
 struct Job {
-//  var id: String
-//  var userId: String
-//  var jobType: JobType
-//  var latitude: Double
-//  var longitude: Double
-//  var address: String
-//  var bestTime: BestTime
-//  var howWide: String
-//  var howLong: String
-//  var howDeepSnow: String
-//  var obstacles: String
-  
-//  var expired: String
-  
-  
   var date: Date
   var isNextSnowFall: Bool
   var chargeId: String
@@ -149,6 +114,23 @@ extension Job {
       completion(error)
     }
   }
+  
+  static func getWideDrivewayOrLongdrivewayNumber(wideDrivewayString: String) -> Int? {
+    return dictionary[wideDrivewayString]
+  }
+  
+  static var dictionary = [
+    "1 car": 1,
+    "2 cars": 2,
+    "3 cars": 3,
+    "4 cars": 4,
+    "5 cars": 5,
+    "6 cars": 6,
+    "7 cars": 7,
+    "8 cars": 8,
+    "9 cars": 9,
+    "10 cars": 10
+  ]
   
   static func getWideDrivewayValues() -> [String] {
     return [

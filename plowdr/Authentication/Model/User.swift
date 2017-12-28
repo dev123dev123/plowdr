@@ -42,6 +42,10 @@ struct User {
   var activeCardDescription: String?
   var address: Address?
   
+  var bankName: String?
+  var accountNumber: String?
+  var routingNumber: String?
+  
   init(
     id: String,
     email: String,
@@ -85,6 +89,10 @@ struct User {
     self.role = role
     self.vehicleInfo = dictionary["vehicleInfo"] as? String
     
+    self.bankName = dictionary["bankName"] as? String
+    self.accountNumber = dictionary["accountNumber"] as? String
+    self.routingNumber = dictionary["routingNumber"] as? String
+    
     if
       let addressLine = dictionary["address"] as? String,
       let latitude = dictionary["latitude"] as? Double,
@@ -105,8 +113,87 @@ struct User {
 extension User {
   private static let db = Database.db
   private static let dbUsers = db.collection("users")
+  private static let dbPrices = db.collection("prices")
   
   public static var currentUser: User?
+  
+  static func getPriceDataBy(
+    plan: String,
+    width: Int,
+    length: Int,
+    completion: @escaping ((String, Double)?) -> Void
+  ) {
+
+    let query = dbPrices
+                  .whereField("length", isEqualTo: length)
+                  .whereField("width", isEqualTo: width)
+                  .whereField("plan", isEqualTo: plan)
+    
+    query.getDocuments { (querySnap, error) in
+      if let _ = error {
+        completion(nil)
+      } else {
+        if let document = querySnap?.documents.first {
+          if
+            let drivewaySize = document["drivewaySize"] as? String,
+            let price = document["price"] as? Double
+          {
+            completion((drivewaySize, price))
+            return
+          }
+        }
+        
+        completion(nil)
+      }
+    }
+  }
+  
+  static func updateDriverBankInfo(
+    driverId: String,
+    bankName: String,
+    accountNumber: String,
+    routingNumber: String,
+    completion: @escaping (Error?) -> Void
+  ) {
+    let driverDocument = dbUsers.document(driverId)
+    
+    let bankName = bankName.trimmingCharacters(in: CharacterSet.whitespaces)
+    let accountNumber = accountNumber.trimmingCharacters(in: CharacterSet.whitespaces)
+    let routingNumber = routingNumber.trimmingCharacters(in: CharacterSet.whitespaces)
+    
+    if bankName.count < 1 {
+      let error = NSError(domain: "UpdateDriverBankInfo", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: Strings.ErrorMessages.bankNameEmpty
+        ])
+      completion(error)
+      return
+    }
+    
+    if accountNumber.count < 1 {
+      let error = NSError(domain: "UpdateDriverBankInfo", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: Strings.ErrorMessages.accountNumberEmpty
+        ])
+      completion(error)
+      return
+    }
+    
+    if routingNumber.count < 1 {
+      let error = NSError(domain: "UpdateDriverBankInfo", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: Strings.ErrorMessages.routingNumberEmpty
+        ])
+      completion(error)
+      return
+    }
+
+    var fieldsToUpdate = [String: Any]()
+    fieldsToUpdate["bankName"] = bankName
+    fieldsToUpdate["accountNumber"] = accountNumber
+    fieldsToUpdate["routingNumber"] = routingNumber
+    
+    driverDocument.updateData(fieldsToUpdate) { (error) in
+      completion(error)
+    }
+  }
   
   static func resetPassword(
     email: String,

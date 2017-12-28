@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PurchaseServiceChildController: UITableViewController {
   var delegate: PurchaseServiceDelegate?
@@ -66,6 +67,35 @@ class PurchaseServiceChildController: UITableViewController {
       return
     }
     
+    priceLabel.text = "Loading.."
+    
+    guard
+      let width = Job.getWideDrivewayOrLongdrivewayNumber(wideDrivewayString: jobDetail.howWide),
+      let length = Job.getWideDrivewayOrLongdrivewayNumber(wideDrivewayString: jobDetail.howLong)
+    else
+    {
+      // error
+      return
+    }
+    
+    formatter.numberStyle = .currency
+    formatter.currencyCode = "USD"
+    
+    User.getPriceDataBy(
+      plan: jobType.rawValue,
+      width: width,
+      length: length) { (data) in
+        if let data = data {
+          self.paymentAmount = Int(data.1 * 100)
+          self.delegate?.didPriceGet()
+          let convertPrice = NSNumber(value: (self.paymentAmount))
+          self.priceLabel.text = self.formatter.string(from: convertPrice)
+        } else {
+          
+        }
+    }
+    
+    
     switch jobType {
     case .monthly:
       paymentAmount = Strings.Prices.monthlyPrice
@@ -74,12 +104,7 @@ class PurchaseServiceChildController: UITableViewController {
     case .unlimited:
       paymentAmount = Strings.Prices.unlimitedPrice
     }
-
     
-    let convertPrice = NSNumber(value: (paymentAmount / 100))
-    formatter.numberStyle = .currency
-    formatter.currencyCode = "USD"
-    priceLabel.text = formatter.string(from: convertPrice)
     
     jobTypeLabel.text = jobType.rawValue
     addressLabel.text = address.addressLine

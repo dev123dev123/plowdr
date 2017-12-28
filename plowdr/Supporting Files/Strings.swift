@@ -41,6 +41,10 @@ struct Strings {
   }
   
   struct ErrorMessages {
+    static let bankNameEmpty = "Bank name value is empty."
+    static let accountNumberEmpty = "Account number value is empty."
+    static let routingNumberEmpty = "Routing value is empty."
+    
     static let emailInvalid = "Email not valid."
     static let emailEmpty = "Email empty."
     static let userIdEmpty = "User id is empty."

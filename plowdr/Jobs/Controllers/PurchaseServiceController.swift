@@ -11,6 +11,7 @@ import SVProgressHUD
 
 protocol PurchaseServiceDelegate {
   func editButtonTapped()
+  func didPriceGet()
 }
 
 class PurchaseServiceController: UIViewController {
@@ -56,6 +57,9 @@ class PurchaseServiceController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    purchaseServiceLabel.alpha = 0.5
+    purchaseServiceLabel.isUserInteractionEnabled = false
     
     paymentContextImplementation = STPPaymentContextImplementation()
     paymentContextImplementation?.hostViewController = self
@@ -112,6 +116,13 @@ class PurchaseServiceController: UIViewController {
 }
 
 extension PurchaseServiceController: PurchaseServiceDelegate {
+  func didPriceGet() {
+    DispatchQueue.main.async {
+      self.purchaseServiceLabel.isUserInteractionEnabled = true
+      self.purchaseServiceLabel.alpha = 1
+    }
+  }
+  
   
   func editButtonTapped() {
     paymentContextImplementation?.showPaymentFormOnHostViewController()

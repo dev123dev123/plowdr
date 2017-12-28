@@ -73,6 +73,8 @@ struct StoryboardSegues {
   static let ResetPasswordChild = "ResetPasswordChild"
   
   static let LoginToForgotPassword = "LoginToForgotPassword"
+  
+  static let BankInfoChild = "BankInfoChild"
 }
 
 

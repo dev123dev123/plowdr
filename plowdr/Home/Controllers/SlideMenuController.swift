@@ -49,6 +49,7 @@ extension SlideMenuController {
     if let userId = User.currentUser?.id {
       User.listenUpdatesOnUser(byUserId: userId, completion: { (user) in
         DispatchQueue.main.async {
+          User.currentUser = user
           self.userLabel.text = "\(user.firstName) \(user.lastName)"
         }
       })
