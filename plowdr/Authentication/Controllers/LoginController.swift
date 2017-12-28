@@ -23,7 +23,20 @@ class LoginController: UIViewController {
   
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
+  @IBOutlet weak var forgotPasswordLabel: UILabel! {
+    didSet {
+      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordLabelTapped))
+      tapGesture.numberOfTouchesRequired = 1
+      tapGesture.numberOfTapsRequired = 1
+      
+      forgotPasswordLabel.isUserInteractionEnabled = true
+      forgotPasswordLabel.addGestureRecognizer(tapGesture)
+    }
+  }
   
+  @objc func forgotPasswordLabelTapped() {
+    performSegue(withIdentifier: StoryboardSegues.LoginToForgotPassword, sender: nil)
+  }
   
   @objc func loginLabelTapped() {
     let email = emailTextField.text!

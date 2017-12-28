@@ -68,6 +68,11 @@ struct StoryboardSegues {
   static let CompletedServicesToCompletedServiceDetail = "CompletedServicesToCompletedServiceDetail"
   
   static let InvoiceDetailChild = "InvoiceDetailChild"
+  
+  static let SetAccountToResetPassword = "SetAccountToResetPassword"
+  static let ResetPasswordChild = "ResetPasswordChild"
+  
+  static let LoginToForgotPassword = "LoginToForgotPassword"
 }
 
 

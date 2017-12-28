@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 enum SetAccountType {
   case driver
@@ -46,26 +47,36 @@ class SetAccountController: UIViewController {
   }
   
   @objc func updateButtonTapped() {
-    guard let firstName = childController?.firstNameTextField.text else {
-      
-      return
+    let firstName = childController?.firstNameTextField.text ?? ""
+    let lastName = childController?.lastNameTextField.text ?? ""
+    let mobile = childController?.mobileTextField.text ?? ""
+  
+    SVProgressHUD.show()
+    User.update(
+      byUserId: User.currentUser?.id,
+      withFirstName: firstName,
+      andLastName: lastName,
+      andMobile: mobile) { (error) in
+        if let error = error {
+          DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            self.showErrorAlert(message: error.localizedDescription)
+          }
+        } else {
+          User.currentUser?.firstName = firstName
+          User.currentUser?.lastName = lastName
+          User.currentUser?.mobile = mobile
+          
+          DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            self.showErrorAlert(message: Strings.UI.updatedUserInfoSuccessfully, okTapped: {
+              DispatchQueue.main.async {
+                self.dismiss(animated: true)
+              }
+            })
+          }
+        }
     }
-    
-    guard let lastName = childController?.lastNameTextField.text else {
-      
-      return
-    }
-    
-    guard let mobile = childController?.mobileTextField.text else {
-      
-      return
-    }
-    
-    print(firstName)
-    print(lastName)
-    print(mobile)
-    
-    dismiss(animated: true)
   }
   
 }

@@ -125,9 +125,11 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="jqA-Ch-YdT" id="nEE-sD-5Nl"/>
+                        <outlet property="forgotPasswordLabel" destination="vgl-Un-Ks1" id="Zmh-G7-nTu"/>
                         <outlet property="loginLabel" destination="ddM-RL-Cdt" id="Viw-XU-xAl"/>
                         <outlet property="passwordTextField" destination="Kha-YM-bkj" id="XDO-ZI-ssz"/>
                         <segue destination="SNv-y1-TWP" kind="show" identifier="LoginToHome" id="m8g-Mk-Oz9"/>
+                        <segue destination="VXc-0E-tyD" kind="presentation" identifier="LoginToForgotPassword" id="KQ0-Yq-Cn1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGc-uc-6Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,6 +143,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giN-DA-wqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="575" y="-118"/>
+        </scene>
+        <!--ForgotPasswordView-->
+        <scene sceneID="QJ5-WE-3LD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ForgotPasswordView" referencedIdentifier="ForgotPasswordView" id="VXc-0E-tyD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1tt-Fu-yuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605" y="19"/>
         </scene>
     </scenes>
 </document>

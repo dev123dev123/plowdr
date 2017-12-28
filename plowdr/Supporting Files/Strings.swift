@@ -43,11 +43,17 @@ struct Strings {
   struct ErrorMessages {
     static let emailInvalid = "Email not valid."
     static let emailEmpty = "Email empty."
-    static let passwordAtLeast6 = "Password should containt at least 6 characters."
+    static let userIdEmpty = "User id is empty."
+    static let userIdInvalid = "User id is invalid."
+    static let passwordAtLeast6 = "Password should contain at least 6 characters."
     static let mobileEmpty = "Mobile empty."
     static let firstNameEmpty = "First name empty."
     static let lastNameEmpty = "Last name empty."
     static let genericMessage = "Something went wrong, please try again."
+    
+    static let repeatedPasswordNotEqual = "Repeated password is not equal to the new password."
+    static let oldPasswordInvalid = "Old Password is wrong, please try again."
+    static let emailNotExist = "Missing email, login again please."
   }
   
   struct UI {
@@ -60,6 +66,8 @@ struct Strings {
     static let paymentLabelDriverTitle = "Earnings"
     
     static let earningsLabelTitle = "Current Earnings"
+    
+    static let updatedUserInfoSuccessfully = "User info was updated successfully."
     
     struct TaskState {
       static let isNextSnowFall = ("Waiting for snowfall", "")

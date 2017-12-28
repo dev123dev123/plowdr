@@ -32,9 +32,9 @@ enum AuthError: Error {
 struct User {
   let id: String
   let email: String
-  let firstName: String
-  let lastName: String
-  let mobile: String
+  var firstName: String
+  var lastName: String
+  var mobile: String
   let customerId: String
   let role: String
   var vehicleInfo: String?
@@ -107,6 +107,149 @@ extension User {
   private static let dbUsers = db.collection("users")
   
   public static var currentUser: User?
+  
+  static func resetPassword(
+    email: String,
+    completion: @escaping (Error?) -> Void
+  ) {
+    let email = email.trimmingCharacters(in: CharacterSet.whitespaces)
+    
+    if !isValid(email: email) {
+      let error = NSError(domain: "Auth", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: Strings.ErrorMessages.emailInvalid
+      ])
+      completion(error)
+    }
+    
+    Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+      completion(error)
+    }
+  }
+  
+  static func changePassword(
+    oldPassword: String,
+    newPassword: String,
+    repeatedNewPassword: String,
+    completion: @escaping (Error?) -> Void
+  ) {
+    guard let email = User.currentUser?.email else {
+      let error = NSError(domain: "ChangePassword", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: Strings.ErrorMessages.emailNotExist
+        ])
+      completion(error)
+      return
+    }
+    
+    if oldPassword.count < 1 {
+      let error = NSError(domain: "ChangePassword", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: "Old \(Strings.ErrorMessages.passwordAtLeast6)"
+      ])
+      completion(error)
+      return
+    }
+    
+    if newPassword.count < 1 {
+      let error = NSError(domain: "ChangePassword", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: "New \(Strings.ErrorMessages.passwordAtLeast6)"
+        ])
+      completion(error)
+      return
+    }
+    
+    if repeatedNewPassword.count < 1 {
+      let error = NSError(domain: "ChangePassword", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: "Repeated \(Strings.ErrorMessages.passwordAtLeast6)"
+        ])
+      completion(error)
+      return
+    }
+    
+    if newPassword != repeatedNewPassword {
+      let error = NSError(domain: "ChangePassword", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: Strings.ErrorMessages.repeatedPasswordNotEqual
+        ])
+      completion(error)
+      return
+    }
+    
+    let user = Auth.auth().currentUser
+    let credential = EmailAuthProvider.credential(withEmail: email, password: oldPassword)
+    
+    user?.reauthenticate(with: credential, completion: { (error) in
+      if let error = error {
+        if let nsError = error as? NSError {
+          if nsError.code == AuthErrorCode.wrongPassword.rawValue {
+            let error = NSError(domain: "ResetPassword", code: 0, userInfo: [
+              NSLocalizedDescriptionKey: Strings.ErrorMessages.oldPasswordInvalid
+            ])
+            
+            completion(error)
+          }
+        }
+        
+        completion(error)
+      } else {
+        user?.updatePassword(to: newPassword, completion: { (error) in
+          if let error = error {
+            completion(error)
+          } else {
+            completion(nil)
+          }
+        })
+      }
+    })
+  }
+  
+  static func listenUpdatesOnUser(
+    byUserId userId: String,
+    completion: @escaping (User) -> Void
+  ) {
+    let userDocument = dbUsers.document(userId)
+    
+    userDocument.addSnapshotListener { (snap, error) in
+      if let document = snap {
+        if document.exists {
+          if let user = User.init(dictionary: document.data()) {
+            completion(user)
+          }
+        }
+      }
+    }
+  }
+  
+  static func update(
+    byUserId userId: String?,
+    withFirstName firstName: String,
+    andLastName lastName: String,
+    andMobile mobile: String,
+    completion: @escaping (Error?) -> Void
+  ) {
+    do {
+      try isValueValid(userId: userId)
+      try areValuesValid(firstName: firstName, lastName: lastName, mobile: mobile)
+    } catch AuthError.invalidFormInput(let description) {
+      let error = NSError(domain: "SetAccount", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: description
+        ])
+      
+      completion(error)
+      return
+    } catch {
+      completion(error)
+      return
+    }
+    
+    let userDocument = dbUsers.document(userId!)
+    
+    var fieldsToUpdate = [String: Any]()
+    fieldsToUpdate["firstName"] = firstName
+    fieldsToUpdate["lastName"] = lastName
+    fieldsToUpdate["mobile"] = mobile
+    
+    userDocument.updateData(fieldsToUpdate) { (error) in
+      completion(error)
+    }
+  }
   
   static func completeCharge(
     stripeId: String,
@@ -475,6 +618,18 @@ extension User {
 }
 
 extension User {
+  static func isValueValid(userId: String?) throws {
+    guard var userId = userId else {
+      throw AuthError.invalidFormInput(description: Strings.ErrorMessages.userIdInvalid)
+    }
+    
+    userId = userId.trimmingCharacters(in: CharacterSet.whitespaces)
+    
+    if userId.count < 1 {
+      throw AuthError.invalidFormInput(description: Strings.ErrorMessages.userIdEmpty)
+    }
+  }
+  
   static func areValuesValid(
     email: String,
     password: String
@@ -519,8 +674,9 @@ extension User {
   
   static func areValuesValid(
     firstName: String,
-    lastName: String
-    ) throws {
+    lastName: String,
+    mobile: String? = nil
+  ) throws {
     let firstName = firstName.trimmingCharacters(in: CharacterSet.whitespaces)
     let lastName = lastName.trimmingCharacters(in: CharacterSet.whitespaces)
     
@@ -530,6 +686,12 @@ extension User {
     
     if lastName.count < 1 {
       throw AuthError.invalidFormInput(description: Strings.ErrorMessages.lastNameEmpty)
+    }
+    
+    if let mobile = mobile,
+       mobile.count < 1
+    {
+      throw AuthError.invalidFormInput(description: Strings.ErrorMessages.mobileEmpty)
     }
   }
 }

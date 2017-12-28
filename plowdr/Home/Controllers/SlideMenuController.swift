@@ -46,6 +46,16 @@ extension SlideMenuController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    if let userId = User.currentUser?.id {
+      User.listenUpdatesOnUser(byUserId: userId, completion: { (user) in
+        DispatchQueue.main.async {
+          self.userLabel.text = "\(user.firstName) \(user.lastName)"
+        }
+      })
+    }
+    
+
+    
     var fullName = ""
     
     if let firstName = User.currentUser?.firstName {

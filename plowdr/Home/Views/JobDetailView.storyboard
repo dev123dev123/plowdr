@@ -92,13 +92,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vul-pi-pFq">
-                                                    <rect key="frame" x="16" y="11" width="343" height="108"/>
+                                                    <rect key="frame" x="0.0" y="11" width="0.0" height="108"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K2S-de-p0G">
-                                                            <rect key="frame" x="8" y="19" width="327" height="70"/>
+                                                            <rect key="frame" x="0.0" y="19" width="0.0" height="70"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for snowfall" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqW-aZ-etA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="jo9-cW-Koz"/>
                                                                     </constraints>
@@ -107,7 +107,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We'll alert you when we dispatch a driver." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR7-YM-o0e">
-                                                                    <rect key="frame" x="0.0" y="40" width="327" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="40" width="0.0" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="Tuj-oF-FhL"/>
                                                                     </constraints>

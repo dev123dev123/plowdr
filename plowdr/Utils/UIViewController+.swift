@@ -10,11 +10,12 @@ import UIKit
 
 extension UIViewController {
   
-  func showErrorAlert(message: String) {
+  func showErrorAlert(message: String, okTapped: (() -> Void)? = nil) {
     let storyboard = UIStoryboard.init(name: "NotificationsView", bundle: nil)
     if let genericErrorController = storyboard.instantiateViewController(withIdentifier: "GenericErrorView") as? GenericErrorController {
       genericErrorController.errorMessage = message
       genericErrorController.modalPresentationStyle = .overCurrentContext
+      genericErrorController.okTapped = okTapped
       
       present(genericErrorController, animated: true)
     }

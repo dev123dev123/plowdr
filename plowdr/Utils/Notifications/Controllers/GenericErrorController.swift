@@ -14,6 +14,7 @@ class GenericErrorController: UIViewController {
   @IBOutlet weak var backgroundView: UIView!
   
   var errorMessage: String?
+  var okTapped: (() -> Void)?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,6 +40,8 @@ class GenericErrorController: UIViewController {
   }
   
   @objc func okLabelTapped() {
-    dismiss(animated: true)
+    dismiss(animated: true) {
+      self.okTapped?()
+    }
   }
 }
