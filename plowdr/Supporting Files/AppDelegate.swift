@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 import GooglePlaces
 import GoogleMaps
 import Stripe
@@ -16,7 +17,7 @@ import Stripe
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  var comesFromTerminatedPushNotification = false
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
@@ -26,7 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     FirebaseApp.configure()
     
+    configurePushNotificationFeature(application: application)
     
+    if launchOptions?[.remoteNotification] != nil {
+      comesFromTerminatedPushNotification = true
+    }
     
     return true
   }
@@ -55,4 +60,111 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+extension AppDelegate {
+  
+  func configurePushNotificationFeature(application: UIApplication) {
+    let center = UNUserNotificationCenter.current()
+    
+    center.delegate = self
+    center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+      print("permission granted: \(granted)")
+      
+      guard granted else { return }
+      
+      self.getNotificationsSettings()
+    }
+    
+    Messaging.messaging().delegate = self
+  }
+  
+  func getNotificationsSettings() {
+    UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+      print("Notification settings: \(settings)")
+      
+      guard settings.authorizationStatus == .authorized else { return }
+      
+      DispatchQueue.main.async {
+        UIApplication.shared.registerForRemoteNotifications()
+      }
+    }
+  }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+//  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+//    let tokenParts = deviceToken.map { String(format: "%02.2hhx", $0)}
+//
+//    let token = tokenParts.joined()
+//    print("Device Token: \(token)")
+//    print("FCM Token: \(InstanceID.instanceID().token())")
+//  }
+  
+  func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    print("failed to register: \(error)")
+  }
+  
+  // background, terminated
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    let userInfo = response.notification.request.content.userInfo as? [String: Any]
+    
+    if comesFromTerminatedPushNotification {
+      if let data = userInfo?[Strings.PushNotification.dataKey] as? String,
+         let message = userInfo?[Strings.PushNotification.messageKey] as? String
+      {
+        
+        UserDefaults.standard.set(data, forKey: Strings.PushNotification.dataKey)
+        UserDefaults.standard.set(message, forKey: Strings.PushNotification.messageKey)
+        UserDefaults.standard.synchronize()
+      }
+      comesFromTerminatedPushNotification = false
+    } else {
+      NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PushNotification"), object: nil, userInfo: userInfo)
+    }
+  }
+  
+  // foreground
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    let userInfo = notification.request.content.userInfo as? [String: Any]
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PushNotification"), object: nil, userInfo: userInfo)
+  }
+}
+
+extension AppDelegate: MessagingDelegate {
+  func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+    User.getCurrentUserLoggedIn { (user, error) in
+      if let userId = user?.id {
+        User.updatePushToken(userId: userId, pushToken: fcmToken, completion: { (error) in
+          print(error?.localizedDescription)
+        })
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

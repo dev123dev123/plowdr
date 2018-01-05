@@ -19,9 +19,7 @@ class JobsController: UITableViewController {
   var delegate: JobsDelegate?
   
   var tasks = [Task]()
-  let formatter = DateFormatter()
-  
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     

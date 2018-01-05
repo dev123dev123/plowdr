@@ -80,6 +80,7 @@ extension Job {
     jobDetail: JobDetail,
     chargeId: String,
     payment: Int,
+    isCustomPrice: Bool,
     completion: @escaping (Error?) -> Void
   ) {
     let jobDocument = dbJobs.document()
@@ -109,6 +110,7 @@ extension Job {
     values["obstacles"] = jobDetail.obstacles
     values["planState"] = PlanState.active.rawValue
     values["payment"] = payment
+    values["isCustomPrice"] =  isCustomPrice
     
     jobDocument.setData(values) { (error) in
       completion(error)

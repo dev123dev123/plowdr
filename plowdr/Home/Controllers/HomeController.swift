@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeController: UIViewController {
+class HomeController: BaseViewController {
   
   var sideMenuManager: SideMenuManager!
   var paymentContextImplementation: STPPaymentContextImplementation!
@@ -32,8 +32,64 @@ class HomeController: UIViewController {
     performSegue(withIdentifier: StoryboardSegues.HomeToChooseJob, sender: nil)
   }
   
+  @objc func notificationGot(notification: Notification) {
+    DispatchQueue.main.async {
+      self.sideMenuManager.hideSideMenu()
+      
+      self.dismiss(animated: true, completion: {
+        
+      })
+      
+      if let dataString = notification.userInfo?[Strings.PushNotification.dataKey] as? String {
+        if let data = dataString.data(using: .utf8) {
+          if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) {
+            if let dictionary = jsonObject as? [String: Any] {
+              if let task = Task(dictionary: dictionary) {
+                
+                if User.currentUser!.role == UserRole.client.rawValue {
+                  self.performSegue(withIdentifier: StoryboardSegues.HomeToJobDetail, sender: task)
+                } else {
+                  self.performSegue(withIdentifier: StoryboardSegues.HomeToTaskDetail, sender: task)
+                }
+                
+              }
+            }
+          }
+        }
+      }
+      
+    }
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "PlowNotification"), object: nil)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    if
+      let data = UserDefaults.standard.string(forKey: Strings.PushNotification.dataKey),
+      let message = UserDefaults.standard.string(forKey: Strings.PushNotification.messageKey)
+    {
+      
+      UserDefaults.standard.set(nil, forKey: Strings.PushNotification.dataKey)
+      UserDefaults.standard.set(nil, forKey: Strings.PushNotification.messageKey)
+      UserDefaults.standard.synchronize()
+      
+      NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PushNotification"), object: nil, userInfo: [
+        Strings.PushNotification.dataKey: data,
+        Strings.PushNotification.messageKey: message
+        ]
+      )
+      
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(notificationGot(notification:)), name: NSNotification.Name(rawValue: "PlowNotification"), object: nil)
     
     paymentContextImplementation = STPPaymentContextImplementation()
     paymentContextImplementation.hostViewController = self
@@ -76,9 +132,10 @@ class HomeController: UIViewController {
     sideMenuManager.toggleShowSideMenu()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  func hideSideMenu() {
+    sideMenuManager.hideSideMenu()
   }
+
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == StoryboardSegues.HomeToSetAccount {

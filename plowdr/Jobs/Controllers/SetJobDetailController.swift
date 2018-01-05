@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetJobDetailController: UIViewController {
+class SetJobDetailController: BaseViewController {
   var delegate: JobDetailsDelegate?
   var childController: SetJobDetailChildController?
   

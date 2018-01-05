@@ -39,6 +39,13 @@ class IntroController: UIViewController {
     
     setupLabels()
     
+//    let reachabilityManager = NetworkReachabilityManager.init()
+//    reachabilityManager?.listener = { _ in
+//
+//    }
+//
+//    reachabilityManager?.startListening()
+    
 
     SVProgressHUD.show()
     User.getCurrentUserLoggedIn { (user, _) in

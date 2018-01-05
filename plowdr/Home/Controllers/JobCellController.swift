@@ -31,6 +31,8 @@ class JobCellController: UITableViewCell {
     borderView.layer.borderColor = UIColor.white.cgColor
     subtitleLabel.isHidden = false
     
+    formatter.timeZone = TimeZone(abbreviation: "UTC")
+    
     let state = task.state.getStringValue()
 
     if User.currentUser!.role == UserRole.client.rawValue {

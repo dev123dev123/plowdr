@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseJobController: UITableViewController {
+class ChooseJobController: BaseTableViewController {
   @IBOutlet weak var singleJobCell: UITableViewCell!
   @IBOutlet weak var monthlyJobCell: UITableViewCell!
   @IBOutlet weak var unlimitedJobCell: UITableViewCell!
@@ -21,8 +21,8 @@ class ChooseJobController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    clearsSelectionOnViewWillAppear = true
+
+    self.clearsSelectionOnViewWillAppear = true
     
     singleJobView.layer.borderWidth = 5
     singleJobView.layer.borderColor = UIColor.white.cgColor

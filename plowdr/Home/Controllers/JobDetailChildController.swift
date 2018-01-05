@@ -127,6 +127,8 @@ class JobDetailChildController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    formatter.timeZone = TimeZone(abbreviation: "UTC")
+    
     setupViews()
     
     borderView.layer.borderWidth = 5

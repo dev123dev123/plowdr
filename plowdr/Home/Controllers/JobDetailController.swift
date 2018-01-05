@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JobDetailController: UIViewController {
+class JobDetailController: BaseViewController {
   var currentTask: Task!
   var formatter = DateFormatter()
   
@@ -19,6 +19,7 @@ class JobDetailController: UIViewController {
     super.viewDidLoad()
     
     formatter.dateFormat = "E, MMM dd"
+    formatter.timeZone = TimeZone(abbreviation: "UTC")
     
     setUIValues()
   }

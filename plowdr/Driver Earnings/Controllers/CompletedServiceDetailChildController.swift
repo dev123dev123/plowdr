@@ -26,6 +26,7 @@ class CompletedServiceDetailChildController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    formatter.timeZone = TimeZone(abbreviation: "UTC")
     formatter.dateFormat = "E, MMM dd"
     
     jobTypeLabel.text = currentTask.jobType.rawValue

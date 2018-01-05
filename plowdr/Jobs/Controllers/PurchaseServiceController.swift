@@ -11,10 +11,10 @@ import SVProgressHUD
 
 protocol PurchaseServiceDelegate {
   func editButtonTapped()
-  func didPriceGet()
+  func didPriceGet(isCustomPrice: Bool)
 }
 
-class PurchaseServiceController: UIViewController {
+class PurchaseServiceController: BaseViewController {
   
   var paymentContextImplementation: STPPaymentContextImplementation?
   var parameters: [String: Any]?
@@ -26,6 +26,7 @@ class PurchaseServiceController: UIViewController {
   var dateSelected: (String, Date)!
   var bestTime: BestTime!
   var jobDetail: JobDetail!
+  var isCustomPrice = false
   
   @IBOutlet weak var purchaseServiceLabel: UILabel! {
     didSet {
@@ -43,7 +44,35 @@ class PurchaseServiceController: UIViewController {
     SVProgressHUD.show()
     purchaseServiceLabel.isUserInteractionEnabled = false
     purchaseServiceLabel.alpha = 0.5
-    paymentContextImplementation?.requestPayment()
+    
+    if !isCustomPrice {
+      paymentContextImplementation?.requestPayment()
+    } else {
+      Job.save(
+        userId: currenUserId,
+        clientName: "\(User.currentUser!.firstName ) \(User.currentUser!.lastName)",
+        jobType: jobType,
+        address: address,
+        dateSelected: dateSelected,
+        bestTime: bestTime,
+        jobDetail: jobDetail,
+        chargeId: "#not charged yet, custom price",
+        payment: 0,
+        isCustomPrice: isCustomPrice
+      ) { (error) in
+        DispatchQueue.main.async {
+          self.purchaseServiceLabel.isUserInteractionEnabled = true
+          self.purchaseServiceLabel.alpha = 1
+          SVProgressHUD.dismiss()
+          
+          if let error = error {
+            self.showErrorAlert(message: error.localizedDescription)
+          } else {
+            self.navigationController?.backTo(type: HomeController.self)
+          }
+        }
+      }
+    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -116,7 +145,8 @@ class PurchaseServiceController: UIViewController {
 }
 
 extension PurchaseServiceController: PurchaseServiceDelegate {
-  func didPriceGet() {
+  func didPriceGet(isCustomPrice: Bool) {
+    self.isCustomPrice = isCustomPrice
     DispatchQueue.main.async {
       self.purchaseServiceLabel.isUserInteractionEnabled = true
       self.purchaseServiceLabel.alpha = 1
@@ -159,7 +189,8 @@ extension PurchaseServiceController: PaymentContextDelegate {
         bestTime: bestTime,
         jobDetail: jobDetail,
         chargeId: chargeId,
-        payment: paymentContextImplementation?.paymentAmount ?? 0
+        payment: paymentContextImplementation?.paymentAmount ?? 0,
+        isCustomPrice: isCustomPrice
       ) { (error) in
           DispatchQueue.main.async {
             self.purchaseServiceLabel.isUserInteractionEnabled = true

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JobDetailListController: UIViewController {
+class JobDetailListController: BaseViewController {
 
 //  var jobListType: JobListType?
   var delegate: JobDetailEntrySelected?

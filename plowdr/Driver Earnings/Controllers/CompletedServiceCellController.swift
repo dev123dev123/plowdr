@@ -18,6 +18,7 @@ class CompletedServiceCellController: UITableViewCell {
   let formatter = { () -> DateFormatter in
     let f = DateFormatter()
     f.dateFormat = "MM/dd/yyyy"
+    f.timeZone = TimeZone(abbreviation: "UTC")
     return f
   }()
   

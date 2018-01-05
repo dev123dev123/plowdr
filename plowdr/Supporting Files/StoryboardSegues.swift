@@ -75,6 +75,10 @@ struct StoryboardSegues {
   static let LoginToForgotPassword = "LoginToForgotPassword"
   
   static let BankInfoChild = "BankInfoChild"
+  
+  static let MapViewChild = "MapViewChild"
+  
+  static let TaskDetailChildToMap = "TaskDetailChildToMap"
 }
 
 

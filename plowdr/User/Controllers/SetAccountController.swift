@@ -14,7 +14,7 @@ enum SetAccountType {
   case client
 }
 
-class SetAccountController: UIViewController {
+class SetAccountController: BaseViewController {
   
   var childController: SetAccountChildController?
   var setAccountType: SetAccountType?

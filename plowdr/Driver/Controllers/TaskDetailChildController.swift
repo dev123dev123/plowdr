@@ -22,11 +22,35 @@ class TaskDetailChildController: UITableViewController {
   @IBOutlet weak var howDeepSnowLabel: UILabel!
   @IBOutlet weak var obstaclesTextView: UITextView!
   
+  @IBOutlet weak var viewMapLabel: UILabel! {
+    didSet {
+      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewMapLabelTapped))
+      tapGesture.numberOfTapsRequired = 1
+      tapGesture.numberOfTouchesRequired = 1
+      
+      viewMapLabel.isUserInteractionEnabled = true
+      viewMapLabel.addGestureRecognizer(tapGesture)
+    }
+  }
+  
+  @objc func viewMapLabelTapped() {
+    performSegue(withIdentifier: StoryboardSegues.TaskDetailChildToMap, sender: nil)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == StoryboardSegues.TaskDetailChildToMap {
+      let destinationVC = segue.destination as? MapViewController
+      destinationVC?.currentTask = currentTask
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    viewMapLabel.layer.cornerRadius = 5.0
+    viewMapLabel.layer.masksToBounds = true
     
-    
+    formatter.timeZone = TimeZone(abbreviation: "UTC")
     formatter.dateFormat = "E, MMM dd"
     
     jobTypeLabel.text = currentTask.jobType.rawValue

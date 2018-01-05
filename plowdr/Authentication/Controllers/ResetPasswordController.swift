@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class ResetPasswordController: UIViewController {
+class ResetPasswordController: BaseViewController {
   var childController: ResetPasswordChildController?
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

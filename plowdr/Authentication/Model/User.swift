@@ -148,6 +148,21 @@ extension User {
     }
   }
   
+  static func updatePushToken(
+    userId: String,
+    pushToken: String,
+    completion: @escaping (Error?) -> Void
+  ) {
+    let userDocument = dbUsers.document(userId)
+    
+    var values = [String: Any]()
+    values["pushToken"] = pushToken
+    
+    userDocument.updateData(values) { (error) in
+      completion(error)
+    }
+  }
+  
   static func updateDriverBankInfo(
     driverId: String,
     bankName: String,
@@ -470,7 +485,7 @@ extension User {
       },
       
       { done in
-        let urlString = Strings.Server.baseURLString + "create-customer"
+        let urlString = Strings.Server.createCustomerURLString
         
         let parameters : [String: Any] = [
           "email": email

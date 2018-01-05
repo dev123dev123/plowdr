@@ -10,10 +10,22 @@ import UIKit
 
 extension UIViewController {
   
+  func showNotificationAlert(message: String, viewTapped: @escaping (() -> Void)) {
+    let storyboard = UIStoryboard.init(name: "NotificationsView", bundle: nil)
+    if let notificationController = storyboard.instantiateViewController(withIdentifier: "GenericErrorView") as? GenericErrorController {
+      notificationController.alertDescription = message
+      notificationController.modalPresentationStyle = .overCurrentContext
+      notificationController.okTapped = viewTapped
+      notificationController.isPushNotificationAlert = true
+      
+      present(notificationController, animated: true)
+    }
+  }
+  
   func showErrorAlert(message: String, okTapped: (() -> Void)? = nil) {
     let storyboard = UIStoryboard.init(name: "NotificationsView", bundle: nil)
     if let genericErrorController = storyboard.instantiateViewController(withIdentifier: "GenericErrorView") as? GenericErrorController {
-      genericErrorController.errorMessage = message
+      genericErrorController.alertDescription = message
       genericErrorController.modalPresentationStyle = .overCurrentContext
       genericErrorController.okTapped = okTapped
       

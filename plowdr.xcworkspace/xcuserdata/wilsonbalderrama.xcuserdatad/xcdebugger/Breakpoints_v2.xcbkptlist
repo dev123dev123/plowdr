@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "plowdr/Authentication/Model/User.swift"
-            timestampString = "536181981.900117"
+            filePath = "plowdr/Utils/BaseViewController.swift"
+            timestampString = "536793558.549518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "changePassword(oldPassword:newPassword:repeatedNewPassword:completion:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "pushNotificationGot(notification:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

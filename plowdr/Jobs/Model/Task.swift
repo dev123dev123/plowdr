@@ -104,6 +104,15 @@ extension Task {
   private static let db = Database.db
   private static let dbTasks = db.collection("tasks")
   
+  static func getTaskBy(
+    taskId: String,
+    completion: @escaping (Task?) -> Void
+  ) {
+    dbTasks.document(taskId).getDocument { (documentSnap, error) in
+      completion(documentSnap.flatMap({ Task.init(dictionary: $0.data())} ))
+    }
+  }
+  
   static func getTasksOrderedByHalfMonths(
     byDriverId driverId: String,
     completion: @escaping (Error?, [[String: Any]]) ->  Void

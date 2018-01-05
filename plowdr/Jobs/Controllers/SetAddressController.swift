@@ -12,7 +12,7 @@ import GoogleMaps
 import SVProgressHUD
 import INTULocationManager
 
-class SetAddressController: UIViewController {
+class SetAddressController: BaseViewController {
   
   var startedFromSideMenu = false
   

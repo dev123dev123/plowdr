@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SetDateTimeController: UIViewController {
+class SetDateTimeController: BaseViewController {
   var delegate: JobDetailsDelegate?
   
   @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -104,6 +104,8 @@ extension SetDateTimeController {
     
     if let oneMonthFromNow = Calendar.current.date(byAdding: .day, value: 30, to: currentDate) {
       let formatter = DateFormatter()
+      
+      formatter.timeZone = TimeZone(abbreviation: "UTC")
       formatter.dateFormat = "E, MMM dd"
       
       var dateLooped = currentDate

@@ -87,11 +87,12 @@ class PurchaseServiceChildController: UITableViewController {
       length: length) { (data) in
         if let data = data {
           self.paymentAmount = Int(data.1 * 100)
-          self.delegate?.didPriceGet()
-          let convertPrice = NSNumber(value: (self.paymentAmount))
+          self.delegate?.didPriceGet(isCustomPrice: false)
+          let convertPrice = NSNumber(value: data.1)
           self.priceLabel.text = self.formatter.string(from: convertPrice)
         } else {
-          
+          self.priceLabel.text = "Custom Price"
+          self.delegate?.didPriceGet(isCustomPrice: true)
         }
     }
     

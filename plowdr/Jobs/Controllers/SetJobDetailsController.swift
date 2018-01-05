@@ -27,7 +27,7 @@ protocol PaymentContextDelegate {
   func chargeResult(error: Error?, chargeIdCreated: String?)
 }
 
-class SetJobDetailsController: UIViewController {
+class SetJobDetailsController: BaseViewController {
   var paymentContextImplementation: STPPaymentContextImplementation?
   
   var jobType: JobType?

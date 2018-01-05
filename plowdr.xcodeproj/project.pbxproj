@@ -27,6 +27,7 @@
 		6903499C1FEB038600FEF1FA /* CompletedServiceDetailChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6903499B1FEB038600FEF1FA /* CompletedServiceDetailChildController.swift */; };
 		693819801FCEF44C007CBA2F /* NotificationsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6938197F1FCEF44C007CBA2F /* NotificationsView.storyboard */; };
 		693819851FCEFBB8007CBA2F /* GenericErrorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693819841FCEFBB8007CBA2F /* GenericErrorController.swift */; };
+		694F35381FFD1B6F008E942D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694F35371FFD1B6F008E942D /* BaseViewController.swift */; };
 		69515A8A1FB1E3F10012E1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69515A891FB1E3F10012E1B7 /* AppDelegate.swift */; };
 		69515A8F1FB1E3F10012E1B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69515A8D1FB1E3F10012E1B7 /* Main.storyboard */; };
 		69515A911FB1E3F10012E1B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69515A901FB1E3F10012E1B7 /* Assets.xcassets */; };
@@ -93,6 +94,9 @@
 		69A008FA1FDF1F5A0044C6B6 /* UpdateServiceChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A008F91FDF1F5A0044C6B6 /* UpdateServiceChildController.swift */; };
 		69A008FC1FDF2FC00044C6B6 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A008FB1FDF2FC00044C6B6 /* UILabel+.swift */; };
 		69A008FE1FE01C410044C6B6 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A008FD1FE01C410044C6B6 /* Task.swift */; };
+		69A561EC1FF7084F0062D2B7 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A561EB1FF7084F0062D2B7 /* MapView.storyboard */; };
+		69A561EE1FF70AA00062D2B7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A561ED1FF70AA00062D2B7 /* MapViewController.swift */; };
+		69A561F01FF70AAB0062D2B7 /* MapViewChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A561EF1FF70AAB0062D2B7 /* MapViewChildController.swift */; };
 		69C6A0711FD731BA003B52BA /* StripeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6A0701FD731BA003B52BA /* StripeConfigurator.swift */; };
 		69C6A0731FD7326D003B52BA /* StripeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6A0721FD7326D003B52BA /* StripeAPIClient.swift */; };
 		69C6A0791FD7475D003B52BA /* STPPaymentContextImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C6A0781FD7475D003B52BA /* STPPaymentContextImplementation.swift */; };
@@ -136,6 +140,7 @@
 		6903499B1FEB038600FEF1FA /* CompletedServiceDetailChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedServiceDetailChildController.swift; sourceTree = "<group>"; };
 		6938197F1FCEF44C007CBA2F /* NotificationsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationsView.storyboard; sourceTree = "<group>"; };
 		693819841FCEFBB8007CBA2F /* GenericErrorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorController.swift; sourceTree = "<group>"; };
+		694F35371FFD1B6F008E942D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		69515A861FB1E3F10012E1B7 /* plowdr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plowdr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69515A891FB1E3F10012E1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69515A8E1FB1E3F10012E1B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -205,6 +210,10 @@
 		69A008F91FDF1F5A0044C6B6 /* UpdateServiceChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateServiceChildController.swift; sourceTree = "<group>"; };
 		69A008FB1FDF2FC00044C6B6 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		69A008FD1FE01C410044C6B6 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		69A41EC31FFBD01600306B71 /* plowdr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = plowdr.entitlements; sourceTree = "<group>"; };
+		69A561EB1FF7084F0062D2B7 /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
+		69A561ED1FF70AA00062D2B7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		69A561EF1FF70AAB0062D2B7 /* MapViewChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewChildController.swift; sourceTree = "<group>"; };
 		69C6A0701FD731BA003B52BA /* StripeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeConfigurator.swift; sourceTree = "<group>"; };
 		69C6A0721FD7326D003B52BA /* StripeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPIClient.swift; sourceTree = "<group>"; };
 		69C6A0781FD7475D003B52BA /* STPPaymentContextImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPPaymentContextImplementation.swift; sourceTree = "<group>"; };
@@ -313,6 +322,8 @@
 				69A008F31FDF1E5C0044C6B6 /* TaskDetailChildController.swift */,
 				69A008F71FDF1F4D0044C6B6 /* UpdateServiceController.swift */,
 				69A008F91FDF1F5A0044C6B6 /* UpdateServiceChildController.swift */,
+				69A561ED1FF70AA00062D2B7 /* MapViewController.swift */,
+				69A561EF1FF70AAB0062D2B7 /* MapViewChildController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +333,7 @@
 			children = (
 				69A008EF1FDF1B350044C6B6 /* TaskDetailView.storyboard */,
 				69A008F51FDF1F300044C6B6 /* UpdateServiceView.storyboard */,
+				69A561EB1FF7084F0062D2B7 /* MapView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,6 +384,7 @@
 		69515A881FB1E3F10012E1B7 /* plowdr */ = {
 			isa = PBXGroup;
 			children = (
+				69A41EC31FFBD01600306B71 /* plowdr.entitlements */,
 				690349771FEA957400FEF1FA /* Driver Earnings */,
 				692A9B0A1FDEBFAA00E0A743 /* Driver */,
 				698CC57C1FCC4F3D00FEE976 /* User */,
@@ -625,6 +638,7 @@
 				695706E61FD18F49006CCA93 /* plowdr-Bridging-Header.h */,
 				695706F31FD35B2A006CCA93 /* Database.swift */,
 				69A008FB1FDF2FC00044C6B6 /* UILabel+.swift */,
+				694F35371FFD1B6F008E942D /* BaseViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -683,6 +697,14 @@
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -717,6 +739,7 @@
 				698CC58D1FCCA2C100FEE976 /* HiraginoCustom.otf in Resources */,
 				69D589141FBE43FB00F23C76 /* SetJobDetailsView.storyboard in Resources */,
 				69515A941FB1E3F10012E1B7 /* LaunchScreen.storyboard in Resources */,
+				69A561EC1FF7084F0062D2B7 /* MapView.storyboard in Resources */,
 				690349821FEAA4F300FEF1FA /* PayStubsView.storyboard in Resources */,
 				6903497E1FEA97E000FEF1FA /* EarningsView.storyboard in Resources */,
 				69678A4C1FC3202400860689 /* SetAddressView.storyboard in Resources */,
@@ -848,10 +871,12 @@
 				69678A5E1FC37B7300860689 /* Job.swift in Sources */,
 				6903498C1FEAB7E600FEF1FA /* BankInfoController.swift in Sources */,
 				69F229831FC5BEB800A271AB /* UIViewController+.swift in Sources */,
+				694F35381FFD1B6F008E942D /* BaseViewController.swift in Sources */,
 				69A008FA1FDF1F5A0044C6B6 /* UpdateServiceChildController.swift in Sources */,
 				69515A8A1FB1E3F10012E1B7 /* AppDelegate.swift in Sources */,
 				69C6A0711FD731BA003B52BA /* StripeConfigurator.swift in Sources */,
 				699D18451FF42B0000DD2D99 /* ResetPasswordController.swift in Sources */,
+				69A561F01FF70AAB0062D2B7 /* MapViewChildController.swift in Sources */,
 				69515AB51FB250140012E1B7 /* HomeController.swift in Sources */,
 				69678A521FC323A200860689 /* SetDateTimeController.swift in Sources */,
 				69C6A0731FD7326D003B52BA /* StripeAPIClient.swift in Sources */,
@@ -868,6 +893,7 @@
 				690349921FEAF8CA00FEF1FA /* CompletedServicesController.swift in Sources */,
 				697907811FCDA41200E233C1 /* User.swift in Sources */,
 				69F2298B1FC5CB1700A271AB /* PurchaseServiceController.swift in Sources */,
+				69A561EE1FF70AA00062D2B7 /* MapViewController.swift in Sources */,
 				698CC5771FC71B2400FEE976 /* JobDetail.swift in Sources */,
 				698CC5841FCC50B700FEE976 /* SetAccountChildController.swift in Sources */,
 				69A008EE1FDED25A0044C6B6 /* InvoiceDetailChildController.swift in Sources */,
@@ -1046,6 +1072,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = plowdr/plowdr.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = J4HYFFV785;
 				INFOPLIST_FILE = plowdr/Info.plist;
@@ -1053,8 +1080,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.plowdr.plowdr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "73f83182-76bc-40de-a8d6-3e02ecaffe5a";
-				PROVISIONING_PROFILE_SPECIFIER = "Plowdr-Dev-ProvProf";
+				PROVISIONING_PROFILE = "d8549bc9-b37a-4715-8bf7-863bffa14daa";
+				PROVISIONING_PROFILE_SPECIFIER = "prov-prof-dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "plowdr/Utils/plowdr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1068,6 +1095,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = plowdr/plowdr.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = J4HYFFV785;
@@ -1076,8 +1104,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.plowdr.plowdr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2c4fe847-76c9-475a-b2fb-b8929f4d1d50";
-				PROVISIONING_PROFILE_SPECIFIER = "Plowdr-Dis-Prov";
+				PROVISIONING_PROFILE = "1a5eff3d-e092-489d-889a-052be5e927f6";
+				PROVISIONING_PROFILE_SPECIFIER = "prov-prof-dist";
 				SWIFT_OBJC_BRIDGING_HEADER = "plowdr/Utils/plowdr-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

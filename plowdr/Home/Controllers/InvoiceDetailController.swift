@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InvoiceDetailController: UIViewController {
+class InvoiceDetailController: BaseViewController {
   var currentTask: Task!
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

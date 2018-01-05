@@ -10,6 +10,7 @@ import UIKit
 
 protocol SideMenuManager {
   func toggleShowSideMenu()
+  func hideSideMenu()
 }
 
 class ContainerController: UIViewController {
