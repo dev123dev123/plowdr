@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CompletedServiceDetailController: UIViewController {
+class CompletedServiceDetailController: BaseViewController {
   var currentTask: Task?
   
   @IBOutlet weak var clientNameLabel: UILabel!

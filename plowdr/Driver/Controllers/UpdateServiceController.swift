@@ -13,7 +13,7 @@ protocol UpdateServiceDelegate {
   func didTaskChange()
 }
 
-class UpdateServiceController: UIViewController {
+class UpdateServiceController: BaseViewController {
   var currentTask: Task!
   var delegate: UpdateServiceDelegate?
   

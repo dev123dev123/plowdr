@@ -62,6 +62,7 @@ class HomeController: BaseViewController {
   }
   
   deinit {
+    ReachibilityManager.shared.removeListener(listener: self)
     NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "PlowNotification"), object: nil)
   }
   
@@ -88,7 +89,7 @@ class HomeController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    ReachibilityManager.shared.addListener(listener: self)
     NotificationCenter.default.addObserver(self, selector: #selector(notificationGot(notification:)), name: NSNotification.Name(rawValue: "PlowNotification"), object: nil)
     
     paymentContextImplementation = STPPaymentContextImplementation()
@@ -228,6 +229,17 @@ extension HomeController: MenuOptionsDelegate {
     parent?.navigationController?.backTo(type: IntroController.self)
   }
   
+}
+
+extension HomeController: NetworkStatusListener {
+  func networkStatusDidChange(status: NetworkStatus) {
+    switch status {
+    case .notReachable:
+      break
+    case .reachable:
+      break
+    }
+  }
 }
 
 

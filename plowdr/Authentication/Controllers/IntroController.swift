@@ -63,7 +63,6 @@ class IntroController: UIViewController {
   }
   
   
-  
   @objc func loginLabelTapped() {
     performSegue(withIdentifier: StoryboardSegues.IntroToLogin, sender: nil)
   }
@@ -84,15 +83,28 @@ class IntroController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    ReachibilityManager.shared.addListener(listener: self)
     navigationController?.setNavigationBarHidden(true, animated: false)
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     
+    ReachibilityManager.shared.removeListener(listener: self)
     navigationController?.setNavigationBarHidden(false, animated: false)
   }
   
+}
+
+extension IntroController: NetworkStatusListener {
+  func networkStatusDidChange(status: NetworkStatus) {
+    switch status {
+    case .notReachable:
+      break
+    case .reachable:
+      break
+    }
+  }
 }
 
 

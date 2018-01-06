@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class BankInfoController: UIViewController {
+class BankInfoController: BaseViewController {
   
   var childController: BankInfoChildController?
   

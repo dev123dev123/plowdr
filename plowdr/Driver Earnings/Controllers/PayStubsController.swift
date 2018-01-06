@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PayStubsController: UIViewController {
+class PayStubsController: BaseViewController {
   var groupedTasks = [[String: Any]]()
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

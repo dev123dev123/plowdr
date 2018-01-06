@@ -209,10 +209,30 @@ extension SetAddressController: GMSMapViewDelegate {
   func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
     print("didEndDragging")
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    ReachibilityManager.shared.addListener(listener: self)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    ReachibilityManager.shared.removeListener(listener: self)
+  }
+  
 }
 
 
-
+extension SetAddressController: NetworkStatusListener {
+  func networkStatusDidChange(status: NetworkStatus) {
+    switch status {
+    case .notReachable:
+      break
+    case .reachable:
+      break
+    }
+  }
+}
 
 
 

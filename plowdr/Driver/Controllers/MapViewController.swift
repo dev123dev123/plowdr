@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapViewController: UIViewController {
+class MapViewController: BaseViewController {
   var currentTask: Task!
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CompletedServicesController: UIViewController {
+class CompletedServicesController: BaseViewController {
   var tasks = [Task]()
   
   @IBAction func cancelButtonTapped() {

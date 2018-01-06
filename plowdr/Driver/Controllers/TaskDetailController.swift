@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TaskDetailController: UIViewController {
+class TaskDetailController: BaseViewController {
   
   var childController: TaskDetailChildController?
   var currentTask: Task!

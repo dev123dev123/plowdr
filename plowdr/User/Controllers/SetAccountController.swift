@@ -79,6 +79,27 @@ class SetAccountController: BaseViewController {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    ReachibilityManager.shared.addListener(listener: self)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    ReachibilityManager.shared.removeListener(listener: self)
+  }
+  
+}
+
+extension SetAccountController: NetworkStatusListener {
+  func networkStatusDidChange(status: NetworkStatus) {
+    switch status {
+    case .notReachable:
+      break
+    case .reachable:
+      break
+    }
+  }
 }
 
 

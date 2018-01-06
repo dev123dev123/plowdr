@@ -587,8 +587,21 @@ extension User {
 //  static func getCustomerFromStripe(byCustomerId customerId: String)
   
   static func logout() {
-    try? Auth.auth().signOut()
-    User.currentUser = nil
+    if let userId = User.currentUser?.id {
+      User.removePushToken(of: userId) {
+        try? Auth.auth().signOut()
+        User.currentUser = nil
+      }
+    }
+  }
+  
+  public static func removePushToken(of userId: String, completion: @escaping () -> Void) {
+    var fields = [String: Any]()
+    fields["pushToken"] = ""
+    
+    dbUsers.document("\(userId)").updateData(fields) { (error) in
+      completion()
+    }
   }
   
   public static func updateUser(

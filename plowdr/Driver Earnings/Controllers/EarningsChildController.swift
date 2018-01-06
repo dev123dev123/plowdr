@@ -37,8 +37,16 @@ class EarningsChildController: UITableViewController {
   }
   
   func setUIValues(groupedTask: [String: Any]) {
-    dateFromToLabel.text = groupedTask["id"] as? String
-    let payment = NSNumber(value: groupedTask["totalPayment"] as! Int / 100)
+    setDateFromToTitle(text: groupedTask["id"] as? String)
+    setPayment(totalPayment: groupedTask["totalPayment"] as! Int / 100)
+  }
+  
+  func setDateFromToTitle(text: String?) {
+    dateFromToLabel.text = text
+  }
+  
+  func setPayment(totalPayment: Int) {
+    let payment = NSNumber(value: totalPayment / 100)
     
     formatter.numberStyle = .currency
     formatter.currencyCode = "USD"

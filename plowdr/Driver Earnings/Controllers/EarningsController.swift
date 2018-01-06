@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class EarningsController: UIViewController {
+class EarningsController: BaseViewController {
   
   var childController: EarningsChildController?
   
@@ -79,6 +79,9 @@ class EarningsController: UIViewController {
                 self.currentGroupedTask = tasks[0]
                 self.childController?.setUIValues(groupedTask: self.currentGroupedTask)
               }
+            } else {
+              self.childController?.setPayment(totalPayment: 0)
+              self.childController?.setDateFromToTitle(text: "")
             }
           }
         })

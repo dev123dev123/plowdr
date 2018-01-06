@@ -63,6 +63,8 @@
 		69678A5A1FC37A7200860689 /* JobDetailListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69678A591FC37A7200860689 /* JobDetailListController.swift */; };
 		69678A5C1FC37A8B00860689 /* JobDetailListChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69678A5B1FC37A8B00860689 /* JobDetailListChildController.swift */; };
 		69678A5E1FC37B7300860689 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69678A5D1FC37B7300860689 /* Job.swift */; };
+		6971898F20000F1C00F150D7 /* NetworkStatusListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6971898E20000F1C00F150D7 /* NetworkStatusListener.swift */; };
+		697189912000115C00F150D7 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697189902000115C00F150D7 /* ReachabilityManager.swift */; };
 		6979077F1FCDA06800E233C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6979077E1FCDA06700E233C1 /* GoogleService-Info.plist */; };
 		697907811FCDA41200E233C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697907801FCDA41200E233C1 /* User.swift */; };
 		697907831FCDA82D00E233C1 /* Ax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697907821FCDA82D00E233C1 /* Ax.swift */; };
@@ -179,6 +181,8 @@
 		69678A591FC37A7200860689 /* JobDetailListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailListController.swift; sourceTree = "<group>"; };
 		69678A5B1FC37A8B00860689 /* JobDetailListChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailListChildController.swift; sourceTree = "<group>"; };
 		69678A5D1FC37B7300860689 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		6971898E20000F1C00F150D7 /* NetworkStatusListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusListener.swift; sourceTree = "<group>"; };
+		697189902000115C00F150D7 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		6979077E1FCDA06700E233C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		697907801FCDA41200E233C1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		697907821FCDA82D00E233C1 /* Ax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ax.swift; sourceTree = "<group>"; };
@@ -499,6 +503,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		6971898D20000EFA00F150D7 /* Network Monitoring */ = {
+			isa = PBXGroup;
+			children = (
+				6971898E20000F1C00F150D7 /* NetworkStatusListener.swift */,
+				697189902000115C00F150D7 /* ReachabilityManager.swift */,
+			);
+			path = "Network Monitoring";
+			sourceTree = "<group>";
+		};
 		698CC57C1FCC4F3D00FEE976 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,6 +642,7 @@
 		69F229811FC5BE9F00A271AB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6971898D20000EFA00F150D7 /* Network Monitoring */,
 				693819811FCEF481007CBA2F /* Notifications */,
 				69F229821FC5BEB800A271AB /* UIViewController+.swift */,
 				698CC57A1FCC440300FEE976 /* UINavigationController+.swift */,
@@ -880,6 +894,8 @@
 				69515AB51FB250140012E1B7 /* HomeController.swift in Sources */,
 				69678A521FC323A200860689 /* SetDateTimeController.swift in Sources */,
 				69C6A0731FD7326D003B52BA /* StripeAPIClient.swift in Sources */,
+				697189912000115C00F150D7 /* ReachabilityManager.swift in Sources */,
+				6971898F20000F1C00F150D7 /* NetworkStatusListener.swift in Sources */,
 				6903497C1FEA97D300FEF1FA /* EarningsController.swift in Sources */,
 				690349961FEAFA4C00FEF1FA /* CompletedServiceCellController.swift in Sources */,
 				69D589161FBE440D00F23C76 /* SetJobDetailsController.swift in Sources */,
