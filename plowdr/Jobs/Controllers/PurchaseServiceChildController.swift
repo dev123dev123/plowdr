@@ -38,6 +38,10 @@ class PurchaseServiceChildController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    editPaymentLabel.layer.cornerRadius = 5.0
+    editPaymentLabel.layer.masksToBounds = true
+    
     guard let parameters = parameters else {
       self.showErrorAlert(message: "Data collected from other screens didn't get here.")
       return
@@ -140,3 +144,34 @@ class PurchaseServiceChildController: UITableViewController {
     delegate?.editButtonTapped()
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,8 +10,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HiraginoMaruGothProN.ttc">
-            <string>HiraMaruProN-W4</string>
+        <array key="HiraginoKakuGothic.ttc">
+            <string>HiraginoSans-W3</string>
+            <string>HiraginoSans-W6</string>
+        </array>
+        <array key="weknow world.ttf">
+            <string>WEKNOWWORLD</string>
         </array>
     </customFonts>
     <scenes>
@@ -23,14 +27,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the day you'd like to start the service." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="4OW-fZ-Fqh">
-                                <rect key="frame" x="16" y="70" width="343" height="34"/>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="4OW-fZ-Fqh">
+                                <rect key="frame" x="16" y="80" width="343" height="34"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Select the day you'd like to start the service.">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HiraginoSans-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTo-6Z-2F1">
-                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <rect key="frame" x="16" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HPa-C1-pdt"/>
+                                    <constraint firstAttribute="width" constant="40" id="uJe-HP-A8z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WEKNOWWORLD" family="WEKNOW WORLD" pointSize="30"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -39,52 +55,55 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date / Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gva-hI-2cl">
-                                <rect key="frame" x="129" y="20" width="116.5" height="20"/>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <rect key="frame" x="124" y="20" width="126.5" height="20"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrG-1P-tkR">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.44705882349999998" green="0.66274509800000003" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Oqm-BU-mYz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1y-er-cwg">
-                                <rect key="frame" x="0.0" y="112" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="ETh-hK-crM"/>
                                 </constraints>
                             </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rDO-kY-dsX">
-                                <rect key="frame" x="20" y="282" width="335" height="58"/>
+                                <rect key="frame" x="20" y="292" width="335" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best time of day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN7-fq-ibU">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="XJn-Oa-oFq"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0ZK-Eo-jpl">
-                                        <rect key="frame" x="0.0" y="30" width="335" height="29"/>
-                                        <segments>
-                                            <segment title="Morning"/>
-                                            <segment title="Afternoon"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="bestTimeSegmentedControlChanged" destination="yHa-zH-ihe" eventType="valueChanged" id="bD5-mg-ghe"/>
-                                        </connections>
-                                    </segmentedControl>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0ZK-Eo-jpl">
+                                <rect key="frame" x="-5" y="320" width="385" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="fMr-fX-HSj"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Morning"/>
+                                    <segment title="Afternoon"/>
+                                </segments>
+                                <color key="tintColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="bestTimeSegmentedControlChanged" destination="yHa-zH-ihe" eventType="valueChanged" id="bD5-mg-ghe"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -94,8 +113,11 @@
                             <constraint firstItem="JTo-6Z-2F1" firstAttribute="leading" secondItem="zvc-kj-HlP" secondAttribute="leading" constant="16" id="LXf-tI-Zji"/>
                             <constraint firstItem="p1y-er-cwg" firstAttribute="top" secondItem="4OW-fZ-Fqh" secondAttribute="bottom" constant="8" id="OyO-VP-l8f"/>
                             <constraint firstItem="4OW-fZ-Fqh" firstAttribute="top" secondItem="JTo-6Z-2F1" secondAttribute="bottom" constant="20" id="Xm4-np-ah8"/>
+                            <constraint firstAttribute="trailing" secondItem="0ZK-Eo-jpl" secondAttribute="trailing" constant="-5" id="Ymz-t3-n2O"/>
+                            <constraint firstItem="0ZK-Eo-jpl" firstAttribute="top" secondItem="rDO-kY-dsX" secondAttribute="bottom" constant="8" id="aPd-i0-Abt"/>
                             <constraint firstItem="Gva-hI-2cl" firstAttribute="centerX" secondItem="zvc-kj-HlP" secondAttribute="centerX" id="dn9-nX-ays"/>
                             <constraint firstItem="JTo-6Z-2F1" firstAttribute="top" secondItem="zvc-kj-HlP" secondAttribute="top" id="fif-iL-MSu"/>
+                            <constraint firstItem="0ZK-Eo-jpl" firstAttribute="leading" secondItem="JXl-Hb-1si" secondAttribute="leading" constant="-5" id="iC8-sW-sgx"/>
                             <constraint firstItem="LrG-1P-tkR" firstAttribute="trailing" secondItem="zvc-kj-HlP" secondAttribute="trailing" id="nk9-SX-cV8"/>
                             <constraint firstItem="p1y-er-cwg" firstAttribute="leading" secondItem="zvc-kj-HlP" secondAttribute="leading" id="o1B-Rk-cb0"/>
                             <constraint firstItem="rDO-kY-dsX" firstAttribute="top" secondItem="p1y-er-cwg" secondAttribute="bottom" constant="8" id="pYH-Z3-Jj9"/>
@@ -123,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qaj-Ue-flh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1382" y="0.0"/>
+            <point key="canvasLocation" x="-1383.2" y="-0.44977511244377816"/>
         </scene>
     </scenes>
 </document>

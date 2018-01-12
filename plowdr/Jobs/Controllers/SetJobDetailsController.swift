@@ -118,15 +118,51 @@ class SetJobDetailsController: BaseViewController {
     } else if segue.identifier == StoryboardSegues.SetJobDetailsToPurchaseService {
       let destinationVC = segue.destination as? PurchaseServiceController
       destinationVC?.parameters = sender as? [String: Any]
+    } else if segue.identifier == StoryboardSegues.SetJobDetailsToJobDescription {
+      let destinationVC = segue.destination as? JobDescriptionController
+      destinationVC?.jobType = jobType
     }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    let infoButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+    infoButton.setImage(UIImage(named: "info-button"), for: .normal)
+    infoButton.imageView?.contentMode = .scaleAspectFit
+    infoButton.contentMode = .center
+    infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
+    
+    let showInfo = UIBarButtonItem(customView: infoButton)
+    navigationItem.rightBarButtonItem = showInfo
+    
+    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+    titleLabel.font = UIFont(name: "AGStencil", size: 35)
+    titleLabel.textColor = UIColor.white
+    titleLabel.textAlignment = .center
+    titleLabel.text = "plowdr"
+    titleLabel.textColor = UIColor.init(red: 113.0/255.0, green: 168.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+    navigationItem.titleView = titleLabel
+    
+    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 32))
+    button.setImage(UIImage(named: "back-button"), for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.contentMode = .scaleAspectFit
+    button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    
+    let showMenu = UIBarButtonItem(customView: button)
+    navigationItem.leftBarButtonItem = showMenu
+    
     paymentContextImplementation = STPPaymentContextImplementation()
     paymentContextImplementation?.hostViewController = self
-//    paymentContextImplementation?.delegate = self
+  }
+  
+  @objc func infoButtonTapped() {
+    performSegue(withIdentifier: StoryboardSegues.SetJobDetailsToJobDescription, sender: nil)
+  }
+  
+  @objc func backButtonTapped() {
+    self.navigationController?.popViewController(animated: true)
   }
 }
 

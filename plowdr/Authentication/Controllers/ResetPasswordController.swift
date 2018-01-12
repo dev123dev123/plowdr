@@ -62,6 +62,16 @@ class ResetPasswordController: BaseViewController {
   
 }
 
+extension ResetPasswordController: NetworkStatusListener {
+  func networkStatusDidChange(status: PlowdrNetworkStatus) {
+    switch status {
+    case .notReachable:
+      break
+    case .reachable:
+      break
+    }
+  }
+}
 
 
 

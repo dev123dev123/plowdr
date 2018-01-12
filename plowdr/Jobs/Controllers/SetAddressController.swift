@@ -224,7 +224,7 @@ extension SetAddressController: GMSMapViewDelegate {
 
 
 extension SetAddressController: NetworkStatusListener {
-  func networkStatusDidChange(status: NetworkStatus) {
+  func networkStatusDidChange(status: PlowdrNetworkStatus) {
     switch status {
     case .notReachable:
       break

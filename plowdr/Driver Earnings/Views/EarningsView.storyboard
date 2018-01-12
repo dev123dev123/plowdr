@@ -11,11 +11,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
+        <array key="HiraginoKakuGothic.ttc">
+            <string>HiraginoSans-W3</string>
+            <string>HiraginoSans-W6</string>
         </array>
-        <array key="HiraginoMaruGothProN.ttc">
-            <string>HiraMaruProN-W4</string>
+        <array key="weknow world.ttf">
+            <string>WEKNOWWORLD</string>
         </array>
     </customFonts>
     <scenes>
@@ -29,29 +30,36 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Completed Services" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NK6-N2-93E">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.44705882349999998" green="0.66274509800000003" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="g4P-vn-xxc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBh-yT-IOE">
-                                <rect key="frame" x="0.0" y="60" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="68" width="375" height="531"/>
                                 <connections>
                                     <segue destination="Mfg-SD-hMe" kind="embed" identifier="EarningsChild" id="9YV-QB-3gp"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Earnings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUT-yZ-0td">
-                                <rect key="frame" x="115" y="20" width="145.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Earnings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="yUT-yZ-0td">
+                                <rect key="frame" x="64" y="28" width="295" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="ZQQ-nL-x16"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsz-ay-mYO">
-                                <rect key="frame" x="16" y="20" width="30" height="36"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <rect key="frame" x="16" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IRA-ge-nN9"/>
+                                    <constraint firstAttribute="width" constant="40" id="Ira-3F-wcg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WEKNOWWORLD" family="WEKNOW WORLD" pointSize="30"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -62,17 +70,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KBh-yT-IOE" firstAttribute="top" secondItem="1TZ-FO-trJ" secondAttribute="top" constant="40" id="B6b-PW-nZV"/>
                             <constraint firstItem="NK6-N2-93E" firstAttribute="leading" secondItem="1TZ-FO-trJ" secondAttribute="leading" id="Bgz-RK-nxp"/>
                             <constraint firstItem="KBh-yT-IOE" firstAttribute="trailing" secondItem="1TZ-FO-trJ" secondAttribute="trailing" id="HTS-Kl-g55"/>
                             <constraint firstItem="qsz-ay-mYO" firstAttribute="leading" secondItem="1TZ-FO-trJ" secondAttribute="leading" constant="16" id="R9J-6I-gIv"/>
                             <constraint firstItem="KBh-yT-IOE" firstAttribute="leading" secondItem="1TZ-FO-trJ" secondAttribute="leading" id="RXr-Gd-PbK"/>
+                            <constraint firstItem="1TZ-FO-trJ" firstAttribute="trailing" secondItem="yUT-yZ-0td" secondAttribute="trailing" constant="16" id="UnE-kL-c6x"/>
                             <constraint firstItem="NK6-N2-93E" firstAttribute="top" secondItem="KBh-yT-IOE" secondAttribute="bottom" constant="8" id="YU6-PP-cAz"/>
                             <constraint firstItem="NK6-N2-93E" firstAttribute="trailing" secondItem="1TZ-FO-trJ" secondAttribute="trailing" id="cOy-Na-iPt"/>
-                            <constraint firstItem="yUT-yZ-0td" firstAttribute="centerX" secondItem="1TZ-FO-trJ" secondAttribute="centerX" id="co8-aU-CvY"/>
+                            <constraint firstItem="KBh-yT-IOE" firstAttribute="top" secondItem="qsz-ay-mYO" secondAttribute="bottom" constant="8" id="gsG-Uc-uDI"/>
                             <constraint firstItem="qsz-ay-mYO" firstAttribute="top" secondItem="1TZ-FO-trJ" secondAttribute="top" id="h9i-x8-DAS"/>
                             <constraint firstItem="NK6-N2-93E" firstAttribute="bottom" secondItem="1TZ-FO-trJ" secondAttribute="bottom" id="jt8-Js-RpS"/>
-                            <constraint firstItem="yUT-yZ-0td" firstAttribute="top" secondItem="1TZ-FO-trJ" secondAttribute="top" id="vvp-pY-SQS"/>
+                            <constraint firstItem="yUT-yZ-0td" firstAttribute="leading" secondItem="qsz-ay-mYO" secondAttribute="trailing" constant="8" id="upy-ti-04f"/>
+                            <constraint firstItem="yUT-yZ-0td" firstAttribute="top" secondItem="1TZ-FO-trJ" secondAttribute="top" constant="8" id="vvp-pY-SQS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1TZ-FO-trJ"/>
                         <userDefinedRuntimeAttributes>
@@ -101,7 +110,7 @@
             <objects>
                 <tableViewController id="Mfg-SD-hMe" customClass="EarningsChildController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r14-Yd-gab">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <sections>
@@ -115,80 +124,83 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6aY-dD-sE8">
-                                                    <rect key="frame" x="16" y="11" width="120.5" height="364"/>
+                                                    <rect key="frame" x="16" y="11" width="131.5" height="370"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zOd-zF-bfF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="120.5" height="253"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="131.5" height="256"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDj-aL-6eV">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="17"/>
+                                                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-ks-ElT">
-                                                                    <rect key="frame" x="0.0" y="37" width="99" height="39"/>
+                                                                    <rect key="frame" x="0.0" y="37" width="108" height="39"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Small Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snJ-pO-qRu">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="99" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="108" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BJ-4l-bWI">
                                                                             <rect key="frame" x="0.0" y="22" width="11.5" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NL9-6B-biR">
-                                                                    <rect key="frame" x="0.0" y="96" width="120.5" height="39"/>
+                                                                    <rect key="frame" x="0.0" y="96" width="131.5" height="39"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ih-60-a0p">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="120.5" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="131.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nft-8T-rCI">
                                                                             <rect key="frame" x="0.0" y="22" width="11.5" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qzP-FZ-oxS">
-                                                                    <rect key="frame" x="0.0" y="155" width="103" height="39"/>
+                                                                    <rect key="frame" x="0.0" y="155" width="111" height="42"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Large Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CM-7N-bRR">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="103" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="111" height="20"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="eKe-zT-CV0"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irs-fS-tQQ">
-                                                                            <rect key="frame" x="0.0" y="22" width="11.5" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="25" width="11.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="i4K-Si-cuy">
-                                                                    <rect key="frame" x="0.0" y="214" width="118.5" height="39"/>
+                                                                    <rect key="frame" x="0.0" y="217" width="129.5" height="39"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Plows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Set-p0-Oie">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="129.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9y-8A-dGj">
                                                                             <rect key="frame" x="0.0" y="22" width="11.5" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -197,26 +209,29 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hKJ-7N-RSo">
-                                                            <rect key="frame" x="0.0" y="283" width="76.5" height="81"/>
+                                                            <rect key="frame" x="0.0" y="286" width="75.5" height="84"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12W-OR-chm">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="31" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="34" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="E7C-eS-nkp"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7kE-h9-Q3t">
-                                                                    <rect key="frame" x="0.0" y="37" width="76.5" height="44"/>
+                                                                    <rect key="frame" x="0.0" y="40" width="75.5" height="44"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRF-df-OMK">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="76.5" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="75.5" height="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ4-DR-8pJ">
                                                                             <rect key="frame" x="0.0" y="27" width="11.5" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -227,24 +242,24 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay Stubs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyd-Vm-5aU">
-                                                    <rect key="frame" x="87.5" y="395" width="200" height="30"/>
-                                                    <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="87.5" y="401" width="200" height="30"/>
+                                                    <color key="backgroundColor" red="0.44705882349999998" green="0.66274509800000003" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="07u-q5-EHK"/>
                                                         <constraint firstAttribute="width" constant="200" id="YbX-U0-ndx"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpK-jS-z3y">
-                                                    <rect key="frame" x="87" y="445" width="200" height="30"/>
-                                                    <color key="backgroundColor" red="0.3803921569" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="87" y="451" width="200" height="30"/>
+                                                    <color key="backgroundColor" red="0.44705882349999998" green="0.66274509800000003" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="mpu-Gu-Lny"/>
                                                         <constraint firstAttribute="width" constant="200" id="xXd-ib-NwG"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.050980392159999999" green="0.1529411765" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

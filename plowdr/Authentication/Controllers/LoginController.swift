@@ -76,11 +76,40 @@ class LoginController: UIViewController {
     
     emailTextField.delegate = self
     passwordTextField.delegate = self
+    
+    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+    titleLabel.font = UIFont(name: "AGStencil", size: 35)
+    titleLabel.textColor = UIColor.white
+    titleLabel.textAlignment = .center
+    titleLabel.text = "plowdr"
+    titleLabel.textColor = UIColor.init(red: 113.0/255.0, green: 168.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+    navigationItem.titleView = titleLabel
+    
+    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 32))
+    button.setImage(UIImage(named: "back-button"), for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.contentMode = .scaleAspectFit
+    button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    
+    let showMenu = UIBarButtonItem(customView: button)
+    navigationItem.leftBarButtonItem = showMenu
+    
+    navigationController?.navigationBar.isTranslucent = true
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+  }
+  
+  @objc func backButtonTapped() {
+    self.navigationController?.popViewController(animated: true)
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     ReachibilityManager.shared.addListener(listener: self)
+    
+    if !ReachibilityManager.shared.isNetworkAvailable {
+      alertUserNoInternetConnectionAndDisableLoginLabel()
+    }
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -100,12 +129,23 @@ extension LoginController: UITextFieldDelegate {
 }
 
 extension LoginController: NetworkStatusListener {
-  func networkStatusDidChange(status: NetworkStatus) {
+  func alertUserNoInternetConnectionAndDisableLoginLabel() {
+    loginLabel.alpha = 0.5
+    loginLabel.isUserInteractionEnabled = false
+    showErrorAlert(message: Strings.UI.noNetworkConnection)
+  }
+  
+  func networkStatusDidChange(status: PlowdrNetworkStatus) {
     switch status {
     case .notReachable:
-      break
+      DispatchQueue.main.async {
+        self.alertUserNoInternetConnectionAndDisableLoginLabel()
+      }
     case .reachable:
-      break
+      DispatchQueue.main.async {
+        self.loginLabel.alpha = 1
+        self.loginLabel.isUserInteractionEnabled = true
+      }
     }
   }
 }

@@ -21,6 +21,23 @@ class ChooseJobController: BaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+    titleLabel.font = UIFont(name: "AGStencil", size: 35)
+    titleLabel.textColor = UIColor.white
+    titleLabel.textAlignment = .center
+    titleLabel.text = "plowdr"
+    titleLabel.textColor = UIColor.init(red: 113.0/255.0, green: 168.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+    navigationItem.titleView = titleLabel
+    
+    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 32))
+    button.setImage(UIImage(named: "back-button"), for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.contentMode = .scaleAspectFit
+    button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    
+    let showMenu = UIBarButtonItem(customView: button)
+    navigationItem.leftBarButtonItem = showMenu
 
     self.clearsSelectionOnViewWillAppear = true
     
@@ -38,6 +55,10 @@ class ChooseJobController: BaseTableViewController {
     gradientView.endColor = UIColor(red: 13.0/255.0, green: 39.0/255.0, blue: 62.0/255.0, alpha: 1.0)
     
     tableView.backgroundView = gradientView
+  }
+  
+  @objc func backButtonTapped() {
+    self.navigationController?.popViewController(animated: true)
   }
   
   func jobDescriptionAccepted() {

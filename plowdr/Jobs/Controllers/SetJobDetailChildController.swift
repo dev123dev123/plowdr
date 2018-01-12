@@ -71,7 +71,7 @@ class SetJobDetailChildController: UITableViewController {
     
     if let obstaclesValue = obstaclesValue {
       obstaclesTextView.text = obstaclesValue
-      obstaclesTextView.textColor = UIColor.black
+      obstaclesTextView.textColor = UIColor(red: 22.0/255.0, green: 52.0/255.0, blue: 81.0/255.0, alpha: 1.0)
     } else {
       obstaclesTextView.text = Strings.UI.obstaclesPlaceHolderText
       obstaclesTextView.textColor = UIColor.lightGray
@@ -169,7 +169,7 @@ extension SetJobDetailChildController: UITextViewDelegate {
   func textViewDidBeginEditing(_ textView: UITextView) {
     if textView.text == Strings.UI.obstaclesPlaceHolderText {
       textView.text = ""
-      textView.textColor = .black
+      textView.textColor = UIColor(red: 22.0/255.0, green: 52.0/255.0, blue: 81.0/255.0, alpha: 1.0)
     }
   }
   

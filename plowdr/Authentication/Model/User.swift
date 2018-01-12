@@ -586,11 +586,12 @@ extension User {
   
 //  static func getCustomerFromStripe(byCustomerId customerId: String)
   
-  static func logout() {
+  static func logout(completion: @escaping () -> Void) {
     if let userId = User.currentUser?.id {
       User.removePushToken(of: userId) {
         try? Auth.auth().signOut()
         User.currentUser = nil
+        completion()
       }
     }
   }

@@ -30,7 +30,6 @@
 		694F35381FFD1B6F008E942D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694F35371FFD1B6F008E942D /* BaseViewController.swift */; };
 		69515A8A1FB1E3F10012E1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69515A891FB1E3F10012E1B7 /* AppDelegate.swift */; };
 		69515A8F1FB1E3F10012E1B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69515A8D1FB1E3F10012E1B7 /* Main.storyboard */; };
-		69515A911FB1E3F10012E1B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69515A901FB1E3F10012E1B7 /* Assets.xcassets */; };
 		69515A941FB1E3F10012E1B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69515A921FB1E3F10012E1B7 /* LaunchScreen.storyboard */; };
 		69515A9F1FB1E56E0012E1B7 /* IntroView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69515A9E1FB1E56E0012E1B7 /* IntroView.storyboard */; };
 		69515AA21FB1E76D0012E1B7 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69515AA11FB1E76D0012E1B7 /* IntroController.swift */; };
@@ -46,12 +45,16 @@
 		69515AB71FB3A3830012E1B7 /* SlideMenuView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69515AB61FB3A3830012E1B7 /* SlideMenuView.storyboard */; };
 		69515ABD1FB3A4EC0012E1B7 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69515ABC1FB3A4EC0012E1B7 /* SlideMenuController.swift */; };
 		69515AC01FB3B4460012E1B7 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69515ABF1FB3B4460012E1B7 /* ContainerController.swift */; };
+		6952537420040DB3004807FA /* Hiragino-kaku-gothic-pron-w6.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6952537320040DB3004807FA /* Hiragino-kaku-gothic-pron-w6.otf */; };
+		6952537620040DBB004807FA /* Hiragino-kaku-gothic-pron-w3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6952537520040DBB004807FA /* Hiragino-kaku-gothic-pron-w3.otf */; };
 		695706E81FD18F49006CCA93 /* Objective-CBridgingHeade.m in Sources */ = {isa = PBXBuildFile; fileRef = 695706E71FD18F49006CCA93 /* Objective-CBridgingHeade.m */; };
 		695706EC1FD1F035006CCA93 /* JobCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695706EB1FD1F035006CCA93 /* JobCellController.swift */; };
 		695706EE1FD1FD0B006CCA93 /* JobDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695706ED1FD1FD0B006CCA93 /* JobDetailView.storyboard */; };
 		695706F01FD2010D006CCA93 /* JobDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695706EF1FD2010D006CCA93 /* JobDetailController.swift */; };
 		695706F21FD2011A006CCA93 /* JobDetailChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695706F11FD2011A006CCA93 /* JobDetailChildController.swift */; };
 		695706F41FD35B2A006CCA93 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695706F31FD35B2A006CCA93 /* Database.swift */; };
+		695D3E41200683FB0043367B /* weknow world.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695D3E40200683FB0043367B /* weknow world.ttf */; };
+		695D3E432006C6CF0043367B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 695D3E422006C6CF0043367B /* Assets.xcassets */; };
 		69678A4A1FC3110300860689 /* SetJobDetailsChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69678A491FC3110300860689 /* SetJobDetailsChildController.swift */; };
 		69678A4C1FC3202400860689 /* SetAddressView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69678A4B1FC3202400860689 /* SetAddressView.storyboard */; };
 		69678A4E1FC3203700860689 /* SetAddressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69678A4D1FC3203700860689 /* SetAddressController.swift */; };
@@ -78,7 +81,9 @@
 		698CC5841FCC50B700FEE976 /* SetAccountChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CC5831FCC50B700FEE976 /* SetAccountChildController.swift */; };
 		698CC5861FCC9DED00FEE976 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CC5851FCC9DED00FEE976 /* GradientView.swift */; };
 		698CC58B1FCC9F6200FEE976 /* AG-Stencil.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 698CC5891FCC9F6200FEE976 /* AG-Stencil.ttf */; };
-		698CC58D1FCCA2C100FEE976 /* HiraginoCustom.otf in Resources */ = {isa = PBXBuildFile; fileRef = 698CC58C1FCCA2C100FEE976 /* HiraginoCustom.otf */; };
+		698DA7952007B72D004BEB78 /* SupportView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 698DA7942007B72D004BEB78 /* SupportView.storyboard */; };
+		698DA7972007B9AB004BEB78 /* SupportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698DA7962007B9AB004BEB78 /* SupportController.swift */; };
+		698DA7992007B9B6004BEB78 /* SupportChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698DA7982007B9B6004BEB78 /* SupportChildController.swift */; };
 		699D18431FF42ADB00DD2D99 /* ResetPasswordView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 699D18421FF42ADB00DD2D99 /* ResetPasswordView.storyboard */; };
 		699D18451FF42B0000DD2D99 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699D18441FF42B0000DD2D99 /* ResetPasswordController.swift */; };
 		699D18471FF42B0D00DD2D99 /* ResetPasswordChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699D18461FF42B0D00DD2D99 /* ResetPasswordChildController.swift */; };
@@ -146,7 +151,6 @@
 		69515A861FB1E3F10012E1B7 /* plowdr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plowdr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69515A891FB1E3F10012E1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69515A8E1FB1E3F10012E1B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		69515A901FB1E3F10012E1B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69515A931FB1E3F10012E1B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69515A951FB1E3F10012E1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69515A9E1FB1E56E0012E1B7 /* IntroView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IntroView.storyboard; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 		69515AB61FB3A3830012E1B7 /* SlideMenuView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SlideMenuView.storyboard; sourceTree = "<group>"; };
 		69515ABC1FB3A4EC0012E1B7 /* SlideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		69515ABF1FB3B4460012E1B7 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		6952537320040DB3004807FA /* Hiragino-kaku-gothic-pron-w6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hiragino-kaku-gothic-pron-w6.otf"; sourceTree = "<group>"; };
+		6952537520040DBB004807FA /* Hiragino-kaku-gothic-pron-w3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hiragino-kaku-gothic-pron-w3.otf"; sourceTree = "<group>"; };
 		695706E61FD18F49006CCA93 /* plowdr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "plowdr-Bridging-Header.h"; sourceTree = "<group>"; };
 		695706E71FD18F49006CCA93 /* Objective-CBridgingHeade.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Objective-CBridgingHeade.m"; sourceTree = "<group>"; };
 		695706EB1FD1F035006CCA93 /* JobCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCellController.swift; sourceTree = "<group>"; };
@@ -170,6 +176,8 @@
 		695706EF1FD2010D006CCA93 /* JobDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailController.swift; sourceTree = "<group>"; };
 		695706F11FD2011A006CCA93 /* JobDetailChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailChildController.swift; sourceTree = "<group>"; };
 		695706F31FD35B2A006CCA93 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		695D3E40200683FB0043367B /* weknow world.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weknow world.ttf"; sourceTree = "<group>"; };
+		695D3E422006C6CF0043367B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69678A491FC3110300860689 /* SetJobDetailsChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetJobDetailsChildController.swift; sourceTree = "<group>"; };
 		69678A4B1FC3202400860689 /* SetAddressView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetAddressView.storyboard; sourceTree = "<group>"; };
 		69678A4D1FC3203700860689 /* SetAddressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAddressController.swift; sourceTree = "<group>"; };
@@ -196,7 +204,9 @@
 		698CC5831FCC50B700FEE976 /* SetAccountChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAccountChildController.swift; sourceTree = "<group>"; };
 		698CC5851FCC9DED00FEE976 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		698CC5891FCC9F6200FEE976 /* AG-Stencil.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AG-Stencil.ttf"; sourceTree = "<group>"; };
-		698CC58C1FCCA2C100FEE976 /* HiraginoCustom.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HiraginoCustom.otf; sourceTree = "<group>"; };
+		698DA7942007B72D004BEB78 /* SupportView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SupportView.storyboard; sourceTree = "<group>"; };
+		698DA7962007B9AB004BEB78 /* SupportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportController.swift; sourceTree = "<group>"; };
+		698DA7982007B9B6004BEB78 /* SupportChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportChildController.swift; sourceTree = "<group>"; };
 		699D18421FF42ADB00DD2D99 /* ResetPasswordView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPasswordView.storyboard; sourceTree = "<group>"; };
 		699D18441FF42B0000DD2D99 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		699D18461FF42B0D00DD2D99 /* ResetPasswordChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordChildController.swift; sourceTree = "<group>"; };
@@ -389,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				69A41EC31FFBD01600306B71 /* plowdr.entitlements */,
+				69515A9B1FB1E4FE0012E1B7 /* Authentication */,
 				690349771FEA957400FEF1FA /* Driver Earnings */,
 				692A9B0A1FDEBFAA00E0A743 /* Driver */,
 				698CC57C1FCC4F3D00FEE976 /* User */,
@@ -396,7 +407,6 @@
 				69C6A0741FD746D4003B52BA /* Payment */,
 				69D589031FBE230E00F23C76 /* Jobs */,
 				69515AB81FB3A4960012E1B7 /* Home */,
-				69515A9B1FB1E4FE0012E1B7 /* Authentication */,
 				69515A9D1FB1E50F0012E1B7 /* Supporting Files */,
 				69515A8D1FB1E3F10012E1B7 /* Main.storyboard */,
 				69515A921FB1E3F10012E1B7 /* LaunchScreen.storyboard */,
@@ -432,8 +442,8 @@
 		69515A9D1FB1E50F0012E1B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				695D3E422006C6CF0043367B /* Assets.xcassets */,
 				698CC5871FCC9F1000FEE976 /* Fonts */,
-				69515A901FB1E3F10012E1B7 /* Assets.xcassets */,
 				69515A891FB1E3F10012E1B7 /* AppDelegate.swift */,
 				69515AA91FB2449C0012E1B7 /* StoryboardSegues.swift */,
 				69D5890B1FBE322D00F23C76 /* Strings.swift */,
@@ -526,6 +536,8 @@
 			children = (
 				698CC5811FCC508700FEE976 /* SetAccountController.swift */,
 				698CC5831FCC50B700FEE976 /* SetAccountChildController.swift */,
+				698DA7962007B9AB004BEB78 /* SupportController.swift */,
+				698DA7982007B9B6004BEB78 /* SupportChildController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -534,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				698CC57F1FCC500900FEE976 /* SetAccountView.storyboard */,
+				698DA7942007B72D004BEB78 /* SupportView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -542,7 +555,9 @@
 			isa = PBXGroup;
 			children = (
 				698CC5891FCC9F6200FEE976 /* AG-Stencil.ttf */,
-				698CC58C1FCCA2C100FEE976 /* HiraginoCustom.otf */,
+				6952537520040DBB004807FA /* Hiragino-kaku-gothic-pron-w3.otf */,
+				6952537320040DB3004807FA /* Hiragino-kaku-gothic-pron-w6.otf */,
+				695D3E40200683FB0043367B /* weknow world.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -750,7 +765,6 @@
 				69678A501FC321C400860689 /* SetDateTimeView.storyboard in Resources */,
 				693819801FCEF44C007CBA2F /* NotificationsView.storyboard in Resources */,
 				69515A9F1FB1E56E0012E1B7 /* IntroView.storyboard in Resources */,
-				698CC58D1FCCA2C100FEE976 /* HiraginoCustom.otf in Resources */,
 				69D589141FBE43FB00F23C76 /* SetJobDetailsView.storyboard in Resources */,
 				69515A941FB1E3F10012E1B7 /* LaunchScreen.storyboard in Resources */,
 				69A561EC1FF7084F0062D2B7 /* MapView.storyboard in Resources */,
@@ -760,20 +774,24 @@
 				695706EE1FD1FD0B006CCA93 /* JobDetailView.storyboard in Resources */,
 				69515AB71FB3A3830012E1B7 /* SlideMenuView.storyboard in Resources */,
 				69515AA81FB1FA7B0012E1B7 /* SignupOneView.storyboard in Resources */,
-				69515A911FB1E3F10012E1B7 /* Assets.xcassets in Resources */,
 				69678A541FC32ACF00860689 /* SetJobDetailView.storyboard in Resources */,
 				698CC58B1FCC9F6200FEE976 /* AG-Stencil.ttf in Resources */,
 				6903498A1FEAB7CC00FEF1FA /* BankInfoView.storyboard in Resources */,
 				699D18431FF42ADB00DD2D99 /* ResetPasswordView.storyboard in Resources */,
 				69515A8F1FB1E3F10012E1B7 /* Main.storyboard in Resources */,
 				69515AAC1FB24B7F0012E1B7 /* SignupTwoView.storyboard in Resources */,
+				6952537420040DB3004807FA /* Hiragino-kaku-gothic-pron-w6.otf in Resources */,
+				698DA7952007B72D004BEB78 /* SupportView.storyboard in Resources */,
+				695D3E41200683FB0043367B /* weknow world.ttf in Resources */,
 				699D18491FF4479500DD2D99 /* ForgotPasswordView.storyboard in Resources */,
 				69D589021FBE21DC00F23C76 /* JobsView.storyboard in Resources */,
 				69515AB21FB24FC60012E1B7 /* HomeView.storyboard in Resources */,
 				69A008F01FDF1B350044C6B6 /* TaskDetailView.storyboard in Resources */,
+				6952537620040DBB004807FA /* Hiragino-kaku-gothic-pron-w3.otf in Resources */,
 				69515AA41FB1EF580012E1B7 /* LoginView.storyboard in Resources */,
 				690349981FEB027000FEF1FA /* CompletedServiceDetailView.storyboard in Resources */,
 				69A008F61FDF1F300044C6B6 /* UpdateServiceView.storyboard in Resources */,
+				695D3E432006C6CF0043367B /* Assets.xcassets in Resources */,
 				690349901FEAF8B800FEF1FA /* CompletedServicesView.storyboard in Resources */,
 				698CC5801FCC500900FEE976 /* SetAccountView.storyboard in Resources */,
 				69D5890E1FBE32B400F23C76 /* JobDescriptionView.storyboard in Resources */,
@@ -836,6 +854,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/INTULocationManager/INTULocationManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -853,6 +872,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INTULocationManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -876,6 +896,7 @@
 			files = (
 				69A008FC1FDF2FC00044C6B6 /* UILabel+.swift in Sources */,
 				698CC57B1FCC440300FEE976 /* UINavigationController+.swift in Sources */,
+				698DA7992007B9B6004BEB78 /* SupportChildController.swift in Sources */,
 				69F229851FC5C93600A271AB /* SetPaymentController.swift in Sources */,
 				690349881FEAA75400FEF1FA /* StubCellController.swift in Sources */,
 				69C6A0791FD7475D003B52BA /* STPPaymentContextImplementation.swift in Sources */,
@@ -922,6 +943,7 @@
 				69A008EC1FDED2310044C6B6 /* InvoiceDetailController.swift in Sources */,
 				698CC5821FCC508700FEE976 /* SetAccountController.swift in Sources */,
 				69A008F41FDF1E5C0044C6B6 /* TaskDetailChildController.swift in Sources */,
+				698DA7972007B9AB004BEB78 /* SupportController.swift in Sources */,
 				69A008F81FDF1F4D0044C6B6 /* UpdateServiceController.swift in Sources */,
 				69D589101FBE32C600F23C76 /* JobDescriptionController.swift in Sources */,
 				699D184B1FF447BB00DD2D99 /* ForgotPasswordController.swift in Sources */,

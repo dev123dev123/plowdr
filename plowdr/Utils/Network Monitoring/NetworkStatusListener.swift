@@ -8,11 +8,11 @@
 
 import Foundation
 
-public enum NetworkStatus {
+public enum PlowdrNetworkStatus {
   case notReachable
   case reachable
 }
 
 public protocol NetworkStatusListener: class {
-  func networkStatusDidChange(status: NetworkStatus)
+  func networkStatusDidChange(status: PlowdrNetworkStatus)
 }

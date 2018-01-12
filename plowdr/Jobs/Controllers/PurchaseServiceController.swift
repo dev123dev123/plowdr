@@ -84,11 +84,51 @@ class PurchaseServiceController: BaseViewController {
     }
   }
   
+  @objc func backButtonTapped() {
+    self.navigationController?.popViewController(animated: true)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    ReachibilityManager.shared.addListener(listener: self)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    if !ReachibilityManager.shared.isNetworkAvailable {
+      showErrorAlert(message: Strings.UI.noNetworkConnection)
+      disablePurchaseServiceLabel()
+    }
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    ReachibilityManager.shared.removeListener(listener: self)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+    titleLabel.font = UIFont(name: "AGStencil", size: 35)
+    titleLabel.textColor = UIColor.white
+    titleLabel.textAlignment = .center
+    titleLabel.text = "plowdr"
+    titleLabel.textColor = UIColor.init(red: 113.0/255.0, green: 168.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+    navigationItem.titleView = titleLabel
+    
     purchaseServiceLabel.alpha = 0.5
     purchaseServiceLabel.isUserInteractionEnabled = false
+    
+    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 32))
+    button.setImage(UIImage(named: "back-button"), for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.contentMode = .scaleAspectFit
+    button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    
+    let showMenu = UIBarButtonItem(customView: button)
+    navigationItem.leftBarButtonItem = showMenu
     
     paymentContextImplementation = STPPaymentContextImplementation()
     paymentContextImplementation?.hostViewController = self
@@ -225,6 +265,26 @@ extension PurchaseServiceController: PaymentContextDelegate {
   
 }
 
+extension PurchaseServiceController: NetworkStatusListener {
+  func disablePurchaseServiceLabel() {
+    purchaseServiceLabel.alpha = 0.5
+    purchaseServiceLabel.isUserInteractionEnabled = false
+  }
+  
+  func networkStatusDidChange(status: PlowdrNetworkStatus) {
+    switch status {
+    case .notReachable:
+      DispatchQueue.main.async {
+        self.disablePurchaseServiceLabel()
+      }
+    case .reachable:
+      DispatchQueue.main.async {
+        self.purchaseServiceLabel.alpha = 1
+        self.purchaseServiceLabel.isUserInteractionEnabled = true
+      }
+    }
+  }
+}
 
 
 

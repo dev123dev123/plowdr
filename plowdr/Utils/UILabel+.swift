@@ -9,11 +9,12 @@
 import UIKit
 
 extension UILabel {
-  static let mainColor = UIColor(red: 95.0/255.0, green: 142.0/255.0, blue: 174.0/255.0, alpha: 1.0)
+  static let mainColor = UIColor(red: 114.0/255.0, green: 169.0/255.0, blue: 209.0/255.0, alpha: 1.0)
   static let secondColor = UIColor(red: 13.0/255.0, green: 39.0/255.0, blue: 62.0/255.0, alpha: 1.0)
   
   func makeDisabled() {
     makeSelected()
+    self.isUserInteractionEnabled = false
     self.alpha = 0.5
     self.backgroundColor = UIColor.gray
     self.isUserInteractionEnabled = false
@@ -29,7 +30,7 @@ extension UILabel {
   }
   
   func makeSelected() {
-    self.isUserInteractionEnabled = false
+//    self.isUserInteractionEnabled = false
     self.alpha = 1
     self.backgroundColor = .clear
     self.layer.borderColor = UIColor.clear.cgColor

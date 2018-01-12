@@ -92,7 +92,7 @@ class SetAccountController: BaseViewController {
 }
 
 extension SetAccountController: NetworkStatusListener {
-  func networkStatusDidChange(status: NetworkStatus) {
+  func networkStatusDidChange(status: PlowdrNetworkStatus) {
     switch status {
     case .notReachable:
       break

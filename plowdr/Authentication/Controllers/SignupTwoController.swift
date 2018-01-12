@@ -13,6 +13,31 @@ class SignupTwoController: UIViewController {
   var childController: SignupTwoChildController?
   var delegate: SignupOneDelegate?
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+    titleLabel.font = UIFont(name: "AGStencil", size: 35)
+    titleLabel.textColor = UIColor.white
+    titleLabel.textAlignment = .center
+    titleLabel.text = "plowdr"
+    titleLabel.textColor = UIColor.init(red: 113.0/255.0, green: 168.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+    navigationItem.titleView = titleLabel
+    
+    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 32))
+    button.setImage(UIImage(named: "back-button"), for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.contentMode = .scaleAspectFit
+    button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    
+    let showMenu = UIBarButtonItem(customView: button)
+    navigationItem.leftBarButtonItem = showMenu
+  }
+  
+  @objc func backButtonTapped() {
+    self.navigationController?.popViewController(animated: true)
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == StoryboardSegues.SignupTwoChild {
       let destinationVC = segue.destination as? SignupTwoChildController
@@ -84,6 +109,10 @@ class SignupTwoController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     ReachibilityManager.shared.addListener(listener: self)
+    
+    if (!ReachibilityManager.shared.isNetworkAvailable) {
+      self.alertUserNoInternetConnectionAndDisableSignupLabel()
+    }
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -94,11 +123,24 @@ class SignupTwoController: UIViewController {
 }
 
 extension SignupTwoController: NetworkStatusListener {
-  func networkStatusDidChange(status: NetworkStatus) {
+  func alertUserNoInternetConnectionAndDisableSignupLabel() {
+    self.signupLabel.isUserInteractionEnabled = false
+    self.signupLabel.alpha = 0.5
+    self.showErrorAlert(message: Strings.UI.noNetworkConnection)
+  }
+  
+  func networkStatusDidChange(status: PlowdrNetworkStatus) {
     switch status {
     case .notReachable:
+      DispatchQueue.main.async {
+        self.alertUserNoInternetConnectionAndDisableSignupLabel()
+      }
       break
     case .reachable:
+      DispatchQueue.main.async {
+        self.signupLabel.isUserInteractionEnabled = true
+        self.signupLabel.alpha = 1
+      }
       break
     }
   }

@@ -79,6 +79,9 @@ struct StoryboardSegues {
   static let MapViewChild = "MapViewChild"
   
   static let TaskDetailChildToMap = "TaskDetailChildToMap"
+  
+  static let SetJobDetailsToJobDescription = "SetJobDetailsToJobDescription"
+  static let HomeToSupport = "HomeToSupport"
 }
 
 

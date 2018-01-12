@@ -11,8 +11,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HiraginoMaruGothProN.ttc">
-            <string>HiraMaruProN-W4</string>
+        <array key="HiraginoKakuGothic.ttc">
+            <string>HiraginoSans-W3</string>
+            <string>HiraginoSans-W6</string>
+        </array>
+        <array key="weknow world.ttf">
+            <string>WEKNOWWORLD</string>
         </array>
     </customFonts>
     <scenes>
@@ -25,14 +29,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Li4-Is-dea">
-                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
                                 <connections>
                                     <segue destination="f6E-Y2-PQQ" kind="embed" identifier="PayStubsChild" id="Me6-02-CCn"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-ft-aKv">
-                                <rect key="frame" x="16" y="20" width="30" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="16" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Lwg-9L-4JU"/>
+                                    <constraint firstAttribute="width" constant="40" id="Zwx-l2-8eH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WEKNOWWORLD" family="WEKNOW WORLD" pointSize="30"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -41,8 +49,11 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay Stubs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnN-Xc-wUZ">
-                                <rect key="frame" x="137.5" y="25" width="100" height="20"/>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                <rect key="frame" x="133" y="28" width="109" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="BLg-dc-drW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -53,9 +64,9 @@
                             <constraint firstItem="Li4-Is-dea" firstAttribute="trailing" secondItem="61D-x6-HWD" secondAttribute="trailing" id="Gjn-4d-Uet"/>
                             <constraint firstItem="sPe-ft-aKv" firstAttribute="leading" secondItem="61D-x6-HWD" secondAttribute="leading" constant="16" id="LHc-np-9Vh"/>
                             <constraint firstItem="MnN-Xc-wUZ" firstAttribute="centerX" secondItem="61D-x6-HWD" secondAttribute="centerX" id="PbN-tO-gv0"/>
-                            <constraint firstItem="Li4-Is-dea" firstAttribute="top" secondItem="61D-x6-HWD" secondAttribute="top" constant="40" id="j6k-m5-yNr"/>
                             <constraint firstItem="sPe-ft-aKv" firstAttribute="top" secondItem="61D-x6-HWD" secondAttribute="top" id="pCF-a5-z8a"/>
-                            <constraint firstItem="MnN-Xc-wUZ" firstAttribute="top" secondItem="61D-x6-HWD" secondAttribute="top" constant="5" id="y29-1E-IrK"/>
+                            <constraint firstItem="Li4-Is-dea" firstAttribute="top" secondItem="sPe-ft-aKv" secondAttribute="bottom" constant="8" id="tAS-t9-XzU"/>
+                            <constraint firstItem="MnN-Xc-wUZ" firstAttribute="top" secondItem="61D-x6-HWD" secondAttribute="top" constant="8" id="y29-1E-IrK"/>
                             <constraint firstItem="Li4-Is-dea" firstAttribute="bottom" secondItem="61D-x6-HWD" secondAttribute="bottom" id="yB1-Bw-hbX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="61D-x6-HWD"/>
@@ -81,7 +92,7 @@
             <objects>
                 <tableViewController id="f6E-Y2-PQQ" customClass="PayStubsChildController" customModule="plowdr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uF6-k2-c3a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -97,7 +108,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/01/17 - 11/14/17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V66-yc-nTP">
                                                     <rect key="frame" x="8" y="29.5" width="327" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

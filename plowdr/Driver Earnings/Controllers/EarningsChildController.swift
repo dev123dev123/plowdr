@@ -27,6 +27,12 @@ class EarningsChildController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    payStubsLabel.layer.cornerRadius = 5.0
+    payStubsLabel.layer.masksToBounds = true
+    
+    bankInfoLabel.layer.cornerRadius = 5.0
+    bankInfoLabel.layer.masksToBounds = true
+    
     if isCurrentEarnings {
       payStubsLabel.isHidden = false
       bankInfoLabel.isHidden = false

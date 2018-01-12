@@ -21,4 +21,6 @@ target 'plowdr' do
   pod 'Stripe'
   pod 'Alamofire', '~> 4.5'
 
+  pod 'ReachabilitySwift'
+
 end

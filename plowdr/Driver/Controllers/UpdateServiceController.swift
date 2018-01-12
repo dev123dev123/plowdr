@@ -13,6 +13,10 @@ protocol UpdateServiceDelegate {
   func didTaskChange()
 }
 
+enum TaskStateError: Error {
+  case invalideNewState(description: String)
+}
+
 class UpdateServiceController: BaseViewController {
   var currentTask: Task!
   var delegate: UpdateServiceDelegate?
@@ -42,6 +46,44 @@ class UpdateServiceController: BaseViewController {
     dismiss(animated: true)
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    ReachibilityManager.shared.addListener(listener: self)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    ReachibilityManager.shared.removeListener(listener: self)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    if !ReachibilityManager.shared.isNetworkAvailable {
+      showErrorAlert(message: Strings.UI.noNetworkConnection)
+    }
+  }
+  
+  func isValidNewState(newState: TaskState, lastState: TaskState) throws {
+    
+    if (
+        (lastState == TaskState.plowing)
+          &&
+        (newState == TaskState.enroute)
+    ) {
+      throw TaskStateError.invalideNewState(description: Strings.UI.invalidNewTaskState)
+    }
+    
+    
+    if (
+      (lastState == TaskState.completed)
+      &&
+      (newState == TaskState.enroute || newState == TaskState.plowing)
+      ) {
+      throw TaskStateError.invalideNewState(description: Strings.UI.invalidNewTaskState)
+    }
+  }
+  
   @objc func updateLabelTapped() {
     let enrouteSelected = childController?.isEnrouteSelected ?? false
     let currrentlyPlowingSelected = childController?.isCurrentlyPlowingSelected ?? false
@@ -50,7 +92,7 @@ class UpdateServiceController: BaseViewController {
     var state = currentTask.state
     
     if state == .completed {
-      dismiss(animated: true)
+      showErrorAlert(message: Strings.UI.taskStateAlreadyCompleted)
       return
     }
     
@@ -60,10 +102,28 @@ class UpdateServiceController: BaseViewController {
       state = .plowing
     } else if completedSelected {
       state = .completed
+    } else {
+      showErrorAlert(message: Strings.UI.notSelectedTaskState)
+      return
+    }
+    
+    do {
+      try isValidNewState(newState: state, lastState: currentTask.state)
+    } catch TaskStateError.invalideNewState(let description) {
+      showErrorAlert(message: description)
+      return
+    } catch {
+      showErrorAlert(message: error.localizedDescription)
+      return
+    }
+    
+    // same state
+    if state == currentTask.state {
+      dismiss(animated: true)
+      return
     }
     
     SVProgressHUD.show()
-    
     Task.changeState(taskId: currentTask.id, newState: state) { (error) in
       DispatchQueue.main.async {
         SVProgressHUD.dismiss()
@@ -81,6 +141,27 @@ class UpdateServiceController: BaseViewController {
             }
           })
         }
+      }
+    }
+  }
+}
+
+extension UpdateServiceController: NetworkStatusListener {
+  func disableUpdateLabel() {
+    updateLabel.alpha = 0.5
+    updateLabel.isUserInteractionEnabled = false
+  }
+  
+  func networkStatusDidChange(status: PlowdrNetworkStatus) {
+    switch status {
+    case .notReachable:
+      DispatchQueue.main.async {
+        self.disableUpdateLabel()
+      }
+    case .reachable:
+      DispatchQueue.main.async {
+        self.updateLabel.alpha = 1
+        self.updateLabel.isUserInteractionEnabled = true
       }
     }
   }

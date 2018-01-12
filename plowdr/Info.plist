@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -37,8 +39,10 @@
 	<string>plowdr tracks your position to help you search your address.</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Hiragino-kaku-gothic-pron-w3.otf</string>
+		<string>weknow world.ttf</string>
+		<string>Hiragino-kaku-gothic-pron-w6.otf</string>
 		<string>AG-Stencil.ttf</string>
-		<string>HiraginoCustom.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

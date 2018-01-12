@@ -42,8 +42,6 @@ class UpdateServiceChildController: UITableViewController {
     didSet {
       print(isCompletedSelected)
       if isCompletedSelected {
-        enrouteLabel.makeDisabled()
-        currentlyPlowingLabel.makeDisabled()
         completedLabel.makeSelected()
       } else {
         completedLabel.makeNotSelected()
@@ -77,14 +75,11 @@ class UpdateServiceChildController: UITableViewController {
       isEnrouteSelected = false
       isCurrentlyPlowingSelected = true
       isCompletedSelected = false
-      enrouteLabel.makeDisabled()
       break
     case .completed:
       isEnrouteSelected = false
       isCurrentlyPlowingSelected = false
       isCompletedSelected = true
-      enrouteLabel.makeDisabled()
-      currentlyPlowingLabel.makeDisabled()
       break
     }
     
@@ -126,7 +121,9 @@ class UpdateServiceChildController: UITableViewController {
     completedLabel.addGestureRecognizer(completedTapGesture)
   }
   
-  @objc func enrouteLabelTapped() {    
+  
+  
+  @objc func enrouteLabelTapped() {
     isEnrouteSelected = !isEnrouteSelected
     isCurrentlyPlowingSelected = false
     isCompletedSelected = false
@@ -136,17 +133,12 @@ class UpdateServiceChildController: UITableViewController {
     isCurrentlyPlowingSelected = !isCurrentlyPlowingSelected
     isEnrouteSelected = false
     isCompletedSelected = false
-    
-    enrouteLabel.makeDisabled()
   }
   
   @objc  func completedLabelTapped() {
     isCompletedSelected = !isCompletedSelected
     isEnrouteSelected = false
     isCurrentlyPlowingSelected = false
-    
-    enrouteLabel.makeDisabled()
-    currentlyPlowingLabel.makeDisabled()
   }
 }
 

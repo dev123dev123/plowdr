@@ -6,10 +6,10 @@ target 'plowdr' do
   use_frameworks!
 
   # Pods for plowdr
-#  pod 'Firebase/Core'
-#  pod 'Firebase/Auth'
-#  pod 'Firebase/Firestore'
-#  pod 'Firebase/Messaging'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Messaging'
 
   pod 'SVProgressHUD'
 
@@ -20,5 +20,7 @@ target 'plowdr' do
 
   pod 'Stripe'
   pod 'Alamofire', '~> 4.5'
+
+  pod 'Reachability'
 
 end

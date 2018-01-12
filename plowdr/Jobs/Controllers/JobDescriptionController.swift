@@ -35,6 +35,13 @@ class JobDescriptionController: UIViewController {
     }
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    descriptionTextView.isScrollEnabled = true
+    descriptionTextView.isEditable = false
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -50,6 +57,8 @@ class JobDescriptionController: UIViewController {
   }
   
   func setUIValues() {
+    
+    descriptionTextView.isScrollEnabled = false
     
     switch jobType! {
     case .single:
@@ -69,9 +78,9 @@ class JobDescriptionController: UIViewController {
     containerView.layer.cornerRadius = 5
     containerView.layer.masksToBounds = true
     
-    let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-    visualEffectView.frame = blurView.bounds
-    blurView.addSubview(visualEffectView)
+//    let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+//    visualEffectView.frame = blurView.bounds
+//    blurView.addSubview(visualEffectView)
   }
   
 }

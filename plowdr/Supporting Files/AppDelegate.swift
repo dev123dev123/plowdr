@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var comesFromTerminatedPushNotification = false
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    UIApplication.shared.statusBarStyle = .lightContent
     
     GMSServices.provideAPIKey(Strings.Keys.Google.GoogleMapsAPI_KEY)
     GMSPlacesClient.provideAPIKey(Strings.Keys.Google.GooglePlaceAPI_KEY)
@@ -39,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    ReachibilityManager.shared.stopMonitoring()
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {
@@ -48,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationWillEnterForeground(_ application: UIApplication) {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    ReachibilityManager.shared.stopMonitoring()
   }
 
   func applicationDidBecomeActive(_ application: UIApplication) {
@@ -57,14 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    ReachibilityManager.shared.stopMonitoring()
   }
 
 
 }
 
 extension AppDelegate {
-  
   func configurePushNotificationFeature(application: UIApplication) {
     let center = UNUserNotificationCenter.current()
     
@@ -94,14 +95,6 @@ extension AppDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-//  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//    let tokenParts = deviceToken.map { String(format: "%02.2hhx", $0)}
-//
-//    let token = tokenParts.joined()
-//    print("Device Token: \(token)")
-//    print("FCM Token: \(InstanceID.instanceID().token())")
-//  }
-  
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
     print("failed to register: \(error)")
   }

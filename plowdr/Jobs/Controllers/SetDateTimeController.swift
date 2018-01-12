@@ -33,7 +33,7 @@ class SetDateTimeController: BaseViewController {
       dateSelected = (Strings.UI.newSnowFall, dateSnowFallFuture!)
     }
     
-    let font = UIFont.init(name: "HiraMaruProN-W4", size: 17)
+    let font = UIFont.init(name: "Helvetica", size: 17)
     segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
     
     datesToShow = generateDates(currentDate: Date())
@@ -50,6 +50,12 @@ class SetDateTimeController: BaseViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+ 
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
     if let dateSelected = dateSelected {
       var counter = 0
       var indexFound = -1
@@ -62,7 +68,8 @@ class SetDateTimeController: BaseViewController {
       }
       
       if indexFound >= 0 {
-        dateTimePickerView.selectRow(indexFound, inComponent: 0, animated: false)
+        dateTimePickerView.selectRow(indexFound, inComponent: 0, animated: true)
+        self.pickerView(dateTimePickerView, didSelectRow: 0, inComponent: 0)
       }
     }
   }
@@ -137,6 +144,10 @@ extension SetDateTimeController: UIPickerViewDelegate, UIPickerViewDataSource {
     let dateToShow = datesToShow[row]
     
     dateSelected = dateToShow
+    
+    let labelSelected = pickerView.view(forRow: row, forComponent: component) as! UILabel
+    labelSelected.backgroundColor = UIColor(red: 114.0/255.0, green: 169.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+    labelSelected.textColor = UIColor(red: 22.0/255.0, green: 52.0/255.0, blue: 81.0/255.0, alpha: 1.0)
   }
   
   func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {

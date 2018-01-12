@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class HomeController: BaseViewController {
   
@@ -105,14 +106,14 @@ class HomeController: BaseViewController {
       self.containerView.isHidden = false
     }
     
-    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 39, height: 33))
-    button.setBackgroundImage(UIImage(named: "settings-icon"), for: .normal)
-    button.clipsToBounds = true
+    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 36))
+    button.setImage(UIImage(named: "settings-icon"), for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
     button.contentMode = .scaleAspectFit
     button.addTarget(self, action: #selector(showMenuButtonTapped), for: .touchUpInside)
 
     let showMenu = UIBarButtonItem(customView: button)
-    
+    showMenu.width = 40
     navigationItem.leftBarButtonItem = showMenu
     
     let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
@@ -120,6 +121,7 @@ class HomeController: BaseViewController {
     titleLabel.textColor = UIColor.white
     titleLabel.textAlignment = .center
     titleLabel.text = "plowdr"
+    titleLabel.textColor = UIColor.init(red: 113.0/255.0, green: 168.0/255.0, blue: 207.0/255.0, alpha: 1.0)
     navigationItem.titleView = titleLabel
     
     
@@ -198,8 +200,6 @@ extension HomeController: MenuOptionsDelegate {
   }
   
   func didPaymentTap() {
-//    performSegue(withIdentifier: StoryboardSegues.HomeToSetPayment, sender: nil)
-    
     if User.currentUser!.role == UserRole.client.rawValue {
       paymentContextImplementation.showPaymentFormOnHostViewController()
     } else {
@@ -219,23 +219,32 @@ extension HomeController: MenuOptionsDelegate {
   }
   
   func didSupportTap() {
+    performSegue(withIdentifier: StoryboardSegues.HomeToSupport, sender: nil)
     sideMenuManager.toggleShowSideMenu()
   }
   
   func didLogoutTap() {
     sideMenuManager.toggleShowSideMenu()
     
-    User.logout()
-    parent?.navigationController?.backTo(type: IntroController.self)
+    SVProgressHUD.show()
+    User.logout {
+      DispatchQueue.main.async {
+        SVProgressHUD.dismiss()
+        self.parent?.navigationController?.backTo(type: IntroController.self)
+      }
+    }
   }
   
 }
 
 extension HomeController: NetworkStatusListener {
-  func networkStatusDidChange(status: NetworkStatus) {
+  func networkStatusDidChange(status: PlowdrNetworkStatus) {
     switch status {
     case .notReachable:
-      break
+      DispatchQueue.main.async {
+        //icon !
+        self.showErrorAlert(message: Strings.UI.noNetworkConnection)
+      }
     case .reachable:
       break
     }

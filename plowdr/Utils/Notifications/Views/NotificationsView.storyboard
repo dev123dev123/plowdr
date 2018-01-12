@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="HiraginoKakuGothic.ttc">
+            <string>HiraginoSans-W3</string>
+        </array>
         <array key="HiraginoMaruGothProN.ttc">
             <string>HiraMaruProN-W4</string>
         </array>
@@ -34,16 +37,16 @@
                                         <rect key="frame" x="8" y="7" width="375" height="345.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EZE-2e-od3">
-                                                <rect key="frame" x="169.5" y="0.0" width="183" height="145.5"/>
+                                                <rect key="frame" x="169.5" y="0.0" width="180" height="145.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="NOTIFICATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBt-NO-Pq6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="54.5"/>
-                                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="54.5"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
                                                         <color key="textColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info-notification-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BAN-l0-JJN">
-                                                        <rect key="frame" x="0.0" y="59.5" width="183" height="86"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="180" height="86"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>

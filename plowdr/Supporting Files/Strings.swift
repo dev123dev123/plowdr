@@ -79,6 +79,14 @@ struct Strings {
     
     static let updatedUserInfoSuccessfully = "User info was updated successfully."
     
+    static let notSelectedTaskState = "Please select a new state for the task before updating."
+    
+    static let invalidNewTaskState = "Please select a new valid state for the task."
+    
+    static let taskStateAlreadyCompleted = "This task was already completed, you can't change its state."
+    
+    static let noNetworkConnection = "There is no network connection right now."
+    
     struct TaskState {
       static let isNextSnowFall = ("Waiting for snowfall", "")
       static let noneTitles = ("Looking for drivers..", "We'll alert you when we assign you a driver")

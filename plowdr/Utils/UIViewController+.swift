@@ -29,7 +29,14 @@ extension UIViewController {
       genericErrorController.modalPresentationStyle = .overCurrentContext
       genericErrorController.okTapped = okTapped
       
-      present(genericErrorController, animated: true)
+      let topController = UIApplication.shared.keyWindow?.rootViewController
+      var rootController = topController
+      
+      if let root = topController?.presentedViewController {
+        rootController = root
+      }
+      
+      rootController?.present(genericErrorController, animated: true)
     }
   }
   
